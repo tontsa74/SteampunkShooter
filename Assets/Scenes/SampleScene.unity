@@ -1623,6 +1623,7 @@ MonoBehaviour:
   lookSensitivity: 3
   thrusterForce: 1000
   jumpForce: 500
+  thurstAmount: 1
 --- !u!114 &1597960978
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1158,6 +1158,80 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 970403022}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &979013550
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1831987129}
+    m_Modifications:
+    - target: {fileID: -927199367670048503, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_Name
+      value: railgun
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.514
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.027
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.07
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.6432096
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.18443744
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.051839203
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.74133456
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: -4216859302048453862, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: dd1f8fea2bc4ccc4badf58cd5c37eb77, type: 3}
 --- !u!1 &993211179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1810,6 +1884,12 @@ MonoBehaviour:
     name: Desert Eagle
     damage: 10
     range: 100
+--- !u!4 &1831987129 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4560416852423371491, guid: e4c3849dfbc2c794f8101901f5c54477,
+    type: 3}
+  m_PrefabInstance: {fileID: 2087570537}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1850000840
 GameObject:
   m_ObjectHideFlags: 0
@@ -2000,6 +2080,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 8675996401706477018, guid: e4c3849dfbc2c794f8101901f5c54477,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4c3849dfbc2c794f8101901f5c54477, type: 3}

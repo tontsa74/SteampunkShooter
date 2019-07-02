@@ -77,7 +77,6 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-        print(thrustCounter);
 
         motor.ApplyThruster(_thrusterForce);
         motor.ApplyJump(_jumpForce);

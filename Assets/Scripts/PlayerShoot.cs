@@ -14,7 +14,9 @@ public class PlayerShoot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(cam == null)
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (cam == null)
         {
             Debug.LogError("PlayerShoot: Camera not referenced");
             this.enabled = false;

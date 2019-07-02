@@ -6,7 +6,11 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private float runSpeed = 8f;
+    [SerializeField]
     private float speed = 5f;
+    private float currentSpeed;
+
     [SerializeField]
     private float lookSensitivity = 3f;
     [SerializeField]
@@ -36,7 +40,15 @@ public class PlayerController : MonoBehaviour
         Vector3 _movHorizontal = transform.right * _xMov ;
         Vector3 _movVertical = transform.forward * _zMov;
 
-        Vector3 _velocity = (_movHorizontal + _movVertical).normalized * speed;
+        if(Input.GetButton("Fire3"))
+        {
+            currentSpeed = runSpeed;
+        } else
+        {
+            currentSpeed = speed;
+        }
+
+        Vector3 _velocity = (_movHorizontal + _movVertical).normalized * currentSpeed;
 
         motor.Move(_velocity);
 

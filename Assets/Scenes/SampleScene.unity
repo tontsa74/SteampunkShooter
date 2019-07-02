@@ -1001,14 +1001,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811956106}
-  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.7, y: -0.2, z: 1}
+  m_LocalRotation: {x: 0.71225864, y: -0.051143017, z: 0.05217997, w: 0.69810414}
+  m_LocalPosition: {x: 0.28, y: -0.2, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 848882484}
   m_Father: {fileID: 963194228}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 91.15, y: -8.38, z: 0}
 --- !u!4 &848882484 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: e4c3849dfbc2c794f8101901f5c54477,
@@ -1957,9 +1957,9 @@ MonoBehaviour:
   runSpeed: 9
   speed: 5
   lookSensitivity: 3
-  thrusterForce: 1000
-  jumpForce: 500
-  thurstAmount: 1
+  thrusterForce: 800
+  jumpForce: 250
+  thurstAmount: 0.7
 --- !u!114 &1597960978
 MonoBehaviour:
   m_ObjectHideFlags: 0

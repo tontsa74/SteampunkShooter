@@ -1679,7 +1679,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f63da627d86533843a473cb42320909b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
+  cam: {fileID: 963194227}
+  mask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  weapon:
+    name: Desert Eagle
+    damage: 10
+    range: 100
 --- !u!1 &1850000840
 GameObject:
   m_ObjectHideFlags: 0

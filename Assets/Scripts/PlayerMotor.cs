@@ -26,8 +26,12 @@ public class PlayerMotor : MonoBehaviour
         distToGround = GetComponent<BoxCollider>().bounds.extents.y;
     }
 
-    public void Move(Vector3 _velocity)
+    public void Move(Vector3 _velocity, bool _running, float _runMultiplier)
     {
+        if(_running && IsGrounded())
+        {
+            _velocity *= _runMultiplier;
+        }
         velocity = _velocity;
     }
 

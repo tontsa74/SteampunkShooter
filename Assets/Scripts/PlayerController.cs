@@ -6,10 +6,10 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
-    private float runSpeed = 8f;
+    private float runMultiplier = 1.8f;
     [SerializeField]
     private float speed = 5f;
-    private float currentSpeed;
+    private bool running = false;
 
     [SerializeField]
     private float lookSensitivity = 3f;
@@ -42,15 +42,15 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetButton("Fire3"))
         {
-            currentSpeed = runSpeed;
+            running = true;
         } else
         {
-            currentSpeed = speed;
+            running = false;
         }
 
-        Vector3 _velocity = (_movHorizontal + _movVertical).normalized * currentSpeed;
+        Vector3 _velocity = (_movHorizontal + _movVertical).normalized * speed;
 
-        motor.Move(_velocity);
+        motor.Move(_velocity, running, runMultiplier);
 
         //calculate rotation
         float _yRot = Input.GetAxisRaw("Mouse X");

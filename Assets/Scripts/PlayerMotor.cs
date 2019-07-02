@@ -12,6 +12,8 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 rotation = Vector3.zero;
     private Vector3 cameraRotation = Vector3.zero;
     private Vector3 thrusterForce = Vector3.zero;
+    private Vector3 jumpForce = Vector3.zero;
+    private float distToGround;
 
 
 
@@ -21,6 +23,7 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        distToGround = GetComponent<BoxCollider>().bounds.extents.y;
     }
 
     public void Move(Vector3 _velocity)
@@ -38,9 +41,19 @@ public class PlayerMotor : MonoBehaviour
         cameraRotation = _cameraRotation;
     }
 
+    bool IsGrounded() {
+        return Physics.Raycast(transform.position, Vector3.down, distToGround + 0.1f);
+    }
+
     public void ApplyThruster(Vector3 _thrusterForce)
     {
         thrusterForce = _thrusterForce;
+    }
+
+    public void ApplyJump(Vector3 _jumpForce)
+    {
+        jumpForce = _jumpForce;
+
     }
 
     private void FixedUpdate()
@@ -56,9 +69,14 @@ public class PlayerMotor : MonoBehaviour
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
         }
 
-        if (thrusterForce != Vector3.zero)
+        if (thrusterForce != Vector3.zero && !IsGrounded())
         {
             rb.AddForce(thrusterForce * Time.fixedDeltaTime, ForceMode.Acceleration);
+        }
+
+        if (jumpForce != Vector3.zero && IsGrounded())
+        {
+            rb.AddForce(jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
         }
     }
 

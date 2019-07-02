@@ -8,9 +8,14 @@ public class SlenderScript : MonoBehaviour
     // GameObject destination;
     NavMeshAgent navMeshAgent;
 
-    public Transform target;
+    public Transform player;
+
+    public Transform[] patrolPoints;
+    private int destPatrolPoint = 0;
 
     public Animator animator;
+
+    bool onDestination = true;
 
     // Start is called before the first frame update
     void Start()
@@ -29,15 +34,29 @@ public class SlenderScript : MonoBehaviour
         }
         // Sight();
         NavMeshHit hit;
-        if (!navMeshAgent.Raycast(target.position, out hit)) {
-            SetDestination();
-        }
+        if (!navMeshAgent.Raycast(player.position, out hit)) {
+            SetDestination(player.position);
+        } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
+            GotoNextPoint();
+        }    
     }
 
-    public void SetDestination()
+    public void SetDestination(Vector3 pos)
     {
-        // navMeshAgent.SetDestination(destination.transform.position);
-        navMeshAgent.SetDestination(target.position);
+        navMeshAgent.SetDestination(pos);
+        onDestination = false;
     }
 
+    void GotoNextPoint() {
+        // Returns if no points have been set up
+        if (patrolPoints.Length == 0)
+            return;
+
+        // Set the agent to go to the currently selected destination.
+        navMeshAgent.destination = patrolPoints[destPatrolPoint].position;
+
+        // Choose the next point in the array as the destination,
+        // cycling to the start if necessary.
+        destPatrolPoint = (destPatrolPoint + 1) % patrolPoints.Length;
+    }
 }

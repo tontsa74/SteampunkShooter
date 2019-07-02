@@ -13,8 +13,11 @@ public class PlayerController : MonoBehaviour
     private float thrusterForce = 1000f;
     [SerializeField]
     private float jumpForce = 500f;
+    [SerializeField]
+    private float thurstAmount = 0.5f;
 
     private bool jumping = false;
+    private float thrustCounter;
 
     private PlayerMotor motor;
 
@@ -61,7 +64,18 @@ public class PlayerController : MonoBehaviour
         }
         if(Input.GetButton("Jump"))
         {
-            _thrusterForce = Vector3.up * thrusterForce;
+            if(thrustCounter <= thurstAmount)
+            {
+                thrustCounter += Time.deltaTime;
+                _thrusterForce = Vector3.up * thrusterForce;
+            }
+        } else
+        {
+            if(thrustCounter >= 0)
+            {
+                thrustCounter -= Time.deltaTime / 2f;
+
+            }
         }
 
         motor.ApplyThruster(_thrusterForce);

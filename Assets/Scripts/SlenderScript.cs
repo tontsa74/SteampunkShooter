@@ -23,7 +23,6 @@ public class SlenderScript : MonoBehaviour
     void Update()
     {
         if(navMeshAgent.velocity != Vector3.zero){
-            print("hell");
             animator.SetBool("idle", false);
         } else {
             animator.SetBool("idle", true);

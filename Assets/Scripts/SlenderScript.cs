@@ -15,8 +15,6 @@ public class SlenderScript : MonoBehaviour
 
     public Animator animator;
 
-    bool onDestination = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -44,7 +42,6 @@ public class SlenderScript : MonoBehaviour
     public void SetDestination(Vector3 pos)
     {
         navMeshAgent.SetDestination(pos);
-        onDestination = false;
     }
 
     void GotoNextPoint() {

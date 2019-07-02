@@ -11,6 +11,10 @@ public class PlayerController : MonoBehaviour
     private float lookSensitivity = 3f;
     [SerializeField]
     private float thrusterForce = 1000f;
+    [SerializeField]
+    private float jumpForce = 500f;
+
+    private bool jumping = false;
 
     private PlayerMotor motor;
 
@@ -49,12 +53,19 @@ public class PlayerController : MonoBehaviour
         motor.RotateCamera(_cameraRotation);
 
         Vector3 _thrusterForce = Vector3.zero;
+        Vector3 _jumpForce = Vector3.zero;
 
-        if (Input.GetButton("Jump"))
+        if (Input.GetButtonDown("Jump"))
+        {
+            _jumpForce = Vector3.up * jumpForce;
+        }
+        if(Input.GetButton("Jump"))
         {
             _thrusterForce = Vector3.up * thrusterForce;
         }
 
         motor.ApplyThruster(_thrusterForce);
+        motor.ApplyJump(_jumpForce);
+
     }
 }

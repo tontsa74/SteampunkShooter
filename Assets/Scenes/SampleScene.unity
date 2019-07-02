@@ -566,6 +566,25 @@ Transform:
   m_Father: {fileID: 872197085}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &273959298 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7450443506182991955, guid: f992449478fc53c4f98eee686f1f5b8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115770369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &273959300
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273959298}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.25, z: 0.25}
+  m_Center: {x: 0.15, y: 0, z: 0}
 --- !u!1 &417319230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1067,7 @@ GameObject:
   - component: {fileID: 970403025}
   - component: {fileID: 970403024}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: SlenderMan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1882,6 +1901,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850000840}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1914087323 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -1739382087820650868, guid: f992449478fc53c4f98eee686f1f5b8a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2115770369}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1914087326
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914087323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: 0}
 --- !u!4 &1931375621 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f992449478fc53c4f98eee686f1f5b8a,

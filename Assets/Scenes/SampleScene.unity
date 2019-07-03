@@ -893,7 +893,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 4.5905e-41, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 8.4e-43, w: 5.7535306e-34}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2624,6 +2624,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: viikatemies updated
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: f992449478fc53c4f98eee686f1f5b8a,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 647f8722eb6101a419cfd4a31571f007, type: 2}
+    - target: {fileID: -5005196685690522967, guid: f992449478fc53c4f98eee686f1f5b8a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f992449478fc53c4f98eee686f1f5b8a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2679,15 +2689,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: f992449478fc53c4f98eee686f1f5b8a,
+    - target: {fileID: 7450443506182991955, guid: f992449478fc53c4f98eee686f1f5b8a,
         type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 647f8722eb6101a419cfd4a31571f007, type: 2}
-    - target: {fileID: -5005196685690522967, guid: f992449478fc53c4f98eee686f1f5b8a,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f992449478fc53c4f98eee686f1f5b8a, type: 3}

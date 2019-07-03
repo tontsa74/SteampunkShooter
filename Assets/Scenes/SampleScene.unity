@@ -1121,7 +1121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 811956108}
-  sensitivityMultiplier: 0.5
+  sensitivityMultiplier: 0.1
   scopeOverlay: {fileID: 682840051}
   weaponCamera: {fileID: 1784474733}
   mainCamera: {fileID: 963194227}

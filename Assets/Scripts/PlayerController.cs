@@ -94,4 +94,15 @@ public class PlayerController : MonoBehaviour
         motor.ApplyJump(_jumpForce);
 
     }
+
+    public void SetSensitivity(float _sensitivity)
+    {
+        lookSensitivity = _sensitivity;
+    }
+
+    public float GetSensitivity()
+    {
+        return lookSensitivity;
+    }
+
 }

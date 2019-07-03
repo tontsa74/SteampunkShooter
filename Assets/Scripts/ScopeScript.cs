@@ -8,6 +8,9 @@ public class ScopeScript : MonoBehaviour
 
     bool isScoped = false;
 
+    public float sensitivityMultiplier = 0.1f;
+    private float normalSensitivity;
+
     public GameObject scopeOverlay;
     public GameObject weaponCamera;
     public Camera mainCamera;
@@ -15,10 +18,13 @@ public class ScopeScript : MonoBehaviour
     public float scopedFOV = 15f;
     private float normalFOV;
 
+    private PlayerController playerController;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        playerController = GetComponentInParent<PlayerController>();
+
     }
 
     // Update is called once per frame
@@ -45,11 +51,14 @@ public class ScopeScript : MonoBehaviour
         weaponCamera.SetActive(false);
         normalFOV = mainCamera.fieldOfView;
         mainCamera.fieldOfView = scopedFOV;
+        normalSensitivity = playerController.GetSensitivity();
+        playerController.SetSensitivity(playerController.GetSensitivity() * sensitivityMultiplier);
     }
 
     void OnUnScoped() {
         scopeOverlay.SetActive(false);
         weaponCamera.SetActive(true);
         mainCamera.fieldOfView = normalFOV;
+        playerController.SetSensitivity(normalSensitivity);
     }
 }

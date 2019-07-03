@@ -1029,7 +1029,7 @@ GameObject:
   - component: {fileID: 872197086}
   m_Layer: 0
   m_Name: SlenderMan
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1091,6 +1091,7 @@ MonoBehaviour:
   - {fileID: 1141184414}
   - {fileID: 172068804}
   animator: {fileID: 1931375622}
+  health: 100
 --- !u!54 &872197088
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1206,7 +1207,7 @@ GameObject:
   - component: {fileID: 970403024}
   m_Layer: 0
   m_Name: SlenderMan
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1918,6 +1919,7 @@ GameObject:
   - component: {fileID: 1597960977}
   - component: {fileID: 1597960980}
   - component: {fileID: 1597960981}
+  - component: {fileID: 1597960982}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1954,7 +1956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cbc4f134fb2e464cab81b48680fa1bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 9
+  runMultiplier: 1.8
   speed: 5
   lookSensitivity: 3
   thrusterForce: 800
@@ -2018,10 +2020,29 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 4294967295
-  weapon:
+  currentWeapon:
     name: Desert Eagle
     damage: 10
     range: 100
+    graphics: {fileID: 0}
+--- !u!114 &1597960982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597960975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df541e8ad49bf44b8802d6d4ea4012b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponLayerName: weapon
+  primaryWeapon:
+    name: Desert Eagle
+    damage: 10
+    range: 100
+    graphics: {fileID: 0}
 --- !u!1 &1720783880
 GameObject:
   m_ObjectHideFlags: 0
@@ -2396,6 +2417,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450443506182991955, guid: f992449478fc53c4f98eee686f1f5b8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f992449478fc53c4f98eee686f1f5b8a, type: 3}

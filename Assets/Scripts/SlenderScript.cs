@@ -17,6 +17,8 @@ public class SlenderScript : MonoBehaviour
 
     bool onDestination = true;
 
+    public float health = 100;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,5 +60,23 @@ public class SlenderScript : MonoBehaviour
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
         destPatrolPoint = (destPatrolPoint + 1) % patrolPoints.Length;
+    }
+
+    public void TakeDamage(string _collider, float _weaponDamage)
+    {
+        if(_collider == "Bone004")
+        {
+            health -= _weaponDamage * 2;
+        } else
+        {
+            health -= _weaponDamage;
+        }
+
+        if(health <= 0)
+        {
+            print("SlenderScript: DEAD");
+        }
+
+        print("SlenderScript: health "+health);
     }
 }

@@ -18,6 +18,8 @@ public class SlenderScript : MonoBehaviour
 
     public float health = 100;
 
+    private bool alive = true;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,18 +31,25 @@ public class SlenderScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(navMeshAgent.velocity != Vector3.zero){
-            animator.SetBool("idle", false);
+        if (alive) {
+            if(navMeshAgent.velocity != Vector3.zero){
+                animator.SetBool("idle", false);
+            } else {
+                animator.SetBool("idle", true);
+            }
+            // Sight();
+            NavMeshHit hit;
+
+            if (!navMeshAgent.Raycast(player.position, out hit)) {
+                SetDestination(player.position);
+            } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
+                GotoNextPoint();
+            }    
         } else {
-            animator.SetBool("idle", true);
+            navMeshAgent.enabled = alive;
+            animator.SetBool("alive", alive);
         }
-        // Sight();
-        NavMeshHit hit;
-        if (!navMeshAgent.Raycast(player.position, out hit)) {
-            SetDestination(player.position);
-        } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
-            GotoNextPoint();
-        }    
+
     }
 
     public void SetDestination(Vector3 pos)
@@ -74,6 +83,7 @@ public class SlenderScript : MonoBehaviour
         if(health <= 0)
         {
             print("SlenderScript: DEAD");
+            alive = false;
         }
 
         print("SlenderScript: health "+health);

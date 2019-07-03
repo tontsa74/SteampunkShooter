@@ -74,7 +74,7 @@ public class SlenderScript : MonoBehaviour
     {
         if(_collider == "Bone004")
         {
-            health -= _weaponDamage * 2;
+            health -= _weaponDamage * 10;
         } else
         {
             health -= _weaponDamage;

@@ -8,6 +8,8 @@ public class SlenderScript : MonoBehaviour
     // GameObject destination;
     NavMeshAgent navMeshAgent;
 
+    public Transform eyes;
+
     public Transform player;
 
     public Transform[] patrolPoints;
@@ -20,6 +22,9 @@ public class SlenderScript : MonoBehaviour
 
     private bool alive = true;
 
+    private bool blocked = false;
+    private bool seen = false;
+    public float sightAngle = 45;
 
     // Start is called before the first frame update
     void Start()
@@ -37,10 +42,24 @@ public class SlenderScript : MonoBehaviour
             } else {
                 animator.SetBool("idle", true);
             }
-            // Sight();
-            NavMeshHit hit;
 
-            if (!navMeshAgent.Raycast(player.position, out hit)) {
+            NavMeshHit hit;
+            blocked = NavMesh.Raycast(transform.position, player.position, out hit, NavMesh.AllAreas);
+            
+            Vector3 targetDir = player.position - transform.position;
+            float angle = Vector3.Angle(targetDir, transform.forward);
+            if (angle < sightAngle) {
+                seen = true;
+            } else {
+                seen = false;
+            }
+
+            Debug.DrawLine(eyes.position, player.position, blocked || !seen ? Color.red : Color.green);
+
+
+            if (!blocked && seen) {
+                //transform.LookAt(player.position);
+                
                 SetDestination(player.position);
             } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
                 GotoNextPoint();

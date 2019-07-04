@@ -7,10 +7,10 @@ public class WeaponManager : MonoBehaviour
     private string weaponLayerName = "Weapon";
 
     [SerializeField]
-    private PlayerWeapon primaryWeapon;
+    private SideArm sideArm;
 
     [SerializeField]
-    private PlayerWeapon1 secondaryWeapon;
+    private RailGun railGun;
 
     [SerializeField]
     private Transform weaponHolder;
@@ -23,12 +23,17 @@ public class WeaponManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        EquipWeapon(primaryWeapon);
+        EquipWeapon(sideArm);
     }
 
     public PlayerWeapon GetCurrentWeapon()
     {
         return currentWeapon;
+    }
+
+    public void Update()
+    {
+        
     }
 
     void EquipWeapon(PlayerWeapon _weapon)

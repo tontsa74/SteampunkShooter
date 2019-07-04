@@ -4,23 +4,18 @@
 public class PlayerWeapon
 {
 
-    public string name = "Side arm";
+    public string name;
 
-    public float damage = 10f;
-    public float range = 100f;
+    public float damage;
+    public float range;
 
-    public float fireRate = 0f;
-    public int clipSize = 15;
+    public float fireRate;
+    public int clipSize;
 
-    [HideInInspector]
     public int bullets;
 
-    public float reloadTime = 1f;
+    public float reloadTime;
 
     public GameObject graphics;
 
-    public PlayerWeapon()
-    {
-        bullets = clipSize;
-    }
 }

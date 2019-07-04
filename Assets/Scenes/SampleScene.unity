@@ -923,7 +923,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1e-45, y: 0, z: 9.8e-44, w: 0.03125}
+  m_BoundingSphereOverride: {x: 0.03671115, y: -2.084174e+35, z: NaN, w: 1e-45}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -2110,13 +2110,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   currentWeapon:
-    name: Desert Eagle
-    damage: 10
-    range: 100
+    name: 
+    damage: 0
+    range: 0
     fireRate: 0
-    clipSize: 5
-    bullets: 20
-    reloadTime: 1
+    clipSize: 0
+    bullets: 0
+    reloadTime: 0
     graphics: {fileID: 0}
 --- !u!114 &1597960982
 MonoBehaviour:
@@ -2131,14 +2131,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponLayerName: weapon
-  primaryWeapon:
-    name: Desert Eagle
+  sideArm:
+    name: Side arm
     damage: 10
-    range: 100
-    fireRate: 3
-    clipSize: 5
-    bullets: 20
+    range: 50
+    fireRate: 0
+    clipSize: 15
+    bullets: 15
     reloadTime: 1
+    graphics: {fileID: 2827835256903289338, guid: 5336624583d437945964a591e3e5c9ca,
+      type: 3}
+  railGun:
+    name: Rail gun
+    damage: 20
+    range: 100
+    fireRate: 4
+    clipSize: 8
+    bullets: 8
+    reloadTime: 2
     graphics: {fileID: 1453620002427959830, guid: e6003aa580ab6d7449a63cb591e74c5c,
       type: 3}
   weaponHolder: {fileID: 610330112}

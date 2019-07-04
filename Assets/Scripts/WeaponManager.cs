@@ -5,7 +5,7 @@ using UnityEngine;
 public class WeaponManager : MonoBehaviour
 {
     [SerializeField]
-    private string weaponLayerName = "weapon";
+    private string weaponLayerName = "Weapon";
 
     [SerializeField]
     private PlayerWeapon primaryWeapon;
@@ -14,6 +14,7 @@ public class WeaponManager : MonoBehaviour
     private Transform weaponHolder;
 
     private PlayerWeapon currentWeapon;
+    private bool isReloading = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,5 +33,17 @@ public class WeaponManager : MonoBehaviour
         GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         _weaponIns.transform.SetParent(weaponHolder);
         _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
+    }
+
+    public void Reload()
+    {
+        if(!isReloading)
+        {
+            isReloading = true;
+
+            currentWeapon.bullets = currentWeapon.clipSize;
+
+            isReloading = false;
+        }
     }
 }

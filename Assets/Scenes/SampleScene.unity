@@ -2114,6 +2114,8 @@ MonoBehaviour:
     damage: 10
     range: 100
     fireRate: 0
+    clipSize: 5
+    bullets: 20
     graphics: {fileID: 0}
 --- !u!114 &1597960982
 MonoBehaviour:
@@ -2132,7 +2134,9 @@ MonoBehaviour:
     name: Desert Eagle
     damage: 10
     range: 100
-    fireRate: 0
+    fireRate: 3
+    clipSize: 5
+    bullets: 20
     graphics: {fileID: 1453620002427959830, guid: e6003aa580ab6d7449a63cb591e74c5c,
       type: 3}
   weaponHolder: {fileID: 610330112}

@@ -32,14 +32,36 @@ public class PlayerShoot : MonoBehaviour
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
 
-        if(Input.GetButtonDown("Fire1"))
+        if(currentWeapon.fireRate <= 0)
         {
-            Shoot();
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+            }
+        } else
+        {
+            if(Input.GetButtonDown("Fire1"))
+            {
+                InvokeRepeating("Shoot", 0f, 1f/currentWeapon.fireRate);
+            } else if(Input.GetButtonUp("Fire1"))
+            {
+                CancelInvoke("Shoot");
+            }
         }
+
     }
 
     void Shoot()
     {
+        if(currentWeapon.bullets <= 0)
+        {
+            weaponManager.Reload();
+            return;
+        }
+
+        currentWeapon.bullets--;
+        print("Remaining bullets " + currentWeapon.bullets);
+
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))
         {            

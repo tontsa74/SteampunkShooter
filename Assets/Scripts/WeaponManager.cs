@@ -10,6 +10,9 @@ public class WeaponManager : MonoBehaviour
     private PlayerWeapon primaryWeapon;
 
     [SerializeField]
+    private PlayerWeapon1 secondaryWeapon;
+
+    [SerializeField]
     private Transform weaponHolder;
 
     public Animator animator;

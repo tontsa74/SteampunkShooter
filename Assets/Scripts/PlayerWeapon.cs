@@ -4,13 +4,13 @@
 public class PlayerWeapon
 {
 
-    public string name = "Rail gun";
+    public string name = "Side arm";
 
     public float damage = 10f;
     public float range = 100f;
 
-    public float fireRate = 10f;
-    public int clipSize = 5;
+    public float fireRate = 0f;
+    public int clipSize = 15;
 
     [HideInInspector]
     public int bullets;

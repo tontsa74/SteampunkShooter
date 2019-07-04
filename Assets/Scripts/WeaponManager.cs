@@ -12,6 +12,8 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     private Transform weaponHolder;
 
+    public Animator animator;
+
     private PlayerWeapon currentWeapon;
     private bool isReloading = false;
 
@@ -47,9 +49,12 @@ public class WeaponManager : MonoBehaviour
     private IEnumerator Reload_Coroutine()
     {
         isReloading = true;
-        print("Reloading");
+        animator.SetBool("Reloading", isReloading);
+        print("WeaponManager: Reloading");
         yield return new WaitForSeconds(currentWeapon.reloadTime);
         currentWeapon.bullets = currentWeapon.clipSize;
         isReloading = false;
+        animator.SetBool("Reloading", isReloading);
+
     }
 }

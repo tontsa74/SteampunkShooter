@@ -60,7 +60,7 @@ public class PlayerShoot : MonoBehaviour
         }
 
         currentWeapon.bullets--;
-        print("Remaining bullets " + currentWeapon.bullets);
+        print("PlayerShoot: Remaining bullets " + currentWeapon.bullets);
 
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))

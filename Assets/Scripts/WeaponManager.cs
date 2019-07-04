@@ -72,6 +72,10 @@ public class WeaponManager : MonoBehaviour
         _weaponIns.transform.SetParent(weaponHolder);
         _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
         currentWeaponIndex = availableWeapons.IndexOf(_weapon);
+        if(weaponHolder.childCount > 1)
+        {
+            Destroy(weaponHolder.GetChild(0).gameObject);
+        }
     }
 
     public void Reload()

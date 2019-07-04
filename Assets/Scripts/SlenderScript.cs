@@ -26,6 +26,7 @@ public class SlenderScript : MonoBehaviour
     private bool seen = false;
     public float sightAngle = 45;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,16 +46,16 @@ public class SlenderScript : MonoBehaviour
 
             NavMeshHit hit;
             blocked = NavMesh.Raycast(transform.position, player.position, out hit, NavMesh.AllAreas);
-            
-            Vector3 targetDir = player.position - transform.position;
-            float angle = Vector3.Angle(targetDir, transform.forward);
+            Debug.DrawLine(transform.position, player.position, blocked || !seen ? Color.red : Color.green);
+
+            Vector3 targetDir = player.position - eyes.position;
+            float angle = Vector3.Angle(targetDir, eyes.forward);
             if (angle < sightAngle) {
                 seen = true;
             } else {
                 seen = false;
             }
 
-            Debug.DrawLine(eyes.position, player.position, blocked || !seen ? Color.red : Color.green);
 
 
             if (!blocked && seen) {

@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
@@ -37,13 +36,20 @@ public class WeaponManager : MonoBehaviour
 
     public void Reload()
     {
-        if(!isReloading)
+        if(isReloading)
         {
-            isReloading = true;
-
-            currentWeapon.bullets = currentWeapon.clipSize;
-
-            isReloading = false;
+            return;
         }
+
+        StartCoroutine(Reload_Coroutine());
+    }
+
+    private IEnumerator Reload_Coroutine()
+    {
+        isReloading = true;
+        print("Reloading");
+        yield return new WaitForSeconds(currentWeapon.reloadTime);
+        currentWeapon.bullets = currentWeapon.clipSize;
+        isReloading = false;
     }
 }

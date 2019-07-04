@@ -15,6 +15,8 @@ public class PlayerWeapon
     [HideInInspector]
     public int bullets;
 
+    public float reloadTime = 1f;
+
     public GameObject graphics;
 
     public PlayerWeapon()

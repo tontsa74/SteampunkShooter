@@ -2645,7 +2645,6 @@ GameObject:
   - component: {fileID: 848937791}
   - component: {fileID: 848937790}
   - component: {fileID: 848937789}
-  - component: {fileID: 848937792}
   m_Layer: 0
   m_Name: SlenderMan (7)
   m_TagString: Enemy
@@ -2730,19 +2729,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &848937792
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 848937787}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &872197084
 GameObject:
   m_ObjectHideFlags: 0
@@ -2755,7 +2741,6 @@ GameObject:
   - component: {fileID: 872197088}
   - component: {fileID: 872197087}
   - component: {fileID: 872197086}
-  - component: {fileID: 872197089}
   m_Layer: 0
   m_Name: SlenderMan
   m_TagString: Enemy
@@ -2840,19 +2825,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &872197089
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872197084}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &872502591
 GameObject:
   m_ObjectHideFlags: 0
@@ -4750,7 +4722,6 @@ GameObject:
   - component: {fileID: 1163977957}
   - component: {fileID: 1163977956}
   - component: {fileID: 1163977955}
-  - component: {fileID: 1163977958}
   m_Layer: 0
   m_Name: SlenderMan (2)
   m_TagString: Enemy
@@ -4835,19 +4806,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1163977958
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1163977953}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1173334282 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1739382087820650868, guid: f992449478fc53c4f98eee686f1f5b8a,
@@ -5160,7 +5118,6 @@ GameObject:
   - component: {fileID: 1293110092}
   - component: {fileID: 1293110091}
   - component: {fileID: 1293110090}
-  - component: {fileID: 1293110093}
   m_Layer: 0
   m_Name: SlenderMan (4)
   m_TagString: Enemy
@@ -5245,19 +5202,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1293110093
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293110088}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1301281541 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8300539388206763497, guid: f992449478fc53c4f98eee686f1f5b8a,
@@ -5427,7 +5371,6 @@ GameObject:
   - component: {fileID: 1435481526}
   - component: {fileID: 1435481525}
   - component: {fileID: 1435481524}
-  - component: {fileID: 1435481527}
   m_Layer: 0
   m_Name: SlenderMan (3)
   m_TagString: Enemy
@@ -5512,19 +5455,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1435481527
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1435481522}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1462190974
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8492,7 +8422,6 @@ GameObject:
   - component: {fileID: 1866726022}
   - component: {fileID: 1866726021}
   - component: {fileID: 1866726020}
-  - component: {fileID: 1866726023}
   m_Layer: 0
   m_Name: SlenderMan (5)
   m_TagString: Enemy
@@ -8577,19 +8506,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &1866726023
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1866726018}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1899543625
 GameObject:
   m_ObjectHideFlags: 0
@@ -9164,7 +9080,6 @@ GameObject:
   - component: {fileID: 2046917225}
   - component: {fileID: 2046917224}
   - component: {fileID: 2046917223}
-  - component: {fileID: 2046917226}
   m_Layer: 0
   m_Name: SlenderMan (6)
   m_TagString: Enemy
@@ -9249,19 +9164,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &2046917226
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2046917221}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &2050839062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: f992449478fc53c4f98eee686f1f5b8a,
@@ -9286,7 +9188,6 @@ GameObject:
   - component: {fileID: 2067980316}
   - component: {fileID: 2067980315}
   - component: {fileID: 2067980314}
-  - component: {fileID: 2067980317}
   m_Layer: 0
   m_Name: SlenderMan (1)
   m_TagString: Enemy
@@ -9371,19 +9272,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!135 &2067980317
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067980312}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 10
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2087570537
 PrefabInstance:
   m_ObjectHideFlags: 0

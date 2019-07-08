@@ -32,7 +32,7 @@ public class Recoil : MonoBehaviour
         {
             recoil = 0f;
             // Dampen towards the target rotation
-            //transform.localRotation = Quaternion.Slerp(transform.localRotation, currentRotation, Time.deltaTime * recoilSpeed / 2);
+            //transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime * recoilSpeed / 2);
         }
     }
 

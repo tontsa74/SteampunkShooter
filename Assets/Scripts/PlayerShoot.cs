@@ -14,10 +14,13 @@ public class PlayerShoot : MonoBehaviour
 
     public PlayerWeapon currentWeapon;
 
+    public UiManager uiManager;
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = (false);
 
         if (cam == null)
         {
@@ -31,8 +34,10 @@ public class PlayerShoot : MonoBehaviour
     private void Update()
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
+        uiManager.UpdateAmmo(currentWeapon.name,currentWeapon.bullets);
 
-        if(currentWeapon.fireRate <= 0)
+
+        if (currentWeapon.fireRate <= 0)
         {
             if (Input.GetButtonDown("Fire1"))
             {
@@ -58,9 +63,16 @@ public class PlayerShoot : MonoBehaviour
             weaponManager.Reload();
             return;
         }
+        if(weaponManager.isReloading)
+        {
+            return;
+        }
 
         currentWeapon.bullets--;
         print("PlayerShoot: Remaining bullets " + currentWeapon.bullets);
+
+        cam.GetComponent<Recoil>().StartRecoil(0.1f, -15, 2);
+      //  uiManager.UpdateAmmo(currentWeapon.bullets);
 
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))

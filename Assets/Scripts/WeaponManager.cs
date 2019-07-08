@@ -22,7 +22,7 @@ public class WeaponManager : MonoBehaviour
     public Animator animator;
 
     private PlayerWeapon currentWeapon;
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     // Start is called before the first frame update
     void Start()
@@ -58,6 +58,10 @@ public class WeaponManager : MonoBehaviour
                 selectedIndex--;
             }
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
+        }
 
         if (selectedIndex != currentWeaponIndex)
         {
@@ -70,7 +74,7 @@ public class WeaponManager : MonoBehaviour
         GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         currentWeapon = _weapon;
         _weaponIns.transform.SetParent(weaponHolder);
-        _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
+     //   _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
         currentWeaponIndex = availableWeapons.IndexOf(_weapon);
         if(weaponHolder.childCount > 1)
         {
@@ -92,6 +96,7 @@ public class WeaponManager : MonoBehaviour
     {
         isReloading = true;
         animator.SetBool("Reloading", isReloading);
+
         print("WeaponManager: Reloading");
         yield return new WaitForSeconds(currentWeapon.reloadTime);
         currentWeapon.bullets = currentWeapon.clipSize;

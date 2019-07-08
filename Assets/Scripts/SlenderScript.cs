@@ -45,7 +45,8 @@ public class SlenderScript : MonoBehaviour
             }
 
             NavMeshHit hit;
-            blocked = NavMesh.Raycast(transform.position, player.position, out hit, NavMesh.AllAreas);
+            blocked = navMeshAgent.Raycast(player.position + Vector3.up, out hit);
+            
             Debug.DrawLine(transform.position, player.position, blocked || !seen ? Color.red : Color.green);
 
             Vector3 targetDir = player.position - eyes.position;

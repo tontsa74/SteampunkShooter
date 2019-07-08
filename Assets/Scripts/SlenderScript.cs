@@ -24,7 +24,10 @@ public class SlenderScript : MonoBehaviour
 
     private bool blocked = false;
     private bool seen = false;
+    private bool heard = false;
     public float sightAngle = 45;
+    
+    Color lineColor = Color.red;
 
 
     // Start is called before the first frame update
@@ -48,8 +51,16 @@ public class SlenderScript : MonoBehaviour
             Vector3 target = player.position + Vector3.up;
             NavMeshHit hit;
             blocked = navMeshAgent.Raycast(target, out hit);
+            if (heard) {
+                lineColor = Color.yellow;
+            } else if (seen && ! blocked) {
+                lineColor = Color.green;
+            } else {
+                lineColor = Color.red;
+            }
             
-            Debug.DrawLine(transform.position, target, blocked || !seen ? Color.red : Color.green);
+            
+            Debug.DrawLine(transform.position, target, lineColor);
 
             Vector3 targetDir = player.position - eyes.position;
             float angle = Vector3.Angle(targetDir, eyes.forward);
@@ -105,6 +116,23 @@ public class SlenderScript : MonoBehaviour
         // Choose the next random point in the array as the destination
         destPatrolPoint = Random.Range(0, patrolPoints.Length);
     }
+
+    void OnTriggerEnter(Collider collider) {
+        print("name: " + collider.gameObject.tag);
+        if(collider.gameObject.tag == "Player") {
+            SetDestination(player.position);
+            heard = true;
+        }
+    }
+
+    void OnTriggerExit(Collider collider) {
+        print("name: " + collider.gameObject.tag);
+        if(collider.gameObject.tag == "Player") {
+            heard = false;
+        }
+    }
+
+
 
     public void TakeDamage(string _collider, float _weaponDamage)
     {

@@ -15,6 +15,8 @@ public class SideArm : PlayerWeapon
 
         reloadTime = 1f;
 
+        scopable = false;
+
     }
 
     

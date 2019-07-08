@@ -16,6 +16,9 @@ public class PlayerShoot : MonoBehaviour
 
     public UiManager uiManager;
 
+
+    public GameObject audioPrefab;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,7 +75,10 @@ public class PlayerShoot : MonoBehaviour
         print("PlayerShoot: Remaining bullets " + currentWeapon.bullets);
 
         cam.GetComponent<Recoil>().StartRecoil(0.1f, -15, 2);
-      //  uiManager.UpdateAmmo(currentWeapon.bullets);
+
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(currentWeapon.shootSound, false, 3f);
 
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))

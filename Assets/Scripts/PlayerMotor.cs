@@ -1,4 +1,5 @@
 ﻿
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -15,15 +16,33 @@ public class PlayerMotor : MonoBehaviour
     private Vector3 jumpForce = Vector3.zero;
     private float distToGround;
 
-
-
     private Rigidbody rb;
+
+    [SerializeField]
+    AudioClip[] footStepSounds;
+    [SerializeField]
+    AudioClip jumpSound;
+    [SerializeField]
+    AudioClip landSound;
+    [SerializeField]
+    AudioClip thrusterSound;
+    public GameObject audioPrefab;
+
+    private GameObject thrusterSoundPlayer;
+    private AudioScript tsp;
+
+    private bool step = true;
+    private bool running = false;
+    private bool hasJumped = false;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         distToGround = GetComponent<BoxCollider>().bounds.extents.y;
+        thrusterSoundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        tsp = thrusterSoundPlayer.GetComponent<AudioScript>();
     }
 
     public void Move(Vector3 _velocity, bool _running, float _runMultiplier)
@@ -33,6 +52,8 @@ public class PlayerMotor : MonoBehaviour
             _velocity *= _runMultiplier;
         }
         velocity = _velocity;
+
+        running = _running;
     }
 
     public void Rotate(Vector3 _rotation)
@@ -68,19 +89,57 @@ public class PlayerMotor : MonoBehaviour
 
     void PerformMovement()
     {
+        if(!IsGrounded())
+        {
+            hasJumped = true;
+        }
+
         if(velocity != Vector3.zero)
         {
             rb.MovePosition(rb.position + velocity * Time.fixedDeltaTime);
+
+            if(step && IsGrounded())
+            {
+                if(!running)
+                {
+                    PlayWalkSteps();
+                } else
+                {
+                    PlayRunSteps();
+                }
+
+            }
+
         }
 
         if (thrusterForce != Vector3.zero && !IsGrounded())
         {
             rb.AddForce(thrusterForce * Time.fixedDeltaTime, ForceMode.Acceleration);
+        //    rb.AddForce(jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
+
+            if(!tsp.playing)
+            {
+                tsp.PlaySound(thrusterSound, true, 3f);
+            }
+        } else
+        {
+            if(tsp.playing)
+            {
+                tsp.PauseSound();
+            }
         }
 
         if (jumpForce != Vector3.zero && IsGrounded())
         {
             rb.AddForce(jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);
+
+            PlayJumpSound();
+        }
+
+        if(IsGrounded() && hasJumped)
+        {
+            hasJumped = false;
+            PlayLandSound();
         }
     }
 
@@ -91,6 +150,43 @@ public class PlayerMotor : MonoBehaviour
         {
             cam.transform.Rotate(-cameraRotation);
         }
+    }
+
+    void PlayWalkSteps()
+    {
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(footStepSounds[Random.Range(0, footStepSounds.Length)], false, 0.2f);
+        StartCoroutine(WaitForFootSteps(0.5f));
+    }
+
+    void PlayRunSteps()
+    {
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(footStepSounds[Random.Range(0, footStepSounds.Length)], false, 2f);
+        StartCoroutine(WaitForFootSteps(0.3f));
+    }
+
+    void PlayJumpSound()
+    {
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(jumpSound, false, 3f);
+    }
+
+    void PlayLandSound()
+    {
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(landSound, false, 3f);
+    }
+
+    private IEnumerator WaitForFootSteps(float stepsLength)
+    {
+        step = false;
+        yield return new WaitForSeconds(stepsLength);
+        step = true;
     }
 
 

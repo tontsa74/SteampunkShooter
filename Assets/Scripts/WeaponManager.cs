@@ -24,6 +24,9 @@ public class WeaponManager : MonoBehaviour
     private PlayerWeapon currentWeapon;
     public bool isReloading = false;
 
+    public GameObject audioPrefab;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -90,6 +93,9 @@ public class WeaponManager : MonoBehaviour
         }
 
         StartCoroutine(Reload_Coroutine());
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(currentWeapon.reloadSound, false, 3f);
     }
 
     private IEnumerator Reload_Coroutine()

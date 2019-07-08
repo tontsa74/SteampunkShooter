@@ -6587,6 +6587,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
+  footStepSounds:
+  - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
+  - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
+  - {fileID: 8300000, guid: 5a9383dda6cabc047b7a297602e93eb4, type: 3}
+  jumpSound: {fileID: 8300000, guid: 5897aeed9b676024fbb8c694b421a861, type: 3}
+  landSound: {fileID: 8300000, guid: 3b09d59f4499d45428baa7a21e954296, type: 3}
+  thrusterSound: {fileID: 8300000, guid: a1098fc86de1675409e1c8d96112af7b, type: 3}
+  audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
+    type: 3}
 --- !u!54 &1597960979
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6640,8 +6649,13 @@ MonoBehaviour:
     clipSize: 0
     bullets: 0
     reloadTime: 0
+    scopable: 0
     graphics: {fileID: 0}
+    shootSound: {fileID: 0}
+    reloadSound: {fileID: 0}
   uiManager: {fileID: 1720783885}
+  audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
+    type: 3}
 --- !u!114 &1597960982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6663,20 +6677,29 @@ MonoBehaviour:
     clipSize: 15
     bullets: 15
     reloadTime: 1
+    scopable: 0
     graphics: {fileID: 2827835256903289338, guid: 5336624583d437945964a591e3e5c9ca,
       type: 3}
+    shootSound: {fileID: 8300000, guid: 4bf670a92e6e00f4981fb613438dfc6b, type: 3}
+    reloadSound: {fileID: 8300000, guid: 8cb5fa9dace039941ba1f5ba56f44018, type: 3}
   railGun:
     name: Rail gun
-    damage: 20
+    damage: 30
     range: 100
-    fireRate: 4
+    fireRate: 2
     clipSize: 8
     bullets: 8
-    reloadTime: 2
+    reloadTime: 2.7
+    scopable: 1
     graphics: {fileID: 1453620002427959830, guid: e6003aa580ab6d7449a63cb591e74c5c,
       type: 3}
+    shootSound: {fileID: 8300000, guid: d18ac5dac2d880442b096b886c516ed7, type: 3}
+    reloadSound: {fileID: 8300000, guid: e93a7424f739030429503bbe754d1f06, type: 3}
   weaponHolder: {fileID: 610330112}
   animator: {fileID: 811956108}
+  isReloading: 0
+  audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
+    type: 3}
 --- !u!1001 &1603961876
 PrefabInstance:
   m_ObjectHideFlags: 0

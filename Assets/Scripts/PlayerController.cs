@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
+
+      //  GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+      //  AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+       // sp.PlaySound(bgMusic, true, 0.5f);
     }
 
     // Update is called once per frame
@@ -73,6 +77,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetButtonDown("Jump"))
         {
             _jumpForce = Vector3.up * jumpForce;
+
         }
         if(Input.GetButton("Jump"))
         {

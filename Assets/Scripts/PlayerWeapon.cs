@@ -20,4 +20,8 @@ public class PlayerWeapon
 
     public GameObject graphics;
 
+    public AudioClip shootSound;
+
+    public AudioClip reloadSound;
+
 }

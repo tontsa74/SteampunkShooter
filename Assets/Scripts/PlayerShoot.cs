@@ -63,7 +63,7 @@ public class PlayerShoot : MonoBehaviour
         currentWeapon.bullets--;
         print("PlayerShoot: Remaining bullets " + currentWeapon.bullets);
 
-        cam.GetComponent<Recoil>().StartRecoil(0.1f, -20, 2);
+        cam.GetComponent<Recoil>().StartRecoil(0.1f, -10, 2);
 
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))

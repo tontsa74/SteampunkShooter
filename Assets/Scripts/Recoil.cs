@@ -16,7 +16,7 @@ public class Recoil : MonoBehaviour
         maxRecoil_y = Random.Range(-maxRecoil_xParam, maxRecoil_xParam);
     }
 
-    void recoiling()
+    void Recoiling()
     {
         if (recoil > 0f)
         {
@@ -30,14 +30,14 @@ public class Recoil : MonoBehaviour
         {
             recoil = 0f;
             // Dampen towards the target rotation
-            transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime * recoilSpeed / 2);
+            //transform.localRotation = Quaternion.Slerp(transform.localRotation, Quaternion.identity, Time.deltaTime * recoilSpeed / 2);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        recoiling();
+        Recoiling();
     }
 }
 

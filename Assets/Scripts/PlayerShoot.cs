@@ -18,6 +18,7 @@ public class PlayerShoot : MonoBehaviour
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = (false);
 
         if (cam == null)
         {

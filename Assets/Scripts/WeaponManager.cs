@@ -22,7 +22,7 @@ public class WeaponManager : MonoBehaviour
     public Animator animator;
 
     private PlayerWeapon currentWeapon;
-    private bool isReloading = false;
+    public bool isReloading = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +57,10 @@ public class WeaponManager : MonoBehaviour
             {
                 selectedIndex--;
             }
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Reload();
         }
 
         if (selectedIndex != currentWeaponIndex)

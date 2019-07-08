@@ -63,6 +63,10 @@ public class PlayerShoot : MonoBehaviour
             weaponManager.Reload();
             return;
         }
+        if(weaponManager.isReloading)
+        {
+            return;
+        }
 
         currentWeapon.bullets--;
         print("PlayerShoot: Remaining bullets " + currentWeapon.bullets);

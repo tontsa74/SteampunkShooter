@@ -70,7 +70,7 @@ public class WeaponManager : MonoBehaviour
         GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         currentWeapon = _weapon;
         _weaponIns.transform.SetParent(weaponHolder);
-        _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
+     //   _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
         currentWeaponIndex = availableWeapons.IndexOf(_weapon);
         if(weaponHolder.childCount > 1)
         {

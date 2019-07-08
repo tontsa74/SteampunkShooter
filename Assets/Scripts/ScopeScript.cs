@@ -19,18 +19,21 @@ public class ScopeScript : MonoBehaviour
     private float normalFOV;
 
     private PlayerController playerController;
+    private WeaponManager weaponManager;
 
     // Start is called before the first frame update
     void Start()
     {
         playerController = GetComponentInParent<PlayerController>();
+        weaponManager = GetComponentInParent<WeaponManager>();
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2")) {
+        if (Input.GetButtonDown("Fire2") && !weaponManager.isReloading) {
             isScoped = !isScoped;
             animator.SetBool("Scoped", isScoped);
 
@@ -41,6 +44,13 @@ public class ScopeScript : MonoBehaviour
             } else {
                 OnUnScoped();
             }
+        }
+
+        if(weaponManager.isReloading)
+        {
+            isScoped = false;
+            animator.SetBool("Scoped", isScoped);
+            OnUnScoped();
         }
     }
 

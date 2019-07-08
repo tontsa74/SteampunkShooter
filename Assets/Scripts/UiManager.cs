@@ -28,8 +28,8 @@ public class UiManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void UpdateAmmo(int bullets)
+    public void UpdateAmmo(string gunName, int bullets)
     {
-        ammo.SetText("" + bullets);
+        ammo.SetText(gunName + " " + bullets);
     }
 }

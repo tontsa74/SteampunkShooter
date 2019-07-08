@@ -34,7 +34,7 @@ public class PlayerShoot : MonoBehaviour
     private void Update()
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
-        uiManager.UpdateAmmo(currentWeapon.bullets);
+        uiManager.UpdateAmmo(currentWeapon.name,currentWeapon.bullets);
 
 
         if (currentWeapon.fireRate <= 0)

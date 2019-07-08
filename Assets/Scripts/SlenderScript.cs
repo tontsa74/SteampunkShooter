@@ -44,10 +44,11 @@ public class SlenderScript : MonoBehaviour
                 animator.SetBool("idle", true);
             }
 
+            Vector3 target = player.position + Vector3.up;
             NavMeshHit hit;
-            blocked = navMeshAgent.Raycast(player.position + Vector3.up, out hit);
+            blocked = navMeshAgent.Raycast(target, out hit);
             
-            Debug.DrawLine(transform.position, player.position, blocked || !seen ? Color.red : Color.green);
+            Debug.DrawLine(transform.position, target, blocked || !seen ? Color.red : Color.green);
 
             Vector3 targetDir = player.position - eyes.position;
             float angle = Vector3.Angle(targetDir, eyes.forward);
@@ -63,7 +64,7 @@ public class SlenderScript : MonoBehaviour
                 //transform.LookAt(player.position);
                 
                 SetDestination(player.position);
-            } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
+            } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
                 GotoNextPoint();
             }    
         } else {

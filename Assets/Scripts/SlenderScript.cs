@@ -13,7 +13,7 @@ public class SlenderScript : MonoBehaviour
     public Transform player;
 
     public Transform[] patrolPoints;
-    private int destPatrolPoint = 0;
+    private int destPatrolPoint;
 
     public Animator animator;
 
@@ -32,6 +32,7 @@ public class SlenderScript : MonoBehaviour
     {
         // destination = GameObject.Find("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
+        destPatrolPoint = Random.Range(0, patrolPoints.Length);
     }
 
     // Update is called once per frame
@@ -65,7 +66,7 @@ public class SlenderScript : MonoBehaviour
                 
                 SetDestination(player.position);
             } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
-                GotoNextPoint();
+                GotoRandomPoint();
             }    
         } else {
             navMeshAgent.enabled = alive;
@@ -90,6 +91,19 @@ public class SlenderScript : MonoBehaviour
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
         destPatrolPoint = (destPatrolPoint + 1) % patrolPoints.Length;
+    }
+
+    void GotoRandomPoint() {
+        // Returns if no points have been set up
+        if (patrolPoints.Length == 0)
+            return;
+
+        // Set the agent to go to the currently selected destination.
+        navMeshAgent.destination = patrolPoints[destPatrolPoint].position;
+
+        
+        // Choose the next random point in the array as the destination
+        destPatrolPoint = Random.Range(0, patrolPoints.Length);
     }
 
     public void TakeDamage(string _collider, float _weaponDamage)

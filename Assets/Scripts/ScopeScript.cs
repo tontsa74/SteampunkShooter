@@ -33,7 +33,7 @@ public class ScopeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire2") && !weaponManager.isReloading) {
+        if (Input.GetButtonDown("Fire2") && !weaponManager.isReloading && weaponManager.GetCurrentWeapon().scopable) {
             isScoped = !isScoped;
             animator.SetBool("Scoped", isScoped);
 

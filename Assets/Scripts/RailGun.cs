@@ -18,6 +18,8 @@ public class RailGun : PlayerWeapon
 
         bullets = clipSize;
 
+        scopable = true;
+
     }
 
 

@@ -16,6 +16,8 @@ public class PlayerWeapon
 
     public float reloadTime;
 
+    public bool scopable;
+
     public GameObject graphics;
 
 }

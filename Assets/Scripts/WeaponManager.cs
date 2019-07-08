@@ -96,6 +96,8 @@ public class WeaponManager : MonoBehaviour
     {
         isReloading = true;
         animator.SetBool("Reloading", isReloading);
+       // animator.SetBool("Scoped", false);
+
         print("WeaponManager: Reloading");
         yield return new WaitForSeconds(currentWeapon.reloadTime);
         currentWeapon.bullets = currentWeapon.clipSize;

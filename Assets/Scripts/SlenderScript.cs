@@ -13,7 +13,7 @@ public class SlenderScript : MonoBehaviour
     public Transform player;
 
     public Transform[] patrolPoints;
-    private int destPatrolPoint = 0;
+    private int destPatrolPoint;
 
     public Animator animator;
 
@@ -24,7 +24,10 @@ public class SlenderScript : MonoBehaviour
 
     private bool blocked = false;
     private bool seen = false;
+    private bool heard = false;
     public float sightAngle = 45;
+    
+    Color lineColor = Color.red;
 
 
     // Start is called before the first frame update
@@ -32,6 +35,7 @@ public class SlenderScript : MonoBehaviour
     {
         // destination = GameObject.Find("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
+        destPatrolPoint = Random.Range(0, patrolPoints.Length);
     }
 
     // Update is called once per frame
@@ -44,10 +48,19 @@ public class SlenderScript : MonoBehaviour
                 animator.SetBool("idle", true);
             }
 
+            Vector3 target = player.position + Vector3.up;
             NavMeshHit hit;
-            blocked = navMeshAgent.Raycast(player.position + Vector3.up, out hit);
+            blocked = navMeshAgent.Raycast(target, out hit);
+            if (heard) {
+                lineColor = Color.yellow;
+            } else if (seen && ! blocked) {
+                lineColor = Color.green;
+            } else {
+                lineColor = Color.red;
+            }
             
-            Debug.DrawLine(transform.position, player.position, blocked || !seen ? Color.red : Color.green);
+            
+            Debug.DrawLine(transform.position, target, lineColor);
 
             Vector3 targetDir = player.position - eyes.position;
             float angle = Vector3.Angle(targetDir, eyes.forward);
@@ -63,8 +76,8 @@ public class SlenderScript : MonoBehaviour
                 //transform.LookAt(player.position);
                 
                 SetDestination(player.position);
-            } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f) {
-                GotoNextPoint();
+            } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
+                GotoRandomPoint();
             }    
         } else {
             navMeshAgent.enabled = alive;
@@ -90,6 +103,36 @@ public class SlenderScript : MonoBehaviour
         // cycling to the start if necessary.
         destPatrolPoint = (destPatrolPoint + 1) % patrolPoints.Length;
     }
+
+    void GotoRandomPoint() {
+        // Returns if no points have been set up
+        if (patrolPoints.Length == 0)
+            return;
+
+        // Set the agent to go to the currently selected destination.
+        navMeshAgent.destination = patrolPoints[destPatrolPoint].position;
+
+        
+        // Choose the next random point in the array as the destination
+        destPatrolPoint = Random.Range(0, patrolPoints.Length);
+    }
+
+    void OnTriggerEnter(Collider collider) {
+        print("name: " + collider.gameObject.tag);
+        if(collider.gameObject.tag == "Player") {
+            SetDestination(player.position);
+            heard = true;
+        }
+    }
+
+    void OnTriggerExit(Collider collider) {
+        print("name: " + collider.gameObject.tag);
+        if(collider.gameObject.tag == "Player") {
+            heard = false;
+        }
+    }
+
+
 
     public void TakeDamage(string _collider, float _weaponDamage)
     {

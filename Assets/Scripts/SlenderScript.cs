@@ -33,6 +33,7 @@ public class SlenderScript : MonoBehaviour
     bool isShooting = false;
 
     public float shootingDistance = 25f;
+    float shootAngle = 15f;
 
 
     // Start is called before the first frame update
@@ -74,11 +75,9 @@ public class SlenderScript : MonoBehaviour
             if (!blocked && seen) {
                 //transform.LookAt(player.position);
                 SetDestination(player.position);
-                if(navMeshAgent.remainingDistance < shootingDistance) {
-                    navMeshAgent.isStopped = true;
+                if(navMeshAgent.remainingDistance < shootingDistance && angle < shootAngle) {
                     Shoot();
                 } else {
-                    navMeshAgent.isStopped = false;
                 }
                 
             } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
@@ -108,6 +107,7 @@ public class SlenderScript : MonoBehaviour
             return;
         }
     
+
         StartCoroutine(Shoot_Coroutine());
 
         if (Random.Range(0, 100) <= 50) {
@@ -123,8 +123,10 @@ public class SlenderScript : MonoBehaviour
 
     IEnumerator Shoot_Coroutine() {
         isShooting = true;
+        navMeshAgent.isStopped = true;
         yield return new WaitForSeconds(shootingTimer);
         isShooting = false;
+        navMeshAgent.isStopped = false;
     }
 
     public void SetDestination(Vector3 pos)

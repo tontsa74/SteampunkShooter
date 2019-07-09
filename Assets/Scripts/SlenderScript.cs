@@ -53,7 +53,7 @@ public class SlenderScript : MonoBehaviour
             blocked = navMeshAgent.Raycast(target, out hit);
             if (heard) {
                 lineColor = Color.yellow;
-            } else if (seen && ! blocked) {
+            } else if (seen && !blocked) {
                 lineColor = Color.green;
             } else {
                 lineColor = Color.red;
@@ -119,7 +119,7 @@ public class SlenderScript : MonoBehaviour
 
     void OnTriggerEnter(Collider collider) {
         print("name: " + collider.gameObject.tag);
-        if(collider.gameObject.tag == "Player") {
+        if(alive && collider.gameObject.tag == "Player") {
             SetDestination(player.position);
             heard = true;
         }

@@ -22,6 +22,7 @@ public class WeaponManager : MonoBehaviour
     public Animator animator;
 
     private PlayerWeapon currentWeapon;
+    private WeaponGraphics currentGraphics;
     public bool isReloading = false;
 
     public GameObject audioPrefab;
@@ -39,6 +40,11 @@ public class WeaponManager : MonoBehaviour
     public PlayerWeapon GetCurrentWeapon()
     {
         return currentWeapon;
+    }
+
+    public WeaponGraphics GetCurrentWeaponGraphics()
+    {
+        return currentGraphics;
     }
 
     public void Update()
@@ -76,6 +82,7 @@ public class WeaponManager : MonoBehaviour
     {
         GameObject _weaponIns = (GameObject)Instantiate(_weapon.graphics, weaponHolder.position, weaponHolder.rotation);
         currentWeapon = _weapon;
+        currentGraphics = _weaponIns.GetComponent<WeaponGraphics>();
         _weaponIns.transform.SetParent(weaponHolder);
      //   _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
         currentWeaponIndex = availableWeapons.IndexOf(_weapon);

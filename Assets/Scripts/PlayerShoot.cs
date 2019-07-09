@@ -79,6 +79,8 @@ public class PlayerShoot : MonoBehaviour
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
         sp.PlaySound(currentWeapon.shootSound, false, 3f);
+        PlayMuzzleFlash();
+
 
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))
@@ -87,6 +89,9 @@ public class PlayerShoot : MonoBehaviour
             {
                 print("PlayerShoot: "+_hit.collider.name);
                 EnemyShot(_hit.collider.gameObject, _hit.collider.name, currentWeapon.damage);
+            } else
+            {
+                OnHit(_hit.point, _hit.normal, 2f);
             }
         }
     }
@@ -95,5 +100,16 @@ public class PlayerShoot : MonoBehaviour
     {
         SlenderScript sc = enemy.GetComponentInParent<SlenderScript>();
         sc.TakeDamage(collider, weaponDamage);
+    }
+
+    void PlayMuzzleFlash()
+    {
+            weaponManager.GetCurrentWeaponGraphics().muzzleFlash.Play();
+    }
+
+    void OnHit(Vector3 _pos, Vector3 _norm, float showTime)
+    {
+        GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentWeaponGraphics().hitEffect, _pos, Quaternion.LookRotation(_norm));
+        Destroy(_hitEffect, showTime);
     }
 }

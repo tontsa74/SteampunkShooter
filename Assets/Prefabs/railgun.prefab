@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2483473958016911365}
   - component: {fileID: 6857879247072473651}
   - component: {fileID: 869368160985075402}
+  - component: {fileID: 4980729669480073492}
   m_Layer: 8
   m_Name: railgun
   m_TagString: Untagged
@@ -77,3 +78,18 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4980729669480073492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1453620002427959830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d528ba47546976a459a1d35067c314d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  muzzleFlash: {fileID: 266396638920776329, guid: f477ae939a2638f4f9859ecb0621188c,
+    type: 3}
+  hitEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}

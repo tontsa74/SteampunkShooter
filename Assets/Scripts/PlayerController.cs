@@ -110,4 +110,8 @@ public class PlayerController : MonoBehaviour
         return lookSensitivity;
     }
 
+    public void TakeDamage(float damage) {
+        print("Player TakeDamage: " + damage);
+    }
+
 }

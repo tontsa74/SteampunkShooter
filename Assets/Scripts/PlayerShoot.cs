@@ -91,7 +91,7 @@ public class PlayerShoot : MonoBehaviour
                 EnemyShot(_hit.collider.gameObject, _hit.collider.name, currentWeapon.damage);
             } else
             {
-                OnHit(_hit.point, _hit.normal, 2f);
+                OnHit(_hit.point, _hit.normal, 10f);
             }
         }
     }

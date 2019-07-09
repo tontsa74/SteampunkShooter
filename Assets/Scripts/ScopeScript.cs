@@ -46,7 +46,7 @@ public class ScopeScript : MonoBehaviour
             }
         }
 
-        if(weaponManager.isReloading && isScoped)
+        if(weaponManager.isReloading && isScoped || !weaponManager.GetCurrentWeapon().scopable && isScoped)
         {
             isScoped = false;
             animator.SetBool("Scoped", isScoped);

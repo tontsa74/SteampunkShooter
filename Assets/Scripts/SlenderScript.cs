@@ -29,6 +29,11 @@ public class SlenderScript : MonoBehaviour
     
     Color lineColor = Color.red;
 
+    float shootingTimer = 1f;
+    bool isShooting = false;
+
+    public float shootingDistance = 25f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,19 +53,13 @@ public class SlenderScript : MonoBehaviour
                 animator.SetBool("idle", true);
             }
 
+            animator.SetBool("isShooting", isShooting);
+            
+
             Vector3 target = player.position + Vector3.up;
             NavMeshHit hit;
             blocked = navMeshAgent.Raycast(target, out hit);
-            if (heard) {
-                lineColor = Color.yellow;
-            } else if (seen && !blocked) {
-                lineColor = Color.green;
-            } else {
-                lineColor = Color.red;
-            }
-            
-            
-            Debug.DrawLine(transform.position, target, lineColor);
+
 
             Vector3 targetDir = player.position - eyes.position;
             float angle = Vector3.Angle(targetDir, eyes.forward);
@@ -74,16 +73,58 @@ public class SlenderScript : MonoBehaviour
 
             if (!blocked && seen) {
                 //transform.LookAt(player.position);
-                
                 SetDestination(player.position);
+                if(navMeshAgent.remainingDistance < shootingDistance) {
+                    navMeshAgent.isStopped = true;
+                    Shoot();
+                } else {
+                    navMeshAgent.isStopped = false;
+                }
+                
             } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
                 GotoRandomPoint();
-            }    
+            }
+
+            // draw debug line
+            if (heard) {
+                lineColor = Color.yellow;
+            } else if (seen && !blocked) {
+                lineColor = Color.green;
+            } else {
+                lineColor = Color.red;
+            }
+            Debug.DrawLine(transform.position, target, lineColor);
+
+
         } else {
             navMeshAgent.enabled = alive;
             animator.SetBool("alive", alive);
         }
 
+    }
+
+    void Shoot() {
+        if (isShooting) {
+            return;
+        }
+    
+        StartCoroutine(Shoot_Coroutine());
+
+        if (Random.Range(0, 100) <= 50) {
+            if (seen && !blocked) {
+                print("enemy HITS player");
+                PlayerController pc = player.GetComponentInParent<PlayerController>();
+                pc.TakeDamage(10f);
+            }
+        } else {
+            print("enemy MISS");
+        }
+    }
+
+    IEnumerator Shoot_Coroutine() {
+        isShooting = true;
+        yield return new WaitForSeconds(shootingTimer);
+        isShooting = false;
     }
 
     public void SetDestination(Vector3 pos)

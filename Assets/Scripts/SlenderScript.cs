@@ -164,7 +164,7 @@ public class SlenderScript : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider) {
-        print("name: " + collider.gameObject.tag);
+     //   print("name: " + collider.gameObject.tag);
         if(alive && collider.gameObject.tag == "Player") {
             SetDestination(player.position);
             heard = true;
@@ -172,7 +172,7 @@ public class SlenderScript : MonoBehaviour
     }
 
     void OnTriggerExit(Collider collider) {
-        print("name: " + collider.gameObject.tag);
+     //   print("name: " + collider.gameObject.tag);
         if(collider.gameObject.tag == "Player") {
             heard = false;
         }

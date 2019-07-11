@@ -72,7 +72,6 @@ public class PlayerShoot : MonoBehaviour
         }
 
         currentWeapon.bullets--;
-        print("PlayerShoot: Remaining bullets " + currentWeapon.bullets);
 
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
@@ -85,7 +84,6 @@ public class PlayerShoot : MonoBehaviour
         {            
             if(_hit.collider.tag == "Enemy")
             {
-                print("PlayerShoot: "+_hit.collider.name);
                 EnemyShot(_hit.collider.gameObject, _hit.collider.name, currentWeapon.damage);
             } else
             {

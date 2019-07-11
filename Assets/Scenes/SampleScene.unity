@@ -6920,7 +6920,7 @@ MonoBehaviour:
     bullets: 8
     reloadTime: 2.7
     scopable: 1
-    graphics: {fileID: 4784299884947054378, guid: 8ab26a3774c9ab04a93b44a5e50bc7ae,
+    graphics: {fileID: 6185363422885270582, guid: 045a5cd07997e0f468e9bb59606324a0,
       type: 3}
     shootSound: {fileID: 8300000, guid: d18ac5dac2d880442b096b886c516ed7, type: 3}
     reloadSound: {fileID: 8300000, guid: e93a7424f739030429503bbe754d1f06, type: 3}

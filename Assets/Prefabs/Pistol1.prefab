@@ -2212,33 +2212,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
         type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.5009062
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startSize.minScalar
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startSize.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startSizeY.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startSizeZ.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.size3D
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6946e25289009e443b59c9110936a03d, type: 3}

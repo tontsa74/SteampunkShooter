@@ -66,7 +66,7 @@ public class PlayerShoot : MonoBehaviour
             weaponManager.Reload();
             return;
         }
-        if(weaponManager.isReloading)
+        if(weaponManager.isReloading || weaponManager.isChanging)
         {
             return;
         }

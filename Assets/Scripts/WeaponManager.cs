@@ -24,6 +24,8 @@ public class WeaponManager : MonoBehaviour
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
     public bool isReloading = false;
+    public bool isChanging = false;
+
 
     public GameObject audioPrefab;
 
@@ -33,8 +35,8 @@ public class WeaponManager : MonoBehaviour
     {
         EquipWeapon(sideArm);
 
-        availableWeapons.Add(sideArm);
         availableWeapons.Add(railGun);
+        availableWeapons.Add(sideArm);
     }
 
     public PlayerWeapon GetCurrentWeapon()
@@ -74,7 +76,8 @@ public class WeaponManager : MonoBehaviour
 
         if (selectedIndex != currentWeaponIndex)
         {
-            EquipWeapon(availableWeapons[selectedIndex]);
+            // EquipWeapon(availableWeapons[selectedIndex]);
+            StartCoroutine(ChangingWeapon_Coroutine(availableWeapons[selectedIndex]));
         }
     }
 
@@ -110,11 +113,26 @@ public class WeaponManager : MonoBehaviour
         isReloading = true;
         animator.SetBool("Reloading", isReloading);
 
-        print("WeaponManager: Reloading");
         yield return new WaitForSeconds(currentWeapon.reloadTime);
         currentWeapon.bullets = currentWeapon.clipSize;
         isReloading = false;
         animator.SetBool("Reloading", isReloading);
+
+    }
+
+    private IEnumerator ChangingWeapon_Coroutine(PlayerWeapon _weapon)
+    {
+        isChanging = true;
+        // animator.SetBool("Changing", isChanging);
+        animator.SetBool("Reloading", isChanging);
+
+        yield return new WaitForSeconds(1f);
+        EquipWeapon(_weapon);
+        currentWeapon.bullets = currentWeapon.clipSize;
+        isChanging = false;
+        // animator.SetBool("Changing", isChanging);
+        animator.SetBool("Reloading", isChanging);
+
 
     }
 }

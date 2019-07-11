@@ -126,7 +126,10 @@ public class SlenderScript : MonoBehaviour
         navMeshAgent.isStopped = true;
         yield return new WaitForSeconds(shootingTimer);
         isShooting = false;
-        navMeshAgent.isStopped = false;
+        if(alive)
+        {
+            navMeshAgent.isStopped = false;
+        }
     }
 
     public void SetDestination(Vector3 pos)

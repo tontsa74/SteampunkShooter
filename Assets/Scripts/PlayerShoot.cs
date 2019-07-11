@@ -74,8 +74,6 @@ public class PlayerShoot : MonoBehaviour
         currentWeapon.bullets--;
         print("PlayerShoot: Remaining bullets " + currentWeapon.bullets);
 
-        cam.GetComponent<Recoil>().StartRecoil(0.1f, -15, 2);
-
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
         sp.PlaySound(currentWeapon.shootSound, false, 3f);
@@ -94,6 +92,9 @@ public class PlayerShoot : MonoBehaviour
                 OnHit(_hit.point, _hit.normal, 10f);
             }
         }
+
+        cam.GetComponent<Recoil>().StartRecoil(0.1f, -15, 2);
+
     }
 
     void EnemyShot(GameObject enemy, string collider, float weaponDamage)

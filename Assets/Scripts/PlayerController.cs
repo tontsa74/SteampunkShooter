@@ -6,6 +6,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
+    private float playerHealth = 100f;
+    [SerializeField]
     private float runMultiplier = 1.8f;
     [SerializeField]
     private float speed = 5f;
@@ -25,14 +27,20 @@ public class PlayerController : MonoBehaviour
 
     private PlayerMotor motor;
 
+    public UiManager uiManager;
+
+
     // Start is called before the first frame update
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
 
-      //  GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
-      //  AudioScript sp = soundPlayer.GetComponent<AudioScript>();
-       // sp.PlaySound(bgMusic, true, 0.5f);
+        //  GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        //  AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        // sp.PlaySound(bgMusic, true, 0.5f);
+
+        uiManager.UpdateHealth(playerHealth);
+
     }
 
     // Update is called once per frame
@@ -111,7 +119,12 @@ public class PlayerController : MonoBehaviour
     }
 
     public void TakeDamage(float damage) {
-        print("Player TakeDamage: " + damage);
+        playerHealth -= damage;
+        if(playerHealth <= 0)
+        {
+            print("PLAYER DEADDD");
+        }
+        uiManager.UpdateHealth(playerHealth);
     }
 
 }

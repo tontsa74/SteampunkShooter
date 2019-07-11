@@ -112,12 +112,12 @@ public class SlenderScript : MonoBehaviour
 
         if (Random.Range(0, 100) <= 50) {
             if (seen && !blocked) {
-                print("enemy HITS player");
+            //    print("enemy HITS player");
                 PlayerController pc = player.GetComponentInParent<PlayerController>();
                 pc.TakeDamage(10f);
             }
         } else {
-            print("enemy MISS");
+         //   print("enemy MISS");
         }
     }
 
@@ -192,10 +192,7 @@ public class SlenderScript : MonoBehaviour
 
         if(health <= 0)
         {
-            print("SlenderScript: DEAD");
             alive = false;
         }
-
-        print("SlenderScript: health "+health);
     }
 }

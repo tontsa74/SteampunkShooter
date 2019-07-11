@@ -7,6 +7,8 @@ public class UiManager : MonoBehaviour
 {
 
     public TextMeshProUGUI ammo;
+    public TextMeshProUGUI health;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,5 +33,10 @@ public class UiManager : MonoBehaviour
     public void UpdateAmmo(string gunName, int bullets)
     {
         ammo.SetText(gunName + " " + bullets);
+    }
+
+    public void UpdateHealth(float _health)
+    {
+        health.SetText("health: " + _health);
     }
 }

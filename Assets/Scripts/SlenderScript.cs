@@ -38,6 +38,8 @@ public class SlenderScript : MonoBehaviour
     public float shootingDistance = 25f;
     float shootAngle = 15f;
 
+    float rotationSpeed = 10f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,13 +57,19 @@ public class SlenderScript : MonoBehaviour
             SetAnimations();
             
             target = player.position + Vector3.up;
-            targetDir = player.position - transform.position;
+            targetDir = (player.position - transform.position).normalized;
             targetAngle = Vector3.Angle(targetDir, transform.forward);
 
             Seen();
 
             if (seen) {
+
                 SetDestination(player.position);
+                if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) {
+                    Quaternion lookRotation = Quaternion.LookRotation(targetDir);
+                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+                }
+                    
                 if(navMeshAgent.remainingDistance < shootingDistance && targetAngle < shootAngle) {
                     isShooting = true;
                     Shoot();
@@ -69,8 +77,11 @@ public class SlenderScript : MonoBehaviour
                     isShooting = false;
                 }
                 
-            } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
-                GotoRandomPoint();
+            } else {
+                isShooting = false;
+                if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
+                    GotoRandomPoint();
+                }
             }
 
             // draw debug line

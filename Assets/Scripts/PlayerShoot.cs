@@ -87,7 +87,7 @@ public class PlayerShoot : MonoBehaviour
                 EnemyShot(_hit.collider.gameObject, _hit.collider.name, currentWeapon.damage);
             } else
             {
-                OnHit(_hit.point, _hit.normal, 10f);
+                OnHit(_hit.point, _hit.normal, 10f, _hit.collider.gameObject);
             }
         }
 
@@ -106,9 +106,10 @@ public class PlayerShoot : MonoBehaviour
             weaponManager.GetCurrentWeaponGraphics().muzzleFlash.Play();
     }
 
-    void OnHit(Vector3 _pos, Vector3 _norm, float showTime)
+    void OnHit(Vector3 _pos, Vector3 _norm, float showTime, GameObject collider)
     {
         GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentWeaponGraphics().hitEffect, _pos, Quaternion.LookRotation(_norm));
+        _hitEffect.transform.SetParent(collider.transform);
         Destroy(_hitEffect, showTime);
     }
 }

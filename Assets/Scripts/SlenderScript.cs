@@ -182,7 +182,7 @@ public class SlenderScript : MonoBehaviour
 
     public void TakeDamage(string _collider, float _weaponDamage)
     {
-        if(_collider == "Bone004")
+        if(_collider == "Bone004" || _collider == "pää001")
         {
             health = 0;
         } else

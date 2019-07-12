@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class SlenderScript : MonoBehaviour
+public class RobotRailgunnerScript : MonoBehaviour
 {
     // GameObject destination;
     NavMeshAgent navMeshAgent;

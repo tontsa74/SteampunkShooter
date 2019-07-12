@@ -8,8 +8,6 @@ public class SlenderScript : MonoBehaviour
     // GameObject destination;
     NavMeshAgent navMeshAgent;
 
-    public Transform eyes;
-
     public Transform player;
 
     public Transform[] patrolPoints;
@@ -17,6 +15,9 @@ public class SlenderScript : MonoBehaviour
 
     public Animator animator;
 
+    Vector3 target;
+    Vector3 targetDir;
+    float targetAngle;
 
     public float health = 100;
 
@@ -24,6 +25,7 @@ public class SlenderScript : MonoBehaviour
 
     private bool blocked = false;
     private bool seen = false;
+    private bool inSeenSector = false;
     private bool heard = false;
     public float sightAngle = 45;
     
@@ -31,6 +33,7 @@ public class SlenderScript : MonoBehaviour
 
     float shootingTimer = 1f;
     bool isShooting = false;
+    bool shoot = false;
 
     public float shootingDistance = 25f;
     float shootAngle = 15f;
@@ -48,36 +51,22 @@ public class SlenderScript : MonoBehaviour
     void Update()
     {
         if (alive) {
-            if(navMeshAgent.velocity != Vector3.zero){
-                animator.SetBool("idle", false);
-            } else {
-                animator.SetBool("idle", true);
-            }
 
-            animator.SetBool("isShooting", isShooting);
+            SetAnimations();
             
+            target = player.position + Vector3.up;
+            targetDir = player.position - transform.position;
+            targetAngle = Vector3.Angle(targetDir, transform.forward);
 
-            Vector3 target = player.position + Vector3.up;
-            NavMeshHit hit;
-            blocked = navMeshAgent.Raycast(target, out hit);
+            Seen();
 
-
-            Vector3 targetDir = player.position - transform.position;
-            float angle = Vector3.Angle(targetDir, transform.forward);
-            if (angle < sightAngle) {
-                seen = true;
-            } else {
-                seen = false;
-            }
-
-
-
-            if (!blocked && seen) {
-                //transform.LookAt(player.position);
+            if (seen) {
                 SetDestination(player.position);
-                if(navMeshAgent.remainingDistance < shootingDistance && angle < shootAngle) {
+                if(navMeshAgent.remainingDistance < shootingDistance && targetAngle < shootAngle) {
+                    isShooting = true;
                     Shoot();
                 } else {
+                    isShooting = false;
                 }
                 
             } else if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
@@ -85,14 +74,7 @@ public class SlenderScript : MonoBehaviour
             }
 
             // draw debug line
-            if (heard) {
-                lineColor = Color.yellow;
-            } else if (seen && !blocked) {
-                lineColor = Color.green;
-            } else {
-                lineColor = Color.red;
-            }
-            Debug.DrawLine(transform.position, target, lineColor);
+            DebugDraw();
 
 
         } else {
@@ -102,8 +84,47 @@ public class SlenderScript : MonoBehaviour
 
     }
 
+    void SetAnimations(){
+        if(navMeshAgent.velocity != Vector3.zero){
+            animator.SetBool("idle", false);
+        } else {
+            animator.SetBool("idle", true);
+        }
+
+        animator.SetBool("isShooting", isShooting);
+        animator.SetBool("seen", seen);
+    }
+
+    void Seen() {
+        NavMeshHit hit;
+        blocked = navMeshAgent.Raycast(target, out hit);
+
+        if (!blocked) {
+            if (targetAngle < sightAngle) {
+                inSeenSector = true;
+                seen = true;
+            } else {
+                inSeenSector = false;
+                seen = false;
+            }
+        } else {
+            seen = false;
+        }
+    }
+
+    void DebugDraw() {
+        if (heard) {
+            lineColor = Color.yellow;
+        } else if (inSeenSector && !blocked) {
+            lineColor = Color.green;
+        } else {
+            lineColor = Color.red;
+        }
+        Debug.DrawLine(transform.position, target, lineColor);
+    }
+
     void Shoot() {
-        if (isShooting) {
+        if (shoot) {
             return;
         }
     
@@ -111,7 +132,7 @@ public class SlenderScript : MonoBehaviour
         StartCoroutine(Shoot_Coroutine());
 
         if (Random.Range(0, 100) <= 50) {
-            if (seen && !blocked) {
+            if (inSeenSector && !blocked) {
             //    print("enemy HITS player");
                 PlayerController pc = player.GetComponentInParent<PlayerController>();
                 pc.TakeDamage(10f);
@@ -122,10 +143,10 @@ public class SlenderScript : MonoBehaviour
     }
 
     IEnumerator Shoot_Coroutine() {
-        isShooting = true;
+        shoot = true;
         navMeshAgent.isStopped = true;
         yield return new WaitForSeconds(shootingTimer);
-        isShooting = false;
+        shoot = false;
         if(alive)
         {
             navMeshAgent.isStopped = false;

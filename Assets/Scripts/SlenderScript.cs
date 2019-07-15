@@ -21,12 +21,18 @@ public class SlenderScript : MonoBehaviour
 
     public float health = 100;
 
+    public bool canRun = false;
 
+    public float runSpeedFactor = 1.5f;
 
-    public bool alive = true;
+    private float walkSpeed, runSpeed;
+
+    private bool alive = true;
 
     private bool blocked = false;
     private bool seen = false;
+
+    private bool run = false;
     private bool inSeenSector = false;
     private bool heard = false;
     public float sightAngle = 45;
@@ -49,6 +55,9 @@ public class SlenderScript : MonoBehaviour
         // destination = GameObject.Find("Player");
         navMeshAgent = GetComponent<NavMeshAgent>();
         destPatrolPoint = Random.Range(0, patrolPoints.Length);
+        walkSpeed = navMeshAgent.speed;
+        runSpeed = walkSpeed * runSpeedFactor;
+
     }
 
     // Update is called once per frame
@@ -65,21 +74,30 @@ public class SlenderScript : MonoBehaviour
             Seen();
 
             if (seen) {
-
+                if (canRun) {
+                    run = true;
+                    navMeshAgent.speed = runSpeed;
+                }
                 SetDestination(player.position);
                 if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) {
+                    run = false;
                     Quaternion lookRotation = Quaternion.LookRotation(targetDir);
                     transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
                 }
                     
                 if(navMeshAgent.remainingDistance < shootingDistance && targetAngle < shootAngle) {
                     isShooting = true;
+                    run = false;
                     Shoot();
                 } else {
                     isShooting = false;
                 }
                 
             } else {
+                if (canRun) {
+                    run = false;
+                    navMeshAgent.speed = walkSpeed;
+                }
                 isShooting = false;
                 if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
                     GotoRandomPoint();
@@ -106,6 +124,7 @@ public class SlenderScript : MonoBehaviour
 
         animator.SetBool("isShooting", isShooting);
         animator.SetBool("seen", seen);
+        animator.SetBool("run", run);
     }
 
     // void SeenOld() {

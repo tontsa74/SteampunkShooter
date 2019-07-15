@@ -21,7 +21,9 @@ public class SlenderScript : MonoBehaviour
 
     public float health = 100;
 
-    private bool alive = true;
+
+
+    public bool alive = true;
 
     private bool blocked = false;
     private bool seen = false;
@@ -106,22 +108,39 @@ public class SlenderScript : MonoBehaviour
         animator.SetBool("seen", seen);
     }
 
-    void Seen() {
-        NavMeshHit hit;
-        blocked = navMeshAgent.Raycast(target, out hit);
+    // void SeenOld() {
+    //     NavMeshHit hit;
+    //     blocked = navMeshAgent.Raycast(target, out hit);
 
-        if (!blocked) {
-            if (targetAngle < sightAngle) {
-                inSeenSector = true;
-                seen = true;
-            } else {
-                inSeenSector = false;
-                seen = false;
-            }
+    //     if (!blocked) {
+    //         if (targetAngle < sightAngle) {
+    //             inSeenSector = true;
+    //             seen = true;
+    //         } else {
+    //             inSeenSector = false;
+    //             seen = false;
+    //         }
+    //     } else {
+    //         seen = false;
+    //     }
+    // }
+
+    void Seen() {
+        if (targetAngle < sightAngle) {
+            inSeenSector = true;
+            NavMeshHit hit;
+            blocked = navMeshAgent.Raycast(target, out hit);
+                if (!blocked) {
+                    seen = true;
+                } else {
+                    seen = false;
+                }
         } else {
+            inSeenSector = false;
             seen = false;
         }
     }
+
 
     void DebugDraw() {
         if (heard) {

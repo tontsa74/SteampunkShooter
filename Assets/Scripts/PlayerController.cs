@@ -121,11 +121,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage) {
         playerHealth -= damage;
-        if(playerHealth <= 0)
+        uiManager.UpdateHealth(playerHealth);
+
+        if (playerHealth <= 0)
         {
             print("PLAYER DEADDD");
         }
-        uiManager.UpdateHealth(playerHealth);
     }
 
 }

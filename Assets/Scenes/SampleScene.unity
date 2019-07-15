@@ -1041,6 +1041,7 @@ MonoBehaviour:
   canRun: 1
   runSpeedFactor: 1.5
   sightAngle: 90
+  sightDistance: 50
   shootingDistance: 2
 --- !u!54 &573253358
 Rigidbody:
@@ -2152,6 +2153,7 @@ MonoBehaviour:
   canRun: 0
   runSpeedFactor: 2
   sightAngle: 90
+  sightDistance: 50
   shootingDistance: 25
 --- !u!54 &848937791
 Rigidbody:
@@ -2285,6 +2287,7 @@ MonoBehaviour:
   canRun: 0
   runSpeedFactor: 2
   sightAngle: 90
+  sightDistance: 50
   shootingDistance: 25
 --- !u!1001 &917892160
 PrefabInstance:
@@ -3991,6 +3994,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.0231651
       objectReference: {fileID: 0}
+    - target: {fileID: -1811566308692034672, guid: 687925e4ca19d2243878512b1d8e77ea,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -1748871500470676289, guid: 687925e4ca19d2243878512b1d8e77ea,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4035,6 +4043,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.9903401
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 687925e4ca19d2243878512b1d8e77ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1429073511615047493, guid: 687925e4ca19d2243878512b1d8e77ea,
         type: 3}
@@ -4671,16 +4684,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.4796124
       objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 687925e4ca19d2243878512b1d8e77ea,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -1811566308692034672, guid: 687925e4ca19d2243878512b1d8e77ea,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 687925e4ca19d2243878512b1d8e77ea, type: 3}
 --- !u!1 &1407284871
@@ -5160,7 +5163,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
   walkNoise: 3
-  runNoise: 6
+  runNoise: 10
   idleNoise: 1
   footStepSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
@@ -5253,7 +5256,7 @@ MonoBehaviour:
     clipSize: 15
     bullets: 15
     reloadTime: 1
-    noiseAmount: 15
+    noiseAmount: 20
     scopable: 0
     graphics: {fileID: 5335178260629923529, guid: d0e92eb21da81554d91228b7e50f0156,
       type: 3}
@@ -5267,7 +5270,7 @@ MonoBehaviour:
     clipSize: 8
     bullets: 8
     reloadTime: 2.7
-    noiseAmount: 20
+    noiseAmount: 30
     scopable: 1
     graphics: {fileID: 6185363422885270582, guid: 045a5cd07997e0f468e9bb59606324a0,
       type: 3}
@@ -5400,11 +5403,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 647f8722eb6101a419cfd4a31571f007, type: 2}
-    - target: {fileID: 7450443506182991955, guid: f992449478fc53c4f98eee686f1f5b8a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: -9009355781674443102, guid: f992449478fc53c4f98eee686f1f5b8a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5749,6 +5747,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7450443506182991955, guid: f992449478fc53c4f98eee686f1f5b8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f992449478fc53c4f98eee686f1f5b8a, type: 3}

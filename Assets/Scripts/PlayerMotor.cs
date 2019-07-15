@@ -161,7 +161,7 @@ public class PlayerMotor : MonoBehaviour
         }
         else
         {
-            hearingColl.radius -= 0.05f;
+            hearingColl.radius -= 0.5f;
         }
     }
 

@@ -147,12 +147,17 @@ public class SlenderScript : MonoBehaviour
 
 
     void DebugDraw() {
+        lineColor = Color.red;
         if (heard) {
             lineColor = Color.yellow;
-        } else if (inSeenSector && !blocked) {
+        }
+        
+        if (seen) {
             lineColor = Color.green;
-        } else {
-            lineColor = Color.red;
+        }
+
+        if (heard & seen) {
+            lineColor = Color.blue;
         }
         Debug.DrawLine(transform.position, target, lineColor);
     }

@@ -155,7 +155,7 @@ public class PlayerMotor : MonoBehaviour
         }
 
 
-        if (noiseAmount > hearingColl.radius)
+        if (noiseAmount >= hearingColl.radius)
         {
             hearingColl.radius = noiseAmount;
         }

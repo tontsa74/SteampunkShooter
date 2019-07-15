@@ -16,13 +16,15 @@ public class PlayerShoot : MonoBehaviour
 
     public UiManager uiManager;
 
-
     public GameObject audioPrefab;
+
+    private CapsuleCollider hearingColl;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        hearingColl = GetComponent<CapsuleCollider>();
 
         if (cam == null)
         {
@@ -76,6 +78,7 @@ public class PlayerShoot : MonoBehaviour
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
         sp.PlaySound(currentWeapon.shootSound, false, 3f);
         PlayMuzzleFlash();
+        hearingColl.radius = currentWeapon.noiseAmount;
 
 
         RaycastHit _hit;

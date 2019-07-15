@@ -31,11 +31,11 @@ public class UiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("Cursor") > 0f)
+      /*  if (Input.GetAxis("Cursor") > 0f)
         {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-        } 
+        } */
 
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {

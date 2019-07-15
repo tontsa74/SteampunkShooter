@@ -154,7 +154,15 @@ public class PlayerMotor : MonoBehaviour
             PlayLandSound();
         }
 
-        hearingColl.radius = noiseAmount;
+
+        if (noiseAmount > hearingColl.radius)
+        {
+            hearingColl.radius = noiseAmount;
+        }
+        else
+        {
+            hearingColl.radius -= 0.05f;
+        }
     }
 
     void PerformRotation()

@@ -36,7 +36,7 @@ public class SlenderScript : MonoBehaviour
     private bool inSeenSector = false;
     private bool heard = false;
     public float sightAngle = 45;
-    float sightDistance = 50f;
+    public float sightDistance = 50f;
     
     Color lineColor = Color.red;
 

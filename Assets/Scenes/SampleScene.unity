@@ -1113,7 +1113,8 @@ MonoBehaviour:
   - {fileID: 10136314}
   animator: {fileID: 1980436754}
   health: 100
-  alive: 1
+  canRun: 1
+  runSpeedFactor: 1.5
   sightAngle: 90
   shootingDistance: 2
 --- !u!54 &573253358
@@ -2136,7 +2137,8 @@ MonoBehaviour:
   - {fileID: 737724152}
   animator: {fileID: 1011016133}
   health: 100
-  alive: 1
+  canRun: 0
+  runSpeedFactor: 2
   sightAngle: 90
   shootingDistance: 25
 --- !u!54 &848937791
@@ -2270,7 +2272,8 @@ MonoBehaviour:
   - {fileID: 172068804}
   animator: {fileID: 1156496382}
   health: 100
-  alive: 1
+  canRun: 0
+  runSpeedFactor: 2
   sightAngle: 90
   shootingDistance: 25
 --- !u!1 &963194225

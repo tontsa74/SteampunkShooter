@@ -80,6 +80,7 @@ public class SlenderScript : MonoBehaviour
                 }
                 SetDestination(player.position);
                 if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) {
+                    run = false;
                     Quaternion lookRotation = Quaternion.LookRotation(targetDir);
                     transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
                 }

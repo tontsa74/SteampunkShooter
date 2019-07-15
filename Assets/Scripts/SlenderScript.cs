@@ -238,6 +238,14 @@ public class SlenderScript : MonoBehaviour
         }
     }
 
+    void OnTriggerExit(Collider collider)
+    {
+        if (alive && collider.gameObject.tag == "Player")
+        {
+            heard = false;
+        }
+    }
+
     public void TakeDamage(string _collider, float _weaponDamage)
     {
         if(_collider == "Bone004" || _collider == "pää001")

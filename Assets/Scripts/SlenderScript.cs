@@ -124,25 +124,10 @@ public class SlenderScript : MonoBehaviour
 
         animator.SetBool("isShooting", isShooting);
         animator.SetBool("seen", seen);
-        animator.SetBool("run", run);
+        if (canRun) {
+            animator.SetBool("run", run);
+        }
     }
-
-    // void SeenOld() {
-    //     NavMeshHit hit;
-    //     blocked = navMeshAgent.Raycast(target, out hit);
-
-    //     if (!blocked) {
-    //         if (targetAngle < sightAngle) {
-    //             inSeenSector = true;
-    //             seen = true;
-    //         } else {
-    //             inSeenSector = false;
-    //             seen = false;
-    //         }
-    //     } else {
-    //         seen = false;
-    //     }
-    // }
 
     void Seen() {
         if (targetAngle < sightAngle) {

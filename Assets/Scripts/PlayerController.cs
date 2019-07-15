@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     private float thrustCounter;
 
     private PlayerMotor motor;
+    private CapsuleCollider hearingColl;
 
     public UiManager uiManager;
 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         motor = GetComponent<PlayerMotor>();
+        hearingColl = GetComponent<CapsuleCollider>();
 
         //  GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         //  AudioScript sp = soundPlayer.GetComponent<AudioScript>();
@@ -61,7 +63,6 @@ public class PlayerController : MonoBehaviour
         }
 
         Vector3 _velocity = (_movHorizontal + _movVertical).normalized * speed;
-
         motor.Move(_velocity, running, runMultiplier);
 
         //calculate rotation

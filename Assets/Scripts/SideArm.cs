@@ -14,6 +14,7 @@ public class SideArm : PlayerWeapon
         bullets = clipSize;
 
         reloadTime = 1f;
+        noiseAmount = 15f;
 
         scopable = false;
 

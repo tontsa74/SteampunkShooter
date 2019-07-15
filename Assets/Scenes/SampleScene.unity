@@ -1655,7 +1655,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 1e-45, y: 0, z: 1.51e-43, w: 0}
+  m_BoundingSphereOverride: {x: NaN, y: NaN, z: 4e-44, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4689,6 +4689,7 @@ GameObject:
   - component: {fileID: 1597960980}
   - component: {fileID: 1597960981}
   - component: {fileID: 1597960982}
+  - component: {fileID: 1597960983}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -4747,6 +4748,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 963194227}
+  walkNoise: 3
+  runNoise: 6
+  idleNoise: 1
   footStepSounds:
   - {fileID: 8300000, guid: 42e65e088b3f4374e851b8dbd38f3df9, type: 3}
   - {fileID: 8300000, guid: 8bc94ec6ed537e743b481638bdcd503d, type: 3}
@@ -4809,6 +4813,7 @@ MonoBehaviour:
     clipSize: 0
     bullets: 0
     reloadTime: 0
+    noiseAmount: 0
     scopable: 0
     graphics: {fileID: 0}
     shootSound: {fileID: 0}
@@ -4837,6 +4842,7 @@ MonoBehaviour:
     clipSize: 15
     bullets: 15
     reloadTime: 1
+    noiseAmount: 15
     scopable: 0
     graphics: {fileID: 5335178260629923529, guid: d0e92eb21da81554d91228b7e50f0156,
       type: 3}
@@ -4850,6 +4856,7 @@ MonoBehaviour:
     clipSize: 8
     bullets: 8
     reloadTime: 2.7
+    noiseAmount: 20
     scopable: 1
     graphics: {fileID: 6185363422885270582, guid: 045a5cd07997e0f468e9bb59606324a0,
       type: 3}
@@ -4861,6 +4868,20 @@ MonoBehaviour:
   isChanging: 0
   audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
     type: 3}
+--- !u!136 &1597960983
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597960975}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.06, z: 0}
 --- !u!1001 &1603961876
 PrefabInstance:
   m_ObjectHideFlags: 0

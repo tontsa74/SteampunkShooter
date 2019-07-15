@@ -16,6 +16,7 @@ public class PlayerWeapon
 
     public float reloadTime;
 
+    public float noiseAmount;
     public bool scopable;
 
     public GameObject graphics;

@@ -17,6 +17,12 @@ public class PlayerMotor : MonoBehaviour
     private float distToGround;
 
     private Rigidbody rb;
+    private CapsuleCollider hearingColl;
+
+    public float walkNoise = 3;
+    public float runNoise = 6;
+    public float idleNoise = 1;
+    private float noiseAmount;
 
     [SerializeField]
     AudioClip[] footStepSounds;
@@ -40,6 +46,7 @@ public class PlayerMotor : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        hearingColl = GetComponent<CapsuleCollider>();
         distToGround = GetComponent<BoxCollider>().bounds.extents.y;
         thrusterSoundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         tsp = thrusterSoundPlayer.GetComponent<AudioScript>();
@@ -103,13 +110,18 @@ public class PlayerMotor : MonoBehaviour
                 if(!running)
                 {
                     PlayWalkSteps();
-                } else
+                    noiseAmount = walkNoise;
+                }
+                else
                 {
                     PlayRunSteps();
+                    noiseAmount = runNoise;
                 }
-
             }
 
+        } else
+        {
+            noiseAmount = idleNoise;
         }
 
         if (thrusterForce != Vector3.zero && !IsGrounded())
@@ -141,6 +153,8 @@ public class PlayerMotor : MonoBehaviour
             hasJumped = false;
             PlayLandSound();
         }
+
+        hearingColl.radius = noiseAmount;
     }
 
     void PerformRotation()

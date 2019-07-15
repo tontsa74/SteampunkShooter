@@ -224,7 +224,7 @@ public class SlenderScript : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider collider) {
-        print("ONTRIGGERENTER HEARD name: " + collider.gameObject.tag);
+       // print("ONTRIGGERENTER HEARD name: " + collider.gameObject.tag);
         if(alive && collider.gameObject.tag == "Player") {
             SetDestination(player.position);
             heard = true;

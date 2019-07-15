@@ -36,6 +36,7 @@ public class SlenderScript : MonoBehaviour
     private bool inSeenSector = false;
     private bool heard = false;
     public float sightAngle = 45;
+    public float sightDistance = 50f;
     
     Color lineColor = Color.red;
 
@@ -134,8 +135,9 @@ public class SlenderScript : MonoBehaviour
             inSeenSector = true;
             NavMeshHit hit;
             blocked = navMeshAgent.Raycast(target, out hit);
-                if (!blocked) {
+                if (!blocked && hit.distance < sightDistance) {
                     seen = true;
+                    print("distance: " + hit.distance);
                 } else {
                     seen = false;
                 }

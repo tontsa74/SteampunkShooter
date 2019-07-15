@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -47,6 +48,11 @@ public class UiManager : MonoBehaviour
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ChangeScene(int sceneId)
+    {
+        SceneManager.LoadScene(sceneId);
     }
 
     public void UpdateAmmo(string gunName, int bullets)

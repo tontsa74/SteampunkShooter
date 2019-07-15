@@ -21,7 +21,9 @@ public class SlenderScript : MonoBehaviour
 
     public float health = 100;
 
-    private bool alive = true;
+
+
+    public bool alive = true;
 
     private bool blocked = false;
     private bool seen = false;

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -18,7 +19,13 @@ public class UiManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(SceneManager.GetActiveScene().buildIndex == 1)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+
+        }
+
     }
 
     // Update is called once per frame
@@ -26,27 +33,36 @@ public class UiManager : MonoBehaviour
     {
         if (Input.GetAxis("Cursor") > 0f)
         {
-            Application.Quit();
-        }
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        } 
 
-        if(healthOverlay.enabled)
+        if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-            timer += Time.deltaTime;
-            if(timer >= healthIndicator)
+            if (healthOverlay.enabled)
             {
-                print("ENABLED");
-                healthOverlay.enabled = false;
-                timer = 0f;
+                timer += Time.deltaTime;
+                if (timer >= healthIndicator)
+                {
+                    healthOverlay.enabled = false;
+                    timer = 0f;
+                }
             }
         }
 
-        print("HEALTHOVERLAY " + healthOverlay.enabled);
+    
+
 
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    public void ChangeScene(int sceneId)
+    {
+        SceneManager.LoadScene(sceneId);
     }
 
     public void UpdateAmmo(string gunName, int bullets)

@@ -153,22 +153,22 @@ public class SlenderScript : MonoBehaviour
         Debug.DrawLine(transform.position, target, lineColor);
         if (inSeenSector) {
             lineColor = Color.grey;
-            Debug.DrawLine(transform.position + new Vector3(0.1f, 0, 0), target + new Vector3(0.01f, 0, 0), lineColor);
+            Debug.DrawLine(transform.position + new Vector3(0.1f, 0, 0), target, lineColor);
         }
 
         if (heard) {
             lineColor = Color.yellow;
-            Debug.DrawLine(transform.position + new Vector3(-0.1f, 0, 0), target + new Vector3(-0.01f, 0, 0), lineColor);
+            Debug.DrawLine(transform.position + new Vector3(-0.1f, 0, 0), target, lineColor);
         }
         
         if (seen) {
             lineColor = Color.green;
-            Debug.DrawLine(transform.position + new Vector3(0.2f, 0, 0), target + new Vector3(0.02f, 0, 0), lineColor);
+            Debug.DrawLine(transform.position + new Vector3(0.2f, 0, 0), target, lineColor);
         }
 
         if (heard & seen) {
             lineColor = Color.blue;
-            Debug.DrawLine(transform.position + new Vector3(-0.2f, 0, 0), target + new Vector3(-0.02f, 0, 0), lineColor);
+            Debug.DrawLine(transform.position + new Vector3(-0.2f, 0, 0), target, lineColor);
         }
     }
 

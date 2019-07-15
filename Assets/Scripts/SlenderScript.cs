@@ -231,22 +231,12 @@ public class SlenderScript : MonoBehaviour
         destPatrolPoint = Random.Range(0, patrolPoints.Length);
     }
 
-    void OnTriggerEnter(Collider collider) {
-       // print("ONTRIGGERENTER HEARD name: " + collider.gameObject.tag);
+    void OnTriggerStay(Collider collider) {
         if(alive && collider.gameObject.tag == "Player") {
             SetDestination(player.position);
             heard = true;
         }
     }
-
-    void OnTriggerExit(Collider collider) {
-     //   print("name: " + collider.gameObject.tag);
-        if(collider.gameObject.tag == "Player") {
-            heard = false;
-        }
-    }
-
-
 
     public void TakeDamage(string _collider, float _weaponDamage)
     {

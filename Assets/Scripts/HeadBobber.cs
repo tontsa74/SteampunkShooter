@@ -12,6 +12,7 @@ public class HeadBobber : MonoBehaviour
     public float runAmountMultiplier = 2f;
     public float walkSpeedMultiplier = 5f;
     public float walkAmountMultiplier = 2f;
+    public bool isGrounded = true;
 
     private float defBobbingAmount;
     private float defbobbingSpeed;
@@ -26,7 +27,7 @@ public class HeadBobber : MonoBehaviour
         float waveslice = 0.0f;
         float horizontal = 1;
         float vertical = 1;
-        if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical) == 0)
+        if (!isGrounded)
         {
             timer = 0.0f;
         }
@@ -73,6 +74,5 @@ public class HeadBobber : MonoBehaviour
         bobbingSpeed = defbobbingSpeed;
         bobbingAmount = defBobbingAmount;
     }
-
 
 }

@@ -101,6 +101,7 @@ public class PlayerMotor : MonoBehaviour
         if(!IsGrounded())
         {
             hasJumped = true;
+            headBobber.isGrounded = false;
         }
 
         if(velocity != Vector3.zero)
@@ -156,6 +157,7 @@ public class PlayerMotor : MonoBehaviour
         if(IsGrounded() && hasJumped)
         {
             hasJumped = false;
+            headBobber.isGrounded = true;
             PlayLandSound();
         }
 

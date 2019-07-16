@@ -5,22 +5,27 @@ public class HeadBobber : MonoBehaviour
 {
 
     private float timer = 0.0f;
-    public float bobbingSpeed = 0.18f;
-    public float bobbingAmount = 0.1f;
+    public float bobbingSpeed = 0.06f;
+    public float bobbingAmount = 0.05f;
     public float midpoint = 2.0f;
-    public float runMultiplier = 2f;
+    public float runSpeedMultiplier = 7f;
+    public float runAmountMultiplier = 2f;
+    public float walkSpeedMultiplier = 5f;
+    public float walkAmountMultiplier = 2f;
 
     private float defBobbingAmount;
+    private float defbobbingSpeed;
 
     void Start()
     {
         defBobbingAmount = bobbingAmount;
+        defbobbingSpeed = bobbingSpeed;
     }
     void Update()
     {
         float waveslice = 0.0f;
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        float horizontal = 1;
+        float vertical = 1;
         if (Mathf.Abs(horizontal) == 0 && Mathf.Abs(vertical) == 0)
         {
             timer = 0.0f;
@@ -53,17 +58,20 @@ public class HeadBobber : MonoBehaviour
 
     public void RunningBobbing()
     {
-        bobbingAmount = defBobbingAmount * runMultiplier;
+        bobbingAmount = defBobbingAmount * runAmountMultiplier;
+        bobbingSpeed = defbobbingSpeed * runSpeedMultiplier;
     }
 
     public void WalkingBobbing()
     {
-        bobbingAmount = defBobbingAmount;
+        bobbingAmount = defBobbingAmount * walkAmountMultiplier;
+        bobbingSpeed = defbobbingSpeed * walkSpeedMultiplier;
     }
 
     public void IdleBobbing()
     {
-
+        bobbingSpeed = defbobbingSpeed;
+        bobbingAmount = defBobbingAmount;
     }
 
 

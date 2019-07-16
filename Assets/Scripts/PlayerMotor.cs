@@ -126,6 +126,7 @@ public class PlayerMotor : MonoBehaviour
         } else
         {
             noiseAmount = idleNoise;
+            headBobber.IdleBobbing();
         }
 
         if (thrusterForce != Vector3.zero && !IsGrounded())

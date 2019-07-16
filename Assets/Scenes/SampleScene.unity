@@ -3882,7 +3882,7 @@ MonoBehaviour:
   bobbingAmount: 0.1
   midpoint: 2
   runSpeedMultiplier: 7
-  runAmountMultiplier: 1.5
+  runAmountMultiplier: 1
   walkSpeedMultiplier: 5
   walkAmountMultiplier: 1.5
   isGrounded: 1

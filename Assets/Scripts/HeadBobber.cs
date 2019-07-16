@@ -9,9 +9,9 @@ public class HeadBobber : MonoBehaviour
     public float bobbingAmount = 0.05f;
     public float midpoint = 2.0f;
     public float runSpeedMultiplier = 7f;
-    public float runAmountMultiplier = 2f;
+    public float runAmountMultiplier = 1.5f;
     public float walkSpeedMultiplier = 5f;
-    public float walkAmountMultiplier = 2f;
+    public float walkAmountMultiplier = 1.5f;
     public bool isGrounded = true;
 
     private float defBobbingAmount;

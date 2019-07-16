@@ -3882,9 +3882,10 @@ MonoBehaviour:
   bobbingAmount: 0.1
   midpoint: 2
   runSpeedMultiplier: 7
-  runAmountMultiplier: 2
+  runAmountMultiplier: 1.5
   walkSpeedMultiplier: 5
-  walkAmountMultiplier: 2
+  walkAmountMultiplier: 1.5
+  isGrounded: 1
 --- !u!1 &970403022
 GameObject:
   m_ObjectHideFlags: 0

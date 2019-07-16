@@ -3029,7 +3029,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: NaN, y: NaN, z: 4e-44, w: NaN}
+  m_BoundingSphereOverride: {x: 1e-45, y: 0, z: 1.53e-43, w: 0.05078125}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -3867,6 +3867,7 @@ GameObject:
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
   - component: {fileID: 963194229}
+  - component: {fileID: 963194230}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3953,6 +3954,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 305ff6a1420e1354a81461d510cb3e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &963194230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448c7be568bdbbd4aba31ea97d5f7e62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bobbingSpeed: 0.18
+  bobbingAmount: 0.1
+  midpoint: 2
+  DefBobbingSpeed: 0.18
+  DefBobbingAmount: 0.2
+  DefMidpoint: 2
 --- !u!1 &970403022
 GameObject:
   m_ObjectHideFlags: 0
@@ -5516,11 +5535,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.0231651
       objectReference: {fileID: 0}
-    - target: {fileID: -1811566308692034672, guid: 687925e4ca19d2243878512b1d8e77ea,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: -1748871500470676289, guid: 687925e4ca19d2243878512b1d8e77ea,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -5565,11 +5579,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -1.9903401
-      objectReference: {fileID: 0}
-    - target: {fileID: -1504981713932161579, guid: 687925e4ca19d2243878512b1d8e77ea,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -1429073511615047493, guid: 687925e4ca19d2243878512b1d8e77ea,
         type: 3}
@@ -6205,6 +6214,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -5.4796124
+      objectReference: {fileID: 0}
+    - target: {fileID: -1504981713932161579, guid: 687925e4ca19d2243878512b1d8e77ea,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1811566308692034672, guid: 687925e4ca19d2243878512b1d8e77ea,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 687925e4ca19d2243878512b1d8e77ea, type: 3}
@@ -7045,6 +7064,11 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 647f8722eb6101a419cfd4a31571f007, type: 2}
+    - target: {fileID: 7450443506182991955, guid: f992449478fc53c4f98eee686f1f5b8a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -9009355781674443102, guid: f992449478fc53c4f98eee686f1f5b8a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -7389,11 +7413,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7450443506182991955, guid: f992449478fc53c4f98eee686f1f5b8a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f992449478fc53c4f98eee686f1f5b8a, type: 3}

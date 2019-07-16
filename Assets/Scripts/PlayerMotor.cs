@@ -18,6 +18,7 @@ public class PlayerMotor : MonoBehaviour
 
     private Rigidbody rb;
     private CapsuleCollider hearingColl;
+    private HeadBobber headBobber;
 
     public float walkNoise = 3;
     public float runNoise = 6;
@@ -47,6 +48,7 @@ public class PlayerMotor : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         hearingColl = GetComponent<CapsuleCollider>();
+        headBobber = GetComponentInChildren<HeadBobber>();
         distToGround = GetComponent<BoxCollider>().bounds.extents.y;
         thrusterSoundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         tsp = thrusterSoundPlayer.GetComponent<AudioScript>();
@@ -111,11 +113,13 @@ public class PlayerMotor : MonoBehaviour
                 {
                     PlayWalkSteps();
                     noiseAmount = walkNoise;
+                    headBobber.WalkingBobbing();
                 }
                 else
                 {
                     PlayRunSteps();
                     noiseAmount = runNoise;
+                    headBobber.RunningBobbing();
                 }
             }
 

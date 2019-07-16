@@ -35,6 +35,11 @@ public class SlenderScript : MonoBehaviour
     private bool run = false;
     private bool inSeenSector = false;
     private bool heard = false;
+    private bool heardCollider = false;
+
+    Vector3 heardPosition;
+
+    public float hearDistance = 100f;
     public float sightAngle = 45;
     public float sightDistance = 50f;
     
@@ -73,6 +78,7 @@ public class SlenderScript : MonoBehaviour
             targetAngle = Vector3.Angle(targetDir, transform.forward);
 
             Seen();
+            Heard();
 
             if (seen) {
                 if (canRun) {
@@ -94,6 +100,9 @@ public class SlenderScript : MonoBehaviour
                     isShooting = false;
                 }
                 
+            } else if (heard) {
+                SetDestination(heardPosition);
+                heard = false;
             } else {
                 if (canRun) {
                     run = false;
@@ -137,7 +146,7 @@ public class SlenderScript : MonoBehaviour
             blocked = navMeshAgent.Raycast(target, out hit);
                 if (!blocked && hit.distance < sightDistance) {
                     seen = true;
-                    print("distance: " + hit.distance);
+                    // print("distance: " + hit.distance);
                 } else {
                     seen = false;
                 }
@@ -147,16 +156,57 @@ public class SlenderScript : MonoBehaviour
         }
     }
 
+    void Heard() {
+        if (heardCollider) {
+            NavMeshPath path = new NavMeshPath();
+            if(navMeshAgent.enabled) {
+                navMeshAgent.CalculatePath(player.position, path);
+            }
+
+            Vector3[] allWayPoints = new Vector3[path.corners.Length + 2];
+
+            allWayPoints[0] = transform.position;
+            allWayPoints[allWayPoints.Length - 1] = player.position;
+
+            for(int i=0; i<path.corners.Length; i++) {
+                allWayPoints[i+1] = path.corners[i];
+            }
+
+            float pathLenght = 0f;
+
+            for(int i=allWayPoints.Length-1; i>0; i--) {
+                pathLenght += Vector3.Distance(allWayPoints[i], allWayPoints[i-1]);
+                // if (pathLenght <= hearDistance) {
+                //     heardPosition = allWayPoints[i];
+                //     heard = true;
+                // }
+            }
+
+            print("allWayPointsLenght: " + allWayPoints.Length + ", hearing pathLenght: " +  pathLenght + ", heardDistance: " + hearDistance);
+
+            if (pathLenght <= hearDistance) {
+                if(allWayPoints.Length >= 5) {
+                    heardPosition = allWayPoints[4];
+                } else {
+                    heardPosition = player.position;
+                }
+                
+                heard = true;
+            }
+        }
+    }
+
 
     void DebugDraw() {
         lineColor = Color.red;
         Debug.DrawLine(transform.position, target, lineColor);
+        Debug.DrawLine(transform.position, navMeshAgent.pathEndPosition, Color.white);
         if (inSeenSector) {
             lineColor = Color.grey;
             Debug.DrawLine(transform.position + new Vector3(0.1f, 0, 0), target + new Vector3(0.01f, 0, 0), lineColor);
         }
 
-        if (heard) {
+        if (heardCollider) {
             lineColor = Color.yellow;
             Debug.DrawLine(transform.position + new Vector3(-0.1f, 0, 0), target + new Vector3(-0.01f, 0, 0), lineColor);
         }
@@ -166,9 +216,9 @@ public class SlenderScript : MonoBehaviour
             Debug.DrawLine(transform.position + new Vector3(0.2f, 0, 0), target + new Vector3(0.02f, 0, 0), lineColor);
         }
 
-        if (heard & seen) {
+        if (heard) {
             lineColor = Color.blue;
-            Debug.DrawLine(transform.position + new Vector3(-0.2f, 0, 0), target + new Vector3(-0.02f, 0, 0), lineColor);
+            Debug.DrawLine(transform.position + new Vector3(-0.2f, 0, 0), heardPosition, lineColor);
         }
     }
 
@@ -235,8 +285,14 @@ public class SlenderScript : MonoBehaviour
 
     void OnTriggerStay(Collider collider) {
         if(alive && collider.gameObject.tag == "Player") {
-            SetDestination(player.position);
-            heard = true;
+            heardCollider = true;
+            if(collider.GetType() == typeof(CapsuleCollider)) {
+                CapsuleCollider c = (CapsuleCollider)collider;
+                if (hearDistance < c.radius) {
+                    hearDistance = c.radius;
+                    // print(collider.name+":name, hearDistance:"+hearDistance);
+                }
+            }
         }
     }
 
@@ -244,7 +300,8 @@ public class SlenderScript : MonoBehaviour
     {
         if (alive && collider.gameObject.tag == "Player")
         {
-            heard = false;
+            heardCollider = false;
+            hearDistance = 0f;
         }
     }
 

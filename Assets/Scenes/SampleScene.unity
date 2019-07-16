@@ -2380,6 +2380,7 @@ MonoBehaviour:
   health: 100
   canRun: 1
   runSpeedFactor: 1.5
+  hearDistance: 100
   sightAngle: 90
   sightDistance: 50
   shootingDistance: 2
@@ -3558,6 +3559,7 @@ MonoBehaviour:
   health: 100
   canRun: 0
   runSpeedFactor: 2
+  hearDistance: 100
   sightAngle: 90
   sightDistance: 50
   shootingDistance: 25
@@ -3692,6 +3694,7 @@ MonoBehaviour:
   health: 100
   canRun: 0
   runSpeedFactor: 2
+  hearDistance: 100
   sightAngle: 90
   sightDistance: 50
   shootingDistance: 25
@@ -4117,7 +4120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 993211179}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 15.1, y: 0, z: -14.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 872197085}
@@ -6761,7 +6764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597960975}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: -9.07}
+  m_LocalPosition: {x: 16.8, y: 0.5, z: -2.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1850000841}
@@ -6898,7 +6901,7 @@ MonoBehaviour:
     clipSize: 15
     bullets: 15
     reloadTime: 1
-    noiseAmount: 20
+    noiseAmount: 50
     scopable: 0
     graphics: {fileID: 5335178260629923529, guid: d0e92eb21da81554d91228b7e50f0156,
       type: 3}
@@ -6912,7 +6915,7 @@ MonoBehaviour:
     clipSize: 8
     bullets: 8
     reloadTime: 2.7
-    noiseAmount: 30
+    noiseAmount: 100
     scopable: 1
     graphics: {fileID: 6185363422885270582, guid: 045a5cd07997e0f468e9bb59606324a0,
       type: 3}

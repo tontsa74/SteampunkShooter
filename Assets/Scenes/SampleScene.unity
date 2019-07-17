@@ -2944,6 +2944,7 @@ MonoBehaviour:
   health: 100
   canRun: 1
   runSpeedFactor: 1.5
+  followDirectionLenght: 20
   hearDistance: 100
   sightAngle: 90
   sightDistance: 50
@@ -4280,6 +4281,7 @@ MonoBehaviour:
   health: 100
   canRun: 0
   runSpeedFactor: 2
+  followDirectionLenght: 20
   hearDistance: 100
   sightAngle: 90
   sightDistance: 50
@@ -4415,6 +4417,7 @@ MonoBehaviour:
   health: 100
   canRun: 0
   runSpeedFactor: 2
+  followDirectionLenght: 20
   hearDistance: 100
   sightAngle: 90
   sightDistance: 50
@@ -4693,6 +4696,8 @@ MonoBehaviour:
   bobbingSpeed: 0.05
   bobbingAmount: 0.05
   midpoint: 1.7
+  verticalBobbingAmount: 0.035
+  verticalBobbingSpeed: 0.035
   runSpeedMultiplier: 7
   runAmountMultiplier: 1.5
   walkSpeedMultiplier: 5

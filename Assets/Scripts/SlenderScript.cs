@@ -9,6 +9,7 @@ public class SlenderScript : MonoBehaviour
     NavMeshAgent navMeshAgent;
 
     public Transform player;
+    public Rigidbody playerRb;
 
     public Transform[] patrolPoints;
     private int destPatrolPoint;
@@ -27,11 +28,16 @@ public class SlenderScript : MonoBehaviour
 
     private float walkSpeed, runSpeed;
 
+    bool goAtDirection = false;
+
     private bool alive = true;
 
     private bool blocked = false;
 
     Vector3 seenPosition;
+
+    Vector3 seenDirection;
+    
     private bool seen = false;
 
     private bool run = false;
@@ -72,6 +78,7 @@ public class SlenderScript : MonoBehaviour
         walkSpeed = navMeshAgent.speed;
         runSpeed = walkSpeed * runSpeedFactor;
 
+
     }
 
     // Update is called once per frame
@@ -90,6 +97,7 @@ public class SlenderScript : MonoBehaviour
             if(lookAt) {
                 LookAt(targetDir);
             } else if (seen) {
+                goAtDirection = true;
                 if (canRun) {
                     run = true;
                     navMeshAgent.speed = runSpeed;
@@ -122,6 +130,17 @@ public class SlenderScript : MonoBehaviour
                     if(lookAtNoise) {
                         lookAt = true;
                         lookAtNoise = false;
+                    } else if(goAtDirection) {
+                        //print("tontsa: goAtDirection");
+                        Vector3 goAt = transform.position + Vector3.Scale(seenDirection, new Vector3(20,20,20));
+                        if (navMeshAgent.SetDestination(goAt)) {
+                            print (transform.position + seenDirection + " :tontsa: goAt: " + goAt);
+                            //navMeshAgent.SetDestination(goAt);
+                            goAtDirection = false;
+                        } else {
+                            goAtDirection = false;
+                        }
+                        
                     } else {
                         GotoRandomPoint();
                     }
@@ -161,7 +180,12 @@ public class SlenderScript : MonoBehaviour
             blocked = navMeshAgent.Raycast(target, out hit);
                 if (!blocked && hit.distance < sightDistance) {
                     seen = true;
-                    seenPosition = player.position;
+                    if (seenPosition != player.position) {
+                        seenDirection = (player.position - seenPosition).normalized;
+                        seenPosition = player.position;
+                        //print("tontsa: seenDirection:" + seenDirection);
+                    }
+                    
                     // print("distance: " + hit.distance);
                 } else {
                     seen = false;

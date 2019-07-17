@@ -6,11 +6,15 @@ public class PauseScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject pausePanel;
+    [SerializeField]
+    private GameObject confirmQuitPanel;
     private bool paused = false;
 
     void Start()
     {
         pausePanel.SetActive(false);
+        confirmQuitPanel.SetActive(false);
+
     }
     void Update()
     {
@@ -46,5 +50,17 @@ public class PauseScript : MonoBehaviour
         paused = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
+    }
+
+    public void ConfirmQuit()
+    {
+        confirmQuitPanel.SetActive(true);
+        pausePanel.SetActive(false);
+    }
+
+    public void CancelQuit()
+    {
+        confirmQuitPanel.SetActive(false);
+        pausePanel.SetActive(true);
     }
 }

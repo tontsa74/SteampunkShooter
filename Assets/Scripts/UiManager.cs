@@ -82,4 +82,5 @@ public class UiManager : MonoBehaviour
         tempColor.a = 1f - _health/100; //1f makes it fully visible, 0f makes it fully transparent.
         healthOverlay.color = tempColor;
     }
+
 }

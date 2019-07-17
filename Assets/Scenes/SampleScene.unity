@@ -4691,12 +4691,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bobbingSpeed: 0.05
-  bobbingAmount: 0.075
+  bobbingAmount: 0.05
   midpoint: 1.7
   runSpeedMultiplier: 7
-  runAmountMultiplier: 1
+  runAmountMultiplier: 1.5
   walkSpeedMultiplier: 5
-  walkAmountMultiplier: 1.5
+  walkAmountMultiplier: 1
   isGrounded: 1
 --- !u!1 &970403022
 GameObject:

@@ -7,6 +7,7 @@ public class HeadBobber : MonoBehaviour
     private float timer = 0.0f;
     public float bobbingSpeed = 0.06f;
     public float bobbingAmount = 0.05f;
+   // public float verticalBobbingAmount = 0.025f;
     public float midpoint = 2.0f;
     public float runSpeedMultiplier = 7f;
     public float runAmountMultiplier = 1.5f;

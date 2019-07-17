@@ -4,35 +4,42 @@ using UnityEngine;
 
 public class PauseScript : MonoBehaviour
 {
-    [SerializeField] private GameObject pausePanel;
+    [SerializeField]
+    private GameObject pausePanel;
+    private bool paused = false;
+
     void Start()
     {
         pausePanel.SetActive(false);
     }
     void Update()
     {
-        if (Input.GetButtonDown("Cursor"))
+        if (Input.GetKeyDown("p") || Input.GetButtonDown("Cursor"))
         {
-            print("pa" + pausePanel.activeInHierarchy);
-            if (!pausePanel.activeInHierarchy)
+            if (!paused)
             {
+             //   Cursor.lockState = CursorLockMode.None;
                 PauseGame();
-            }
-            if (pausePanel.activeInHierarchy)
+            } else
             {
                 ContinueGame();
+           //     Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }
-    private void PauseGame()
+    public void PauseGame()
     {
+        Cursor.visible = true;
+        print("Pausing");
+        paused = true;
         Time.timeScale = 0;
-        pausePanel.SetActive(true);
-        print("PAUSEDDD");
+        pausePanel.gameObject.SetActive(true);
         //Disable scripts that still work while timescale is set to 0
     }
-    private void ContinueGame()
+    public void ContinueGame()
     {
+        Cursor.visible = false;
+        paused = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
         //enable the scripts again

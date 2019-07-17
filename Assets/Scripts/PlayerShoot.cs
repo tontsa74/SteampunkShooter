@@ -43,13 +43,13 @@ public class PlayerShoot : MonoBehaviour
 
         if (currentWeapon.fireRate <= 0)
         {
-            if (Input.GetButtonDown("Fire1"))
+            if (Input.GetButtonDown("Fire1") && Time.timeScale != 0)
             {
                 Shoot();
             }
         } else
         {
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetButtonDown("Fire1") && Time.timeScale != 0)
             {
                 InvokeRepeating("Shoot", 0f, 1f/currentWeapon.fireRate);
             } else if(Input.GetButtonUp("Fire1"))

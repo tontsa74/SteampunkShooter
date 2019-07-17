@@ -18,30 +18,33 @@ public class PauseScript : MonoBehaviour
         {
             if (!paused)
             {
-             //   Cursor.lockState = CursorLockMode.None;
                 PauseGame();
             } else
             {
                 ContinueGame();
-           //     Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }
     public void PauseGame()
     {
+
+        //  DELETE LOCKSTATE WHEN BUILDING !!!
+        Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         print("Pausing");
         paused = true;
         Time.timeScale = 0;
         pausePanel.gameObject.SetActive(true);
-        //Disable scripts that still work while timescale is set to 0
     }
     public void ContinueGame()
-    {
+    {            
+        //  DELETE LOCKSTATE WHEN BUILDING !!!
+        Cursor.lockState = CursorLockMode.Locked;
+
+
         Cursor.visible = false;
         paused = false;
         Time.timeScale = 1;
         pausePanel.SetActive(false);
-        //enable the scripts again
     }
 }

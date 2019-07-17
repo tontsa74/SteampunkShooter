@@ -21,7 +21,10 @@ public class UiManager : MonoBehaviour
     {
         if(SceneManager.GetActiveScene().buildIndex == 1)
         {
-           // Cursor.lockState = CursorLockMode.Locked;
+            //  DELETE LOCKSTATE WHEN BUILDING !!!
+            Cursor.lockState = CursorLockMode.Locked;
+
+
             Cursor.visible = false;
 
         }

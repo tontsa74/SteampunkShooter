@@ -9,7 +9,6 @@ public class SlenderScript : MonoBehaviour
     NavMeshAgent navMeshAgent;
 
     public Transform player;
-    public Rigidbody playerRb;
 
     public Transform[] patrolPoints;
     private int destPatrolPoint;
@@ -29,6 +28,8 @@ public class SlenderScript : MonoBehaviour
     private float walkSpeed, runSpeed;
 
     bool goAtDirection = false;
+
+    public float followDirectionLenght = 20f;
 
     private bool alive = true;
 
@@ -131,16 +132,9 @@ public class SlenderScript : MonoBehaviour
                         lookAt = true;
                         lookAtNoise = false;
                     } else if(goAtDirection) {
-                        //print("tontsa: goAtDirection");
-                        Vector3 goAt = transform.position + Vector3.Scale(seenDirection, new Vector3(20,20,20));
-                        if (navMeshAgent.SetDestination(goAt)) {
-                            print (transform.position + seenDirection + " :tontsa: goAt: " + goAt);
-                            //navMeshAgent.SetDestination(goAt);
-                            goAtDirection = false;
-                        } else {
-                            goAtDirection = false;
-                        }
-                        
+                        Vector3 goAt = transform.position + Vector3.Scale(seenDirection, new Vector3(followDirectionLenght, 0, followDirectionLenght));
+                        navMeshAgent.SetDestination(goAt);
+                        goAtDirection = false;
                     } else {
                         GotoRandomPoint();
                     }
@@ -183,10 +177,7 @@ public class SlenderScript : MonoBehaviour
                     if (seenPosition != player.position) {
                         seenDirection = (player.position - seenPosition).normalized;
                         seenPosition = player.position;
-                        //print("tontsa: seenDirection:" + seenDirection);
                     }
-                    
-                    // print("distance: " + hit.distance);
                 } else {
                     seen = false;
                 }

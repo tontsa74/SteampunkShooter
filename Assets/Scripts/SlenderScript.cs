@@ -30,12 +30,20 @@ public class SlenderScript : MonoBehaviour
     private bool alive = true;
 
     private bool blocked = false;
+
+    Vector3 seenPosition;
     private bool seen = false;
 
     private bool run = false;
     private bool inSeenSector = false;
     private bool heard = false;
     private bool heardCollider = false;
+
+    bool lookAt = false;
+    bool lookAtNoise = false;
+    bool look = false;
+
+    float lookingTimer = 1f;
 
     Vector3 heardPosition;
 
@@ -79,17 +87,17 @@ public class SlenderScript : MonoBehaviour
 
             Seen();
             Heard();
-
-            if (seen) {
+            if(lookAt) {
+                LookAt(targetDir);
+            } else if (seen) {
                 if (canRun) {
                     run = true;
                     navMeshAgent.speed = runSpeed;
                 }
-                SetDestination(player.position);
+                SetDestination(seenPosition);
                 if (navMeshAgent.remainingDistance <= navMeshAgent.stoppingDistance) {
                     run = false;
-                    Quaternion lookRotation = Quaternion.LookRotation(targetDir);
-                    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+                    lookAt = true;
                 }
                     
                 if(navMeshAgent.remainingDistance < shootingDistance && targetAngle < shootAngle) {
@@ -102,6 +110,7 @@ public class SlenderScript : MonoBehaviour
                 
             } else if (heard) {
                 SetDestination(heardPosition);
+                lookAtNoise = true;
                 heard = false;
             } else {
                 if (canRun) {
@@ -110,7 +119,13 @@ public class SlenderScript : MonoBehaviour
                 }
                 isShooting = false;
                 if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 1f) {
-                    GotoRandomPoint();
+                    if(lookAtNoise) {
+                        lookAt = true;
+                        lookAtNoise = false;
+                    } else {
+                        GotoRandomPoint();
+                    }
+                    
                 }
             }
 
@@ -146,6 +161,7 @@ public class SlenderScript : MonoBehaviour
             blocked = navMeshAgent.Raycast(target, out hit);
                 if (!blocked && hit.distance < sightDistance) {
                     seen = true;
+                    seenPosition = player.position;
                     // print("distance: " + hit.distance);
                 } else {
                     seen = false;
@@ -182,7 +198,7 @@ public class SlenderScript : MonoBehaviour
                 // }
             }
 
-            print("allWayPointsLenght: " + allWayPoints.Length + ", hearing pathLenght: " +  pathLenght + ", heardDistance: " + hearDistance);
+            // print("allWayPointsLenght: " + allWayPoints.Length + ", hearing pathLenght: " +  pathLenght + ", heardDistance: " + hearDistance);
 
             if (pathLenght <= hearDistance) {
                 if(allWayPoints.Length >= 5) {
@@ -219,6 +235,30 @@ public class SlenderScript : MonoBehaviour
         if (heard) {
             lineColor = Color.blue;
             Debug.DrawLine(transform.position + new Vector3(-0.2f, 0, 0), heardPosition, lineColor);
+        }
+    }
+
+    void LookAt(Vector3 direction) {
+        
+
+        if (look) {
+            
+            Quaternion lookRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+            return;
+        }
+
+        StartCoroutine(Look_Coroutine());
+
+    }
+    
+    IEnumerator Look_Coroutine() {
+        look = true;
+        yield return new WaitForSeconds(lookingTimer);
+        look = false;
+        if(alive)
+        {
+            lookAt = false;
         }
     }
 

@@ -122,5 +122,6 @@ public class PlayerShoot : MonoBehaviour
         Vector3 _casingForce = weaponManager.GetCurrentWeaponGraphics().shellPoint.right * Random.Range(2f,5f);
 
         _shellCasing.GetComponent<Rigidbody>().AddForce(_casingForce, ForceMode.Impulse);
+        Destroy(_shellCasing, 10f);
     }
 }

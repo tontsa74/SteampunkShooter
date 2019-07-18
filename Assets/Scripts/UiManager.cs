@@ -12,6 +12,8 @@ public class UiManager : MonoBehaviour
     public TextMeshProUGUI health;
     public RawImage healthOverlay;
 
+    public GameObject GameOverPanel;
+
     public float healthIndicator = 0.1f;
     private float timer = 0f;
 
@@ -23,11 +25,10 @@ public class UiManager : MonoBehaviour
         {
             //  DELETE LOCKSTATE WHEN BUILDING !!!
             Cursor.lockState = CursorLockMode.Locked;
-
-
             Cursor.visible = false;
-
         }
+
+        GameOverPanel.SetActive(false);
 
     }
 
@@ -65,6 +66,7 @@ public class UiManager : MonoBehaviour
 
     public void ChangeScene(int sceneId)
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(sceneId);
     }
 
@@ -81,6 +83,16 @@ public class UiManager : MonoBehaviour
         var tempColor = healthOverlay.color;
         tempColor.a = 1f - _health/100; //1f makes it fully visible, 0f makes it fully transparent.
         healthOverlay.color = tempColor;
+
+        if(_health <= 0)
+        {
+            //  DELETE LOCKSTATE WHEN BUILDING !!!
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+            GameOverPanel.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
 }

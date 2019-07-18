@@ -8,7 +8,7 @@ public class SlenderScript : MonoBehaviour
     // GameObject destination;
     NavMeshAgent navMeshAgent;
 
-    public Transform player;
+    Transform player;
 
     public Transform[] patrolPoints;
     private int destPatrolPoint;
@@ -73,7 +73,7 @@ public class SlenderScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // destination = GameObject.Find("Player");
+        player = GameObject.Find("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         destPatrolPoint = Random.Range(0, patrolPoints.Length);
         walkSpeed = navMeshAgent.speed;

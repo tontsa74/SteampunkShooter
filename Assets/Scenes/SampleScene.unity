@@ -974,6 +974,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374434954}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: c6a71c1dde492f34a9cc1bed180ec36b,
+        type: 3}
+      propertyPath: m_Name
+      value: kaupunkiAlphaRiverArea
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c6a71c1dde492f34a9cc1bed180ec36b,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c6a71c1dde492f34a9cc1bed180ec36b,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8145797926097068449, guid: c6a71c1dde492f34a9cc1bed180ec36b,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1195,21 +1210,6 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1214621132367821913, guid: c6a71c1dde492f34a9cc1bed180ec36b,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: c6a71c1dde492f34a9cc1bed180ec36b,
-        type: 3}
-      propertyPath: m_Name
-      value: kaupunkiAlphaRiverArea
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: c6a71c1dde492f34a9cc1bed180ec36b,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: c6a71c1dde492f34a9cc1bed180ec36b,
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -3828,7 +3828,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.33e-43, y: -1.4691193e+17, z: 7.33e-43, w: 3.85e-43}
+  m_BoundingSphereOverride: {x: 7.33e-43, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -4080,6 +4080,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374434954}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 36a3cc41909d01f4c8258b484f0beaee,
+        type: 3}
+      propertyPath: m_Name
+      value: kaupunkiAlphaStartArea
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 36a3cc41909d01f4c8258b484f0beaee,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 36a3cc41909d01f4c8258b484f0beaee,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -9150271760044856303, guid: 36a3cc41909d01f4c8258b484f0beaee,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4421,21 +4436,6 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1177320550864270611, guid: 36a3cc41909d01f4c8258b484f0beaee,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 36a3cc41909d01f4c8258b484f0beaee,
-        type: 3}
-      propertyPath: m_Name
-      value: kaupunkiAlphaStartArea
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 36a3cc41909d01f4c8258b484f0beaee,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 36a3cc41909d01f4c8258b484f0beaee,
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 1
@@ -7301,6 +7301,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 374434954}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: a9e6b706a5857884fbe13d9d29cd07b1,
+        type: 3}
+      propertyPath: m_Name
+      value: KaupunkiAlphaBossArea
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a9e6b706a5857884fbe13d9d29cd07b1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: a9e6b706a5857884fbe13d9d29cd07b1,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -9165477955829581436, guid: a9e6b706a5857884fbe13d9d29cd07b1,
         type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7592,21 +7607,6 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -1162223983494078783, guid: a9e6b706a5857884fbe13d9d29cd07b1,
-        type: 3}
-      propertyPath: m_NavMeshLayer
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a9e6b706a5857884fbe13d9d29cd07b1,
-        type: 3}
-      propertyPath: m_Name
-      value: KaupunkiAlphaBossArea
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a9e6b706a5857884fbe13d9d29cd07b1,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a9e6b706a5857884fbe13d9d29cd07b1,
         type: 3}
       propertyPath: m_NavMeshLayer
       value: 1

@@ -78,6 +78,7 @@ public class PlayerShoot : MonoBehaviour
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
         sp.PlaySound(currentWeapon.shootSound, false, 3f);
         PlayMuzzleFlash();
+        ThrowShellCasing();
         hearingColl.radius = currentWeapon.noiseAmount;
 
 
@@ -113,5 +114,13 @@ public class PlayerShoot : MonoBehaviour
         GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentWeaponGraphics().hitEffect, _pos, Quaternion.LookRotation(_norm));
         _hitEffect.transform.SetParent(collider.transform);
         Destroy(_hitEffect, showTime);
+    }
+
+    void ThrowShellCasing()
+    {
+        GameObject _shellCasing = (GameObject)Instantiate(weaponManager.GetCurrentWeaponGraphics().shellCasing, weaponManager.GetCurrentWeaponGraphics().shellPoint);
+        Vector3 _casingForce = weaponManager.GetCurrentWeaponGraphics().shellPoint.right * Random.Range(2f,5f);
+
+        _shellCasing.GetComponent<Rigidbody>().AddForce(_casingForce, ForceMode.Impulse);
     }
 }

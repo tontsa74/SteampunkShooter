@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &410064535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 410064536}
+  m_Layer: 0
+  m_Name: ShellPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &410064536
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 410064535}
+  m_LocalRotation: {x: 0.0114795165, y: -0.07963744, z: 0.2619498, w: 0.9617216}
+  m_LocalPosition: {x: 0.188, y: 0.096, z: 0.207}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7173542175841691173}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 3.6580002, y: -8.4800005, z: 30.201002}
 --- !u!1 &132317055566049760
 GameObject:
   m_ObjectHideFlags: 0
@@ -1558,6 +1588,7 @@ Transform:
   - {fileID: 444669443172737687}
   - {fileID: 1239500242084033709}
   - {fileID: 3463992705983493109}
+  - {fileID: 410064536}
   - {fileID: 4941077804707838344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1595,6 +1626,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 5121185766380239234}
   hitEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+  shellCasing: {fileID: 2021634668854930845, guid: c54a0875e3222574baa381bf60d0dfd0,
+    type: 3}
+  shellPoint: {fileID: 410064536}
 --- !u!1 &6369907931365284901
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,7 +2016,7 @@ Transform:
   m_Children:
   - {fileID: 5017926260408002696}
   m_Father: {fileID: 7173542175841691173}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -9.836, z: 0}
 --- !u!1 &8241774250185165924
 GameObject:
@@ -2151,6 +2185,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: MuzzleFlashEffect 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.43867922
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.43867922
+      objectReference: {fileID: 0}
     - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2205,16 +2249,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.43867922
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.43867922
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6946e25289009e443b59c9110936a03d, type: 3}

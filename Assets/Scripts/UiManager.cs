@@ -70,9 +70,9 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(sceneId);
     }
 
-    public void UpdateAmmo(string gunName, int bullets)
+    public void UpdateAmmo(string gunName, int clipBullets, int allBullets)
     {
-        ammo.SetText(gunName + " " + bullets);
+        ammo.SetText(gunName + " " + clipBullets + "/" +allBullets);
     }
 
     public void UpdateHealth(float _health)

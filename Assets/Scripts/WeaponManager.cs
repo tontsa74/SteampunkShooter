@@ -114,7 +114,8 @@ public class WeaponManager : MonoBehaviour
         animator.SetBool("Reloading", isReloading);
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);
-        currentWeapon.bullets = currentWeapon.clipSize;
+        currentWeapon.bulletsAll -= currentWeapon.clipSize - currentWeapon.bulletsInClip; 
+        currentWeapon.bulletsInClip = currentWeapon.clipSize;
         isReloading = false;
         animator.SetBool("Reloading", isReloading);
 
@@ -128,7 +129,7 @@ public class WeaponManager : MonoBehaviour
 
         yield return new WaitForSeconds(1f);
         EquipWeapon(_weapon);
-        currentWeapon.bullets = currentWeapon.clipSize;
+        currentWeapon.bulletsInClip = currentWeapon.clipSize;
         isChanging = false;
         // animator.SetBool("Changing", isChanging);
         animator.SetBool("Reloading", isChanging);

@@ -11,7 +11,7 @@ public class SideArm : PlayerWeapon
         range = 50f;
         fireRate = 0f;
         clipSize = 15;
-        bullets = clipSize;
+        bulletsInClip = clipSize;
 
         reloadTime = 1f;
         noiseAmount = 15f;

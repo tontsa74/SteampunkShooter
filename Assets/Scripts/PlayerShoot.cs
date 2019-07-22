@@ -38,7 +38,7 @@ public class PlayerShoot : MonoBehaviour
     private void Update()
     {
         currentWeapon = weaponManager.GetCurrentWeapon();
-        uiManager.UpdateAmmo(currentWeapon.name,currentWeapon.bullets);
+        uiManager.UpdateAmmo(currentWeapon.name,currentWeapon.bulletsInClip, currentWeapon.bulletsAll);
 
 
         if (currentWeapon.fireRate <= 0)
@@ -62,7 +62,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
-        if(currentWeapon.bullets <= 0)
+        if(currentWeapon.bulletsInClip <= 0)
         {
             weaponManager.Reload();
             return;
@@ -72,7 +72,7 @@ public class PlayerShoot : MonoBehaviour
             return;
         }
 
-        currentWeapon.bullets--;
+        currentWeapon.bulletsInClip--;
 
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();

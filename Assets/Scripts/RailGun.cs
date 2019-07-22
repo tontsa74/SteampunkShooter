@@ -16,7 +16,7 @@ public class RailGun : PlayerWeapon
 
         reloadTime = 2f;
 
-        bullets = clipSize;
+        bulletsInClip = clipSize;
         noiseAmount = 20;
 
         scopable = true;

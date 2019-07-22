@@ -104,8 +104,8 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        motor.ApplyThruster(_thrusterForce);
         motor.ApplyJump(_jumpForce);
+        motor.ApplyThruster(_thrusterForce);
 
     }
 

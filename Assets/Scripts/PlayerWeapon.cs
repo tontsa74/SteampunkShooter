@@ -12,7 +12,9 @@ public class PlayerWeapon
     public float fireRate;
     public int clipSize;
 
-    public int bullets;
+    public int bulletsInClip;
+    public int bulletsAll;
+
 
     public float reloadTime;
 

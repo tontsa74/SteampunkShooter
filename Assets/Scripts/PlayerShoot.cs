@@ -67,7 +67,9 @@ public class PlayerShoot : MonoBehaviour
             weaponManager.Reload();
             return;
         }
-        if(weaponManager.isReloading || weaponManager.isChanging)
+        if(weaponManager.isReloading || 
+            weaponManager.isChanging || 
+            weaponManager.GetCurrentWeaponGraphics().animator.GetCurrentAnimatorStateInfo(0).IsName("RailGunShoot"))
         {
             return;
         }

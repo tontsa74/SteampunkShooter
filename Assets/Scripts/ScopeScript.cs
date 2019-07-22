@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ScopeScript : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
 
     bool isScoped = false;
 
@@ -27,13 +27,13 @@ public class ScopeScript : MonoBehaviour
         playerController = GetComponentInParent<PlayerController>();
         weaponManager = GetComponentInParent<WeaponManager>();
 
-
     }
 
     // Update is called once per frame
     void Update()
     {
         if (Input.GetButtonDown("Fire2") && !weaponManager.isReloading && weaponManager.GetCurrentWeapon().scopable) {
+            animator = weaponManager.GetCurrentWeaponGraphics().animator;
             isScoped = !isScoped;
             animator.SetBool("Scoped", isScoped);
 

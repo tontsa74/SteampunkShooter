@@ -19,7 +19,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     private Transform weaponHolder;
 
-    public Animator animator;
+    private Animator animator;
 
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
@@ -93,6 +93,8 @@ public class WeaponManager : MonoBehaviour
         {
             Destroy(weaponHolder.GetChild(0).gameObject);
         }
+
+        animator = currentGraphics.animator;
     }
 
     public void Reload()

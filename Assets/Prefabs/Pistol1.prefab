@@ -1515,6 +1515,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 3762225251850429542}
   hitEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+  shellCasing: {fileID: 2021634668854930845, guid: c54a0875e3222574baa381bf60d0dfd0,
+    type: 3}
+  shellPoint: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &5358595241459991409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,6 +2159,26 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.7345357
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.4669811
+      objectReference: {fileID: 0}
+    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2209,26 +2233,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.7345357
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0.4669811
-      objectReference: {fileID: 0}
-    - target: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: InitialModule.startSize.scalar
-      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6946e25289009e443b59c9110936a03d, type: 3}

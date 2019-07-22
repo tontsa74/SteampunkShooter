@@ -1629,6 +1629,8 @@ MonoBehaviour:
   shellCasing: {fileID: 2021634668854930845, guid: c54a0875e3222574baa381bf60d0dfd0,
     type: 3}
   shellPoint: {fileID: 410064536}
+  animator: {fileID: 6601694671818804510, guid: 4db93a43fb2c87f49956d512319c8bcd,
+    type: 3}
 --- !u!1 &6369907931365284901
 GameObject:
   m_ObjectHideFlags: 0

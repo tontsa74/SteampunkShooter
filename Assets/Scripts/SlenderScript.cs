@@ -136,7 +136,8 @@ public class SlenderScript : MonoBehaviour
                         navMeshAgent.SetDestination(goAt);
                         goAtDirection = false;
                     } else {
-                        GotoRandomPoint();
+                        //GotoRandomPoint();
+                        GotoNextPoint();
                     }
                     
                 }

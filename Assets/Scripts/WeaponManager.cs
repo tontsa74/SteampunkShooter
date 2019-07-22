@@ -19,7 +19,7 @@ public class WeaponManager : MonoBehaviour
     [SerializeField]
     private Transform weaponHolder;
 
-    public Animator animator;
+    private Animator animator;
 
     private PlayerWeapon currentWeapon;
     private WeaponGraphics currentGraphics;
@@ -89,6 +89,8 @@ public class WeaponManager : MonoBehaviour
         _weaponIns.transform.SetParent(weaponHolder);
      //   _weaponIns.layer = LayerMask.NameToLayer(weaponLayerName);
         currentWeaponIndex = availableWeapons.IndexOf(_weapon);
+
+        animator = currentGraphics.animator;
         if(weaponHolder.childCount > 1)
         {
             Destroy(weaponHolder.GetChild(0).gameObject);

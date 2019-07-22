@@ -7,4 +7,5 @@ public class WeaponGraphics : MonoBehaviour
     public GameObject hitEffect;
     public GameObject shellCasing;
     public Transform shellPoint;
+    public Animator animator;
 }

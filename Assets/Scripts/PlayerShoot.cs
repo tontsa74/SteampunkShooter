@@ -80,7 +80,7 @@ public class PlayerShoot : MonoBehaviour
         PlayMuzzleFlash();
         ThrowShellCasing();
         hearingColl.radius = currentWeapon.noiseAmount;
-
+        weaponManager.GetCurrentWeaponGraphics().animator.SetTrigger("Shoot");
 
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))

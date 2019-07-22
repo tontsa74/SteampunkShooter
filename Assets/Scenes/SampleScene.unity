@@ -9804,7 +9804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c52b08a7058777428bf5cb7d198ebfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemys:
+  prefabs:
   - {fileID: 8430494110397760266, guid: b505471222f67ed4591d624fc2b350d9, type: 3}
   - {fileID: 1850352620073012443, guid: 529f1282d564d254f9d69169c133b7e1, type: 3}
 --- !u!1 &780793226 stripped

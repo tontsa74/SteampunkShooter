@@ -10,6 +10,9 @@ public class SlenderScript : MonoBehaviour
 
     Transform player;
 
+    public bool spawnPatrol = true;
+    public Transform[] spawnPatrolPoints;
+    private int destSpawnPatrolPoint;
     public Transform[] patrolPoints;
     private int destPatrolPoint;
 
@@ -76,6 +79,7 @@ public class SlenderScript : MonoBehaviour
         player = GameObject.Find("Player").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         destPatrolPoint = Random.Range(0, patrolPoints.Length);
+        destSpawnPatrolPoint = 0;
         walkSpeed = navMeshAgent.speed;
         runSpeed = walkSpeed * runSpeedFactor;
 
@@ -98,6 +102,7 @@ public class SlenderScript : MonoBehaviour
             if(lookAt) {
                 LookAt(targetDir);
             } else if (seen) {
+                spawnPatrol = false;
                 goAtDirection = true;
                 if (canRun) {
                     run = true;
@@ -135,9 +140,10 @@ public class SlenderScript : MonoBehaviour
                         Vector3 goAt = transform.position + Vector3.Scale(seenDirection, new Vector3(followDirectionLenght, 0, followDirectionLenght));
                         navMeshAgent.SetDestination(goAt);
                         goAtDirection = false;
-                    } else {
-                        //GotoRandomPoint();
+                    } else if(spawnPatrol) {
                         GotoNextPoint();
+                    } else {
+                        GotoRandomPoint();
                     }
                     
                 }
@@ -315,15 +321,18 @@ public class SlenderScript : MonoBehaviour
 
     void GotoNextPoint() {
         // Returns if no points have been set up
-        if (patrolPoints.Length == 0)
+        if (spawnPatrolPoints.Length == 0) {
+            spawnPatrol = false;
             return;
+        }
+            
 
         // Set the agent to go to the currently selected destination.
-        navMeshAgent.destination = patrolPoints[destPatrolPoint].position;
+        navMeshAgent.destination = spawnPatrolPoints[destSpawnPatrolPoint].position;
 
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.
-        destPatrolPoint = (destPatrolPoint + 1) % patrolPoints.Length;
+        destSpawnPatrolPoint = (destSpawnPatrolPoint + 1) % spawnPatrolPoints.Length;
     }
 
     void GotoRandomPoint() {
@@ -375,5 +384,10 @@ public class SlenderScript : MonoBehaviour
         {
             alive = false;
         }
+    }
+
+    public void SetSpawnPatrolPoints(Transform[] spp) {
+        spawnPatrolPoints = spp;
+        spawnPatrol = true;
     }
 }

@@ -70,7 +70,13 @@ public class PlayerShoot : MonoBehaviour
     {
         if(currentWeapon.bulletsInClip <= 0)
         {
-            weaponManager.Reload();
+            if(currentWeapon.bulletsAll > 0)
+            {
+                weaponManager.Reload();
+            } else
+            {
+                PlayEmptyClip();
+            }
             return;
         }
         if(weaponManager.isReloading || 
@@ -82,9 +88,6 @@ public class PlayerShoot : MonoBehaviour
 
         currentWeapon.bulletsInClip--;
 
-        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
-        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
-        sp.PlaySound(currentWeapon.shootSound, false, 3f);
         PlayMuzzleFlash();
         ThrowShellCasing();
         hearingColl.radius = currentWeapon.noiseAmount;
@@ -116,7 +119,10 @@ public class PlayerShoot : MonoBehaviour
 
     void PlayMuzzleFlash()
     {
-            weaponManager.GetCurrentWeaponGraphics().muzzleFlash.Play();
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(currentWeapon.shootSound, false, 3f);
+        weaponManager.GetCurrentWeaponGraphics().muzzleFlash.Play();
     }
 
     void OnHit(Vector3 _pos, Vector3 _norm, float showTime, GameObject collider)
@@ -133,5 +139,12 @@ public class PlayerShoot : MonoBehaviour
 
         _shellCasing.GetComponent<Rigidbody>().AddForce(_casingForce, ForceMode.Impulse);
         Destroy(_shellCasing, 10f);
+    }
+
+    void PlayEmptyClip()
+    {
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(currentWeapon.emptyClipSound, false, 3f);
     }
 }

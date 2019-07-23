@@ -27,4 +27,6 @@ public class PlayerWeapon
 
     public AudioClip reloadSound;
 
+    public AudioClip emptyClipSound;
+
 }

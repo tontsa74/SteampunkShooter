@@ -323,7 +323,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3121406357621115446}
   - component: {fileID: 7609507401830219718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1405,7 +1405,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4344048313394453516}
   - component: {fileID: 5550093469477401182}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Railgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2341,6 +2341,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MuzzleFlashEffect 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8886539779671739357, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
         type: 3}

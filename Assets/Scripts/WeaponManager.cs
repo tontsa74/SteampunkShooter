@@ -143,7 +143,6 @@ public class WeaponManager : MonoBehaviour
 
         yield return new WaitForSeconds(1.5f);
         EquipWeapon(_weapon);
-        currentWeapon.bulletsInClip = currentWeapon.clipSize;
         isChanging = false;
         // animator.SetBool("Changing", isChanging);
         animator.SetBool("Changing", isChanging);

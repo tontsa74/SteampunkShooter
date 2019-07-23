@@ -16476,6 +16476,7 @@ MonoBehaviour:
     graphics: {fileID: 0}
     shootSound: {fileID: 0}
     reloadSound: {fileID: 0}
+    emptyClipSound: {fileID: 0}
   uiManager: {fileID: 1720783885}
   audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
     type: 3}
@@ -16508,6 +16509,7 @@ MonoBehaviour:
       type: 3}
     shootSound: {fileID: 8300000, guid: 4bf670a92e6e00f4981fb613438dfc6b, type: 3}
     reloadSound: {fileID: 8300000, guid: 8cb5fa9dace039941ba1f5ba56f44018, type: 3}
+    emptyClipSound: {fileID: 8300000, guid: 87a2d85cd5943ae42975a45f1d47f39f, type: 3}
   railGun:
     name: Rail gun
     damage: 30
@@ -16523,6 +16525,7 @@ MonoBehaviour:
       type: 3}
     shootSound: {fileID: 8300000, guid: d18ac5dac2d880442b096b886c516ed7, type: 3}
     reloadSound: {fileID: 8300000, guid: e93a7424f739030429503bbe754d1f06, type: 3}
+    emptyClipSound: {fileID: 8300000, guid: 87a2d85cd5943ae42975a45f1d47f39f, type: 3}
   weaponHolder: {fileID: 610330112}
   isReloading: 0
   isChanging: 0

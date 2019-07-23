@@ -91,9 +91,13 @@ public class WeaponManager : MonoBehaviour
         currentWeaponIndex = availableWeapons.IndexOf(_weapon);
 
         animator = currentGraphics.animator;
-        if(weaponHolder.childCount > 1)
+        if (weaponHolder.childCount > 1)
         {
-            Destroy(weaponHolder.GetChild(0).gameObject);
+            for(int i=0; i<weaponHolder.childCount-1; i++)
+            {
+                Destroy(weaponHolder.GetChild(i).gameObject);
+            }
+
         }
     }
 
@@ -116,8 +120,16 @@ public class WeaponManager : MonoBehaviour
         animator.SetBool("Reloading", isReloading);
 
         yield return new WaitForSeconds(currentWeapon.reloadTime);
-        currentWeapon.bulletsAll -= currentWeapon.clipSize - currentWeapon.bulletsInClip; 
-        currentWeapon.bulletsInClip = currentWeapon.clipSize;
+        if(currentWeapon.bulletsAll >= currentWeapon.clipSize - currentWeapon.bulletsInClip)
+        {
+            currentWeapon.bulletsAll -= currentWeapon.clipSize - currentWeapon.bulletsInClip;
+            currentWeapon.bulletsInClip = currentWeapon.clipSize;
+        } else if(currentWeapon.bulletsAll > 0)
+        {
+            currentWeapon.bulletsInClip = currentWeapon.bulletsAll;
+            currentWeapon.bulletsAll = 0;
+        }
+
         isReloading = false;
         animator.SetBool("Reloading", isReloading);
 
@@ -127,14 +139,14 @@ public class WeaponManager : MonoBehaviour
     {
         isChanging = true;
         // animator.SetBool("Changing", isChanging);
-        animator.SetBool("Reloading", isChanging);
+        animator.SetBool("Changing", isChanging);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         EquipWeapon(_weapon);
         currentWeapon.bulletsInClip = currentWeapon.clipSize;
         isChanging = false;
         // animator.SetBool("Changing", isChanging);
-        animator.SetBool("Reloading", isChanging);
+        animator.SetBool("Changing", isChanging);
 
 
     }

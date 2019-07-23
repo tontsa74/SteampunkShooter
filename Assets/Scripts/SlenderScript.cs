@@ -383,6 +383,7 @@ public class SlenderScript : MonoBehaviour
         if(health <= 0)
         {
             alive = false;
+            //transform.GetComponent<Rigidbody>().isKinematic = false;
         }
     }
 

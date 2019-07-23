@@ -9811,12 +9811,12 @@ MonoBehaviour:
   prefabs:
   - {fileID: 8430494110397760266, guid: b505471222f67ed4591d624fc2b350d9, type: 3}
   - {fileID: 1850352620073012443, guid: 529f1282d564d254f9d69169c133b7e1, type: 3}
-  patrol:
+  spawnPatrolPoints:
   - {fileID: 1787524866}
   - {fileID: 1320089509}
   - {fileID: 1348944257}
   - {fileID: 1579899301}
-  level: 5
+  level: 2
   spawnDelay: 1
 --- !u!1 &780793226 stripped
 GameObject:
@@ -10403,6 +10403,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 016d2e76d4b2da145baa22c51a1dfb5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPatrol: 1
+  spawnPatrolPoints: []
   patrolPoints:
   - {fileID: 1707223029}
   - {fileID: 737724152}

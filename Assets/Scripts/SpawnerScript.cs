@@ -8,13 +8,13 @@ public class SpawnerScript : MonoBehaviour
     public List<GameObject> prefabs;
 
     [SerializeField]
-    public Transform[] patrol;
+    public Transform[] spawnPatrolPoints;
 
     public int level = 2;
     public float spawnDelay = 1;
     List<GameObject> enemys;
 
-    void Awake()
+    void Start()
     {
         enemys = new List<GameObject>();
 
@@ -36,12 +36,10 @@ public class SpawnerScript : MonoBehaviour
     {
         foreach (GameObject enemy in enemys)
         {
+            SlenderScript ss = enemy.transform.GetComponent<SlenderScript>();
+            ss.SetSpawnPatrolPoints(spawnPatrolPoints);
             Instantiate(enemy, transform.position, Quaternion.identity, transform);
             yield return new WaitForSeconds(spawnDelay);
-
-            SlenderScript ss = enemy.transform.GetComponent<SlenderScript>();
-            print(ss.patrolPoints[0].name);
-            ss.patrolPoints = patrol;
         }
     }
 }

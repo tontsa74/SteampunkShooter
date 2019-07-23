@@ -20125,6 +20125,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.09
       objectReference: {fileID: 0}
+    - target: {fileID: 4032306354093571770, guid: cea969afab9301849b478f7d6fe7b157,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.025
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032306354093571770, guid: cea969afab9301849b478f7d6fe7b157,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.119
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032306354093571770, guid: cea969afab9301849b478f7d6fe7b157,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 4032306354093571772, guid: cea969afab9301849b478f7d6fe7b157,
         type: 3}
       propertyPath: scopeOverlay

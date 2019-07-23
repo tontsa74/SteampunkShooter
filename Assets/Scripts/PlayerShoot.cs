@@ -20,6 +20,8 @@ public class PlayerShoot : MonoBehaviour
 
     private CapsuleCollider hearingColl;
 
+    private bool shot = false;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,15 +42,19 @@ public class PlayerShoot : MonoBehaviour
         currentWeapon = weaponManager.GetCurrentWeapon();
         uiManager.UpdateAmmo(currentWeapon.name,currentWeapon.bulletsInClip, currentWeapon.bulletsAll);
 
+        if(weaponManager.GetCurrentWeaponGraphics().animator.GetCurrentAnimatorStateInfo(0).IsTag("1") && shot)
+        {
+            shot = false;
+        }
 
-        if (currentWeapon.fireRate <= 0)
-        {
-            if (Input.GetButtonDown("Fire1") && Time.timeScale != 0)
-            {
-                Shoot();
-            }
-        } else
-        {
+    //    if (currentWeapon.fireRate <= 0)
+   //     {
+    //        if (Input.GetButtonDown("Fire1") && Time.timeScale != 0)
+   //         {
+   //             Shoot();
+   //         }
+    //    } else
+    //    {
             if(Input.GetButtonDown("Fire1") && Time.timeScale != 0)
             {
                 InvokeRepeating("Shoot", 0f, 1f/currentWeapon.fireRate);
@@ -56,7 +62,7 @@ public class PlayerShoot : MonoBehaviour
             {
                 CancelInvoke("Shoot");
             }
-        }
+  //      }
 
     }
 
@@ -68,8 +74,8 @@ public class PlayerShoot : MonoBehaviour
             return;
         }
         if(weaponManager.isReloading || 
-            weaponManager.isChanging || 
-            weaponManager.GetCurrentWeaponGraphics().animator.GetCurrentAnimatorStateInfo(0).IsName("RailGunShoot"))
+            weaponManager.isChanging ||
+            shot)
         {
             return;
         }
@@ -82,6 +88,8 @@ public class PlayerShoot : MonoBehaviour
         PlayMuzzleFlash();
         ThrowShellCasing();
         hearingColl.radius = currentWeapon.noiseAmount;
+
+        shot = true;
         weaponManager.GetCurrentWeaponGraphics().animator.SetTrigger("Shoot");
 
         RaycastHit _hit;

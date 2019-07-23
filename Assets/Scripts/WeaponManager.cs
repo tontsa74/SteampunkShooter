@@ -91,9 +91,13 @@ public class WeaponManager : MonoBehaviour
         currentWeaponIndex = availableWeapons.IndexOf(_weapon);
 
         animator = currentGraphics.animator;
-        if(weaponHolder.childCount > 1)
+        if (weaponHolder.childCount > 1)
         {
-            Destroy(weaponHolder.GetChild(0).gameObject);
+            for(int i=0; i<weaponHolder.childCount-1; i++)
+            {
+                Destroy(weaponHolder.GetChild(i).gameObject);
+            }
+
         }
     }
 
@@ -129,7 +133,7 @@ public class WeaponManager : MonoBehaviour
         // animator.SetBool("Changing", isChanging);
         animator.SetBool("Reloading", isChanging);
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.5f);
         EquipWeapon(_weapon);
         currentWeapon.bulletsInClip = currentWeapon.clipSize;
         isChanging = false;

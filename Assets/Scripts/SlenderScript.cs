@@ -404,7 +404,7 @@ public class SlenderScript : MonoBehaviour
     {
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
-        sp.PlaySound(shootSound, false, 1f);
+        sp.PlaySound(shootSound, false, 0.1f);
         muzzleFlash.Play();
     }
 }

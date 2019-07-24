@@ -384,6 +384,10 @@ public class SlenderScript : MonoBehaviour
         {
             alive = false;
             transform.GetComponent<Rigidbody>().isKinematic = false;
+            Rigidbody rb = transform.GetComponent<Rigidbody>();
+            rb.AddForce(player.forward * 50f, ForceMode.Impulse);
+            Animator animator = transform.GetComponentInChildren<Animator>();
+            animator.enabled = false;
         }
     }
 

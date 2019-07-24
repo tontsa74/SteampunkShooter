@@ -141,7 +141,7 @@ public class PlayerShoot : MonoBehaviour
         Destroy(_shellCasing, 10f);
     }
 
-    void PlayEmptyClip()
+    public void PlayEmptyClip()
     {
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();

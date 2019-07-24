@@ -71,7 +71,13 @@ public class WeaponManager : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            Reload();
+            if(currentWeapon.bulletsAll <= 0)
+            {
+                GetComponent<PlayerShoot>().PlayEmptyClip();
+            } else
+            {
+                Reload();
+            }
         }
 
         if (selectedIndex != currentWeaponIndex)

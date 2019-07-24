@@ -17,6 +17,9 @@ public class SlenderScript : MonoBehaviour
     private int destPatrolPoint;
 
     public Animator animator;
+    public ParticleSystem muzzleFlash;
+    public AudioClip shootSound;
+    public GameObject audioPrefab;
 
     Vector3 target;
     Vector3 targetDir;
@@ -305,6 +308,7 @@ public class SlenderScript : MonoBehaviour
 
     IEnumerator Shoot_Coroutine() {
         shoot = true;
+        PlayMuzzleFlash();
         navMeshAgent.isStopped = true;
         yield return new WaitForSeconds(shootingTimer);
         shoot = false;
@@ -390,5 +394,13 @@ public class SlenderScript : MonoBehaviour
     public void SetSpawnPatrolPoints(Transform[] spp) {
         spawnPatrolPoints = spp;
         spawnPatrol = true;
+    }
+
+    void PlayMuzzleFlash()
+    {
+        GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
+        AudioScript sp = soundPlayer.GetComponent<AudioScript>();
+        sp.PlaySound(shootSound, false, 1f);
+        muzzleFlash.Play();
     }
 }

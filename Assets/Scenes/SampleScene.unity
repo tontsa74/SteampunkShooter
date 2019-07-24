@@ -18890,6 +18890,11 @@ PrefabInstance:
       propertyPath: scopeOverlay
       value: 
       objectReference: {fileID: 682840051}
+    - target: {fileID: 4032306354210235458, guid: cea969afab9301849b478f7d6fe7b157,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 567
+      objectReference: {fileID: 0}
     - target: {fileID: 4032306353637145150, guid: cea969afab9301849b478f7d6fe7b157,
         type: 3}
       propertyPath: m_Name

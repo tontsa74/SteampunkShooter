@@ -106,7 +106,6 @@ public class PlayerController : MonoBehaviour
 
         motor.ApplyJump(_jumpForce);
         motor.ApplyThruster(_thrusterForce);
-
     }
 
     public void SetSensitivity(float _sensitivity)

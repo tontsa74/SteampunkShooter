@@ -9844,7 +9844,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8430494110397760266, guid: b505471222f67ed4591d624fc2b350d9, type: 3}
-  - {fileID: 1850352620073012443, guid: 529f1282d564d254f9d69169c133b7e1, type: 3}
+  - {fileID: 8430494110397760266, guid: b505471222f67ed4591d624fc2b350d9, type: 3}
   spawnPatrolPoints:
   - {fileID: 1787524866}
   - {fileID: 1320089509}

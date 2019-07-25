@@ -98,9 +98,12 @@ public class PlayerShoot : MonoBehaviour
         RaycastHit _hit;
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out _hit, currentWeapon.range, mask))
         {            
+            print("hit: " + _hit.collider.tag);
             if(_hit.collider.tag == "Enemy")
             {
                 EnemyShot(_hit.collider.gameObject, _hit.collider.name, currentWeapon.damage);
+            } else if(_hit.collider.tag == "Destructible") {
+                DestructibleShot(_hit.collider.gameObject);
             } else
             {
                 OnHit(_hit.point, _hit.normal, 10f, _hit.collider.gameObject);
@@ -115,6 +118,10 @@ public class PlayerShoot : MonoBehaviour
     {
         SlenderScript sc = enemy.GetComponentInParent<SlenderScript>();
         sc.TakeDamage(collider, weaponDamage);
+    }
+    void DestructibleShot(GameObject hit) {
+        DestructibleScript destructibleScript = hit.GetComponentInParent<DestructibleScript>();
+        destructibleScript.OnHit();
     }
 
     void PlayMuzzleFlash()

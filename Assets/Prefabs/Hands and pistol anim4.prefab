@@ -252,6 +252,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   muzzleFlash: {fileID: 5873918312279468634}
   hitEffect: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 3}
+  enemyHitEffect: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980,
+    type: 3}
   shellCasing: {fileID: 2021634668854930845, guid: c54a0875e3222574baa381bf60d0dfd0,
     type: 3}
   shellPoint: {fileID: 8030323929897298927}

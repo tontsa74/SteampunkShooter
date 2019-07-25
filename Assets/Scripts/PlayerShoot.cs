@@ -102,6 +102,7 @@ public class PlayerShoot : MonoBehaviour
             if(_hit.collider.tag == "Enemy")
             {
                 EnemyShot(_hit.collider.gameObject, _hit.collider.name, currentWeapon.damage);
+                OnHitEnemy(_hit.point, _hit.normal, 10f, _hit.collider.gameObject);
             } else if(_hit.collider.tag == "Destructible") {
                 DestructibleShot(_hit.collider.gameObject);
             } else
@@ -135,6 +136,13 @@ public class PlayerShoot : MonoBehaviour
     void OnHit(Vector3 _pos, Vector3 _norm, float showTime, GameObject collider)
     {
         GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentWeaponGraphics().hitEffect, _pos, Quaternion.LookRotation(_norm));
+        _hitEffect.transform.SetParent(collider.transform);
+        Destroy(_hitEffect, showTime);
+    }
+
+    void OnHitEnemy(Vector3 _pos, Vector3 _norm, float showTime, GameObject collider)
+    {
+        GameObject _hitEffect = (GameObject)Instantiate(weaponManager.GetCurrentWeaponGraphics().enemyHitEffect, _pos, Quaternion.LookRotation(_norm));
         _hitEffect.transform.SetParent(collider.transform);
         Destroy(_hitEffect, showTime);
     }

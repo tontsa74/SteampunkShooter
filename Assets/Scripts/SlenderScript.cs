@@ -315,6 +315,7 @@ public class SlenderScript : MonoBehaviour
         {
             PlayMuzzleFlash();
         }
+        PlayShootSound();
         navMeshAgent.isStopped = true;
         yield return new WaitForSeconds(shootingTimer);
         shoot = false;
@@ -411,10 +412,14 @@ public class SlenderScript : MonoBehaviour
 
     void PlayMuzzleFlash()
     {
+        muzzleFlash.Play();
+    }
+
+    void PlayShootSound()
+    {
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
         sp.PlaySound(shootSound, false, 0.1f);
-        muzzleFlash.Play();
     }
 
     IEnumerator DamageIndicator_Coroutine()

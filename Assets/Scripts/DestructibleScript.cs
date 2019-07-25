@@ -18,7 +18,8 @@ public class DestructibleScript : MonoBehaviour
     }
 
     public void OnHit() {
-        Instantiate(destroyedVersion, transform.position, transform.rotation);
+        GameObject _destroyedIns = Instantiate(destroyedVersion, transform.position, transform.rotation);
         Destroy(gameObject);
+        Destroy(_destroyedIns, 10f);
     }
 }

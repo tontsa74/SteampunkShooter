@@ -311,7 +311,10 @@ public class SlenderScript : MonoBehaviour
 
     IEnumerator Shoot_Coroutine() {
         shoot = true;
-        PlayMuzzleFlash();
+        if(muzzleFlash != null)
+        {
+            PlayMuzzleFlash();
+        }
         navMeshAgent.isStopped = true;
         yield return new WaitForSeconds(shootingTimer);
         shoot = false;
@@ -418,7 +421,10 @@ public class SlenderScript : MonoBehaviour
     {
         monitorMat.SetColor("_EmissionColor", Color.red);
         yield return new WaitForSeconds(0.2f);
-        monitorMat.SetColor("_EmissionColor", Color.yellow);
+        if(health > 0)
+        {
+            monitorMat.SetColor("_EmissionColor", Color.yellow);
+        }
 
     }
 }

@@ -220,8 +220,9 @@ MonoBehaviour:
   - {fileID: 8430494110912712473}
   animator: {fileID: 6849859263897646522}
   muzzleFlash: {fileID: 0}
-  shootSound: {fileID: 0}
-  audioPrefab: {fileID: 0}
+  shootSound: {fileID: 8300000, guid: 22c1de9b19ef21945af5bdfc952c3a1e, type: 3}
+  audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
+    type: 3}
   healthMonitor: {fileID: 3745884987916763406}
   health: 100
   canRun: 1

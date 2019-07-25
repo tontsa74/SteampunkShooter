@@ -101,6 +101,7 @@ MonoBehaviour:
   shootSound: {fileID: 8300000, guid: d18ac5dac2d880442b096b886c516ed7, type: 3}
   audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
     type: 3}
+  healthMonitor: {fileID: 2905856147355585071}
   health: 100
   canRun: 0
   runSpeedFactor: 2

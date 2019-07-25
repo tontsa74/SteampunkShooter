@@ -20,6 +20,8 @@ public class SlenderScript : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public AudioClip shootSound;
     public GameObject audioPrefab;
+    public GameObject healthMonitor;
+    private Material monitorMat;
 
     Vector3 target;
     Vector3 targetDir;
@@ -85,6 +87,7 @@ public class SlenderScript : MonoBehaviour
         destSpawnPatrolPoint = 0;
         walkSpeed = navMeshAgent.speed;
         runSpeed = walkSpeed * runSpeedFactor;
+        monitorMat = healthMonitor.GetComponent<Renderer>().material;
 
 
     }
@@ -382,10 +385,13 @@ public class SlenderScript : MonoBehaviour
         } else
         {
             health -= _weaponDamage;
+            StartCoroutine(DamageIndicator_Coroutine());
         }
 
-        if(health <= 0)
+        if (health <= 0)
         {
+            monitorMat.SetColor("_EmissionColor", Color.red);
+        //    GetComponentInChildren<Material>().SetColor("_EmissionColor", Color.red);
             alive = false;
             transform.GetComponent<Rigidbody>().isKinematic = false;
             Rigidbody rb = transform.GetComponent<Rigidbody>();
@@ -406,5 +412,13 @@ public class SlenderScript : MonoBehaviour
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
         sp.PlaySound(shootSound, false, 0.1f);
         muzzleFlash.Play();
+    }
+
+    IEnumerator DamageIndicator_Coroutine()
+    {
+        monitorMat.SetColor("_EmissionColor", Color.red);
+        yield return new WaitForSeconds(0.2f);
+        monitorMat.SetColor("_EmissionColor", Color.yellow);
+
     }
 }

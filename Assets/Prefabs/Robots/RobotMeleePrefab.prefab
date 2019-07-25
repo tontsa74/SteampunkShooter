@@ -210,7 +210,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPatrol: 1
-  spawnPatrolPoints: []
+  spawnPatrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   patrolPoints:
   - {fileID: 8430494112263852907}
   - {fileID: 8430494110912712473}
@@ -218,6 +222,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 0}
   audioPrefab: {fileID: 0}
+  healthMonitor: {fileID: 3745884987916763406}
   health: 100
   canRun: 1
   runSpeedFactor: 1.5

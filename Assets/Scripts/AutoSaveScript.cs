@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class AutoSaveScript : MonoBehaviour
 {
+    public Transform player;
     public Transform[] autoSavePositions;
     private int destPosition;
+
+    Transform saved;
+
+    public float dropHeight = 10f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +24,16 @@ public class AutoSaveScript : MonoBehaviour
             GotoNextPoint();
         }
     }
+
+        public void AutoSave(Transform saveTransform) {
+            print("saved");
+            saved = saveTransform;
+        }
+
+        public void LoadSaved() {
+            player.position = saved.position + Vector3.up * dropHeight;
+            player.rotation = saved.rotation;
+        }
         void GotoNextPoint() {
         // Returns if no points have been set up
         if (autoSavePositions.Length == 0) {
@@ -27,8 +42,8 @@ public class AutoSaveScript : MonoBehaviour
             
 
         // Set the agent to go to the currently selected destination.
-        transform.position = autoSavePositions[destPosition].position;
-        transform.rotation = autoSavePositions[destPosition].rotation;
+        player.position = autoSavePositions[destPosition].position + Vector3.up * dropHeight;
+        player.rotation = autoSavePositions[destPosition].rotation;
 
         // Choose the next point in the array as the destination,
         // cycling to the start if necessary.

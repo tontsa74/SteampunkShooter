@@ -5,16 +5,23 @@ using UnityEngine;
 public class CollectableScript : MonoBehaviour
 {
     private bool collected = false;
+    Vector3 tempPos = new Vector3();
+    Vector3 posOffset = new Vector3();
+
     // Start is called before the first frame update
     void Start()
     {
-     //   transform.Rotate = new Vector3(45, 45, 0);
+        posOffset = transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(15, 30, 45) * Time.deltaTime);
+        transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+        tempPos = posOffset;
+        tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * 0.5f) * 0.3f;
+
+        transform.position = tempPos;
     }
 
     private void OnTriggerStay(Collider other)
@@ -28,7 +35,7 @@ public class CollectableScript : MonoBehaviour
             }
             else if(this.CompareTag("Ammo"))
             {
-                other.gameObject.GetComponentInParent<WeaponManager>().GetCurrentWeapon().bulletsAll += 10;
+                other.gameObject.GetComponentInParent<WeaponManager>().GetRailGun().bulletsAll += 10;
             }
             Destroy(this.gameObject);
             collected = true;

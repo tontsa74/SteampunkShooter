@@ -22499,6 +22499,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 90.31124
       objectReference: {fileID: 0}
+    - target: {fileID: 4944441024924289376, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879028207374749959, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -8939722298439668477, guid: bed970c754977a4479cecac12007d220,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22824,17 +22834,7 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 1879028207374749959, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: -7521555964622008896, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944441024924289376, guid: bed970c754977a4479cecac12007d220,
         type: 3}
       propertyPath: m_TagString
       value: Enemy
@@ -34968,9 +34968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPatrol: 1
   spawnPatrolPoints: []
-  patrolPoints:
-  - {fileID: 1013042885}
-  - {fileID: 2012396530}
+  patrolPoints: []
   animator: {fileID: 1840343339}
   muzzleFlash: {fileID: 0}
   shootSound: {fileID: 8300000, guid: d18ac5dac2d880442b096b886c516ed7, type: 3}
@@ -34984,7 +34982,7 @@ MonoBehaviour:
   hearDistance: 100
   sightAngle: 90
   sightDistance: 50
-  shootingDistance: 25
+  shootingDistance: 50
 --- !u!54 &1840343338
 Rigidbody:
   m_ObjectHideFlags: 0

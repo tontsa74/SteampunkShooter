@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - EnemyHead
   - Destructible
+  - Ammo
+  - Health
+  - Collector
   layers:
   - Default
   - TransparentFX

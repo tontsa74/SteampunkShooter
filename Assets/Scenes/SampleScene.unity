@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44950122, g: 0.49649543, b: 0.559146, a: 1}
+  m_IndirectSpecularColor: {r: 0.44950175, g: 0.49649644, b: 0.5591469, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2217,6 +2217,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Destructible
       objectReference: {fileID: 0}
+    - target: {fileID: -8391171858420733672, guid: e55fb74df6adbc7488b89b4939fd455e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
     - target: {fileID: -4216859302048453862, guid: e55fb74df6adbc7488b89b4939fd455e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2277,17 +2282,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
-    - target: {fileID: 4612260077168028223, guid: e55fb74df6adbc7488b89b4939fd455e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
     - target: {fileID: 2335950848445228762, guid: e55fb74df6adbc7488b89b4939fd455e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
-    - target: {fileID: -8391171858420733672, guid: e55fb74df6adbc7488b89b4939fd455e,
+    - target: {fileID: 4612260077168028223, guid: e55fb74df6adbc7488b89b4939fd455e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -10051,7 +10051,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 7.33e-43, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 5.5e-44, y: 0, z: 1.68e-43, w: 0.015625}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -30493,6 +30493,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Destructible
       objectReference: {fileID: 0}
+    - target: {fileID: -8391171858420733672, guid: e55fb74df6adbc7488b89b4939fd455e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
     - target: {fileID: -4216859302048453862, guid: e55fb74df6adbc7488b89b4939fd455e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -30553,17 +30558,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
-    - target: {fileID: 4612260077168028223, guid: e55fb74df6adbc7488b89b4939fd455e,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
     - target: {fileID: 2335950848445228762, guid: e55fb74df6adbc7488b89b4939fd455e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0509aab57f44b2a449ebda13a55a1b9a, type: 2}
-    - target: {fileID: -8391171858420733672, guid: e55fb74df6adbc7488b89b4939fd455e,
+    - target: {fileID: 4612260077168028223, guid: e55fb74df6adbc7488b89b4939fd455e,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -35000,9 +35000,10 @@ GameObject:
   - component: {fileID: 1850000844}
   - component: {fileID: 1850000843}
   - component: {fileID: 1850000842}
+  - component: {fileID: 1850000845}
   m_Layer: 9
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: Collector
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35084,6 +35085,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1850000840}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!136 &1850000845
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850000840}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5000002
+  m_Height: 2
+  m_Direction: 1
+  m_Center: {x: 0.00000005960465, y: 0, z: -0.00000008940698}
 --- !u!1 &1852210811
 GameObject:
   m_ObjectHideFlags: 0
@@ -43327,6 +43342,11 @@ PrefabInstance:
         type: 3}
       propertyPath: railGun.reloadTime
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4032306352854240505, guid: cea969afab9301849b478f7d6fe7b157,
+        type: 3}
+      propertyPath: m_TagString
+      value: Collector
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cea969afab9301849b478f7d6fe7b157, type: 3}

@@ -392,8 +392,9 @@ public class SlenderScript : MonoBehaviour
             StartCoroutine(DamageIndicator_Coroutine());
         }
 
-        if (health <= 0)
+        if (health <= 0 && alive)
         {
+            alive = false;
             monitorMat.SetColor("_EmissionColor", Color.red);
         //    GetComponentInChildren<Material>().SetColor("_EmissionColor", Color.red);
             alive = false;
@@ -402,6 +403,14 @@ public class SlenderScript : MonoBehaviour
             rb.AddForce(player.forward * 50f, ForceMode.Impulse);
             Animator animator = transform.GetComponentInChildren<Animator>();
             animator.enabled = false;
+            int rand = Random.Range(0, 3);
+            if(rand == 0)
+            {
+                GetComponent<SpawnCollectable>().SpawnAmmoBox();
+            } else if(rand == 1)
+            {
+                GetComponent<SpawnCollectable>().SpawnHealthBox();
+            }
         }
     }
 

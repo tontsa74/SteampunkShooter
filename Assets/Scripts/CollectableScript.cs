@@ -28,8 +28,6 @@ public class CollectableScript : MonoBehaviour
             }
             else if(this.CompareTag("Ammo"))
             {
-                print("How many times");
-
                 other.gameObject.GetComponentInParent<WeaponManager>().GetCurrentWeapon().bulletsAll += 10;
             }
             Destroy(this.gameObject);

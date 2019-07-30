@@ -149,9 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad135f2831f3d14abce176b96fad69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoBox: {fileID: 6590422573089173964, guid: 995c442cda4d04648b15e6513ba22a18, type: 3}
-  healthBox: {fileID: 3321872730661141624, guid: db92f1cc090ccbb48b2599c405430e7a,
-    type: 3}
+  ammo: {fileID: 6590422573089173964, guid: 995c442cda4d04648b15e6513ba22a18, type: 3}
+  health: {fileID: 6814273460199216102, guid: 68f38902d5f2a77479b8e8201a9d2e8f, type: 3}
 --- !u!1 &1850352620158065573
 GameObject:
   m_ObjectHideFlags: 0

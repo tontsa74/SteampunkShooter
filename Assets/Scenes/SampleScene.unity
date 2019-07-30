@@ -32146,7 +32146,7 @@ MonoBehaviour:
     fireRate: 0
     clipSize: 15
     bulletsInClip: 15
-    bulletsAll: 30
+    bulletsAll: 9999
     reloadTime: 2.7
     noiseAmount: 50
     scopable: 0
@@ -43991,7 +43991,7 @@ PrefabInstance:
     - target: {fileID: 4032306353637145127, guid: cea969afab9301849b478f7d6fe7b157,
         type: 3}
       propertyPath: sideArm.bulletsAll
-      value: 30
+      value: 9999
       objectReference: {fileID: 0}
     - target: {fileID: 4032306353637145127, guid: cea969afab9301849b478f7d6fe7b157,
         type: 3}

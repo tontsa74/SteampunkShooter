@@ -72,7 +72,13 @@ public class UiManager : MonoBehaviour
 
     public void UpdateAmmo(string gunName, int clipBullets, int allBullets)
     {
-        ammo.SetText(gunName + " " + clipBullets + "/" +allBullets);
+        if(gunName == "Side arm")
+        {
+            ammo.SetText(gunName + " " + clipBullets + "/" + "\u221E");
+        } else
+        {
+            ammo.SetText(gunName + " " + clipBullets + "/" + allBullets);
+        }
     }
 
     public void UpdateHealth(float _health)

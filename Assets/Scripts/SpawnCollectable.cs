@@ -5,8 +5,8 @@ using UnityEngine;
 public class SpawnCollectable : MonoBehaviour
 {
 
-    public GameObject ammoBox;
-    public GameObject healthBox;
+    public GameObject ammo;
+    public GameObject health;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +22,7 @@ public class SpawnCollectable : MonoBehaviour
 
     public void SpawnAmmoBox()
     {
-        GameObject boxIns = (GameObject)Instantiate(ammoBox, transform.position + new Vector3(0, 1), Quaternion.EulerRotation(new Vector3(45,45,45)));
+        GameObject boxIns = (GameObject)Instantiate(ammo, transform.position + new Vector3(0, 1), Quaternion.EulerRotation(new Vector3(45,45,45)));
         //  boxIns.GetComponent<Collider>().enabled = false;
         //    boxIns.GetComponent<Collider>().enabled = true;
 
@@ -30,7 +30,7 @@ public class SpawnCollectable : MonoBehaviour
 
     public void SpawnHealthBox()
     {
-        GameObject boxIns = (GameObject)Instantiate(healthBox, transform.position + new Vector3(0, 1), Quaternion.EulerRotation(new Vector3(45, 45, 45)));
+        GameObject boxIns = (GameObject)Instantiate(health, transform.position + new Vector3(0, 1), Quaternion.EulerRotation(new Vector3(45, 45, 45)));
     //    boxIns.GetComponent<Collider>().enabled = false;
       //  boxIns.GetComponent<Collider>().enabled = true;
     }

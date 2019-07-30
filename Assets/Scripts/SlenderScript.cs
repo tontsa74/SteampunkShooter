@@ -383,9 +383,10 @@ public class SlenderScript : MonoBehaviour
 
     public void TakeDamage(string _collider, float _weaponDamage)
     {
-        if(_collider == "Bone004" || _collider == "pää001")
+        if(_collider == "Bone004" || _collider == "pää001" || _collider == "EnemyHead")
         {
-            health = 0;
+            health -= _weaponDamage * 10f;
+            StartCoroutine(DamageIndicator_Coroutine());
         } else
         {
             health -= _weaponDamage;

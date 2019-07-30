@@ -9,6 +9,7 @@ public class AutoSaveScript : MonoBehaviour
     private int destPosition;
 
     Transform saved;
+    public bool isSaved = false;
 
     public float dropHeight = 10f;
     // Start is called before the first frame update
@@ -25,28 +26,30 @@ public class AutoSaveScript : MonoBehaviour
         }
     }
 
-        public void AutoSave(Transform saveTransform) {
-            print("saved");
-            saved = saveTransform;
-        }
+    public void AutoSave(Transform saveTransform) {
+        print("saved");
+        saved = saveTransform;
+        isSaved = true;
+    }
 
-        public void LoadSaved() {
-            player.position = saved.position + Vector3.up * dropHeight;
-            player.rotation = saved.rotation;
-        }
-        void GotoNextPoint() {
-        // Returns if no points have been set up
-        if (autoSavePositions.Length == 0) {
-            return;
-        }
+    public void LoadSaved() {
+        player.position = saved.position + Vector3.up * dropHeight;
+        player.rotation = saved.rotation;
+    }
+
+    void GotoNextPoint() {
+    // Returns if no points have been set up
+    if (autoSavePositions.Length == 0) {
+        return;
+    }
             
 
-        // Set the agent to go to the currently selected destination.
-        player.position = autoSavePositions[destPosition].position + Vector3.up * dropHeight;
-        player.rotation = autoSavePositions[destPosition].rotation;
+    // Set the agent to go to the currently selected destination.
+    player.position = autoSavePositions[destPosition].position + Vector3.up * dropHeight;
+    player.rotation = autoSavePositions[destPosition].rotation;
 
-        // Choose the next point in the array as the destination,
-        // cycling to the start if necessary.
-        destPosition = (destPosition + 1) % autoSavePositions.Length;
+    // Choose the next point in the array as the destination,
+    // cycling to the start if necessary.
+    destPosition = (destPosition + 1) % autoSavePositions.Length;
     }
 }

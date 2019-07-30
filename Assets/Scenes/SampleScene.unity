@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44950175, g: 0.49649644, b: 0.5591469, a: 1}
+  m_IndirectSpecularColor: {r: 0.44950122, g: 0.49649543, b: 0.559146, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -12851,6 +12851,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Street lamp_2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d021b8d2342f20843b1cd6874e663326,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d021b8d2342f20843b1cd6874e663326,
+        type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d021b8d2342f20843b1cd6874e663326,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -22372,6 +22382,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider_8
       objectReference: {fileID: 0}
+    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.31124
+      objectReference: {fileID: 0}
     - target: {fileID: -8939722298439668477, guid: bed970c754977a4479cecac12007d220,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22596,16 +22616,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.0000006280558
-      objectReference: {fileID: 0}
-    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.31124
       objectReference: {fileID: 0}
     - target: {fileID: 6682399108579199594, guid: bed970c754977a4479cecac12007d220,
         type: 3}

@@ -194,7 +194,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -500,10 +500,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8430494110397760265}
     m_Modifications:
-    - target: {fileID: -1811566308692034672, guid: d6233c06574efb341ac43a457a547c5b,
+    - target: {fileID: -927199367670048503, guid: d6233c06574efb341ac43a457a547c5b,
         type: 3}
-      propertyPath: m_TagString
-      value: Enemy
+      propertyPath: m_Name
+      value: RobotMeleeAnimationsUV
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d6233c06574efb341ac43a457a547c5b,
         type: 3}
@@ -565,11 +565,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: c856cd757333cca429e2d48ffd39c8d5, type: 2}
-    - target: {fileID: -927199367670048503, guid: d6233c06574efb341ac43a457a547c5b,
-        type: 3}
-      propertyPath: m_Name
-      value: RobotMeleeAnimationsUV
-      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: d6233c06574efb341ac43a457a547c5b,
         type: 3}
       propertyPath: m_Enabled
@@ -584,6 +579,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1811566308692034672, guid: d6233c06574efb341ac43a457a547c5b,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6233c06574efb341ac43a457a547c5b, type: 3}

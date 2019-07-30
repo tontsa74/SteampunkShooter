@@ -659,6 +659,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2120758393809080745}
     m_Modifications:
+    - target: {fileID: 8886539779671739357, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_Name
+      value: MuzzleFlashEffect 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -713,11 +718,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8886539779671739357, guid: 6946e25289009e443b59c9110936a03d,
-        type: 3}
-      propertyPath: m_Name
-      value: MuzzleFlashEffect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6946e25289009e443b59c9110936a03d, type: 3}

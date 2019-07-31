@@ -111,4 +111,10 @@ public class UiManager : MonoBehaviour
         }
     }
 
+    public void GainHealth(float _health)
+    {
+        health.SetText("health: " + _health);
+
+    }
+
 }

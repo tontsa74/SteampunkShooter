@@ -128,7 +128,7 @@ public class PlayerController : MonoBehaviour
     public void GiveHealth(float health)
     {
         playerHealth += health;
-        uiManager.UpdateHealth(playerHealth);
+        uiManager.GainHealth(playerHealth);
     }
 
 }

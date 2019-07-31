@@ -68,7 +68,7 @@ public class SlenderScript : MonoBehaviour
     
     Color lineColor = Color.red;
 
-    float shootingTimer = 1f;
+    public float shootingTimer = 1f;
     bool isShooting = false;
     bool shoot = false;
 

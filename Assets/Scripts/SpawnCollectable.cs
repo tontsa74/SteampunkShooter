@@ -24,8 +24,7 @@ public class SpawnCollectable : MonoBehaviour
     {
         if(ammo != null)
         {
-            GameObject boxIns = (GameObject)Instantiate(ammo, transform.position + new Vector3(0, 1), Quaternion.EulerRotation(new Vector3(45, 45, 45)));
-
+            GameObject boxIns = (GameObject)Instantiate(ammo, transform.position + new Vector3(0, 1), Quaternion.Euler(new Vector3(-90, 0, 0)));
         }
         //  boxIns.GetComponent<Collider>().enabled = false;
         //    boxIns.GetComponent<Collider>().enabled = true;
@@ -37,7 +36,6 @@ public class SpawnCollectable : MonoBehaviour
         if(health != null)
         {
             GameObject boxIns = (GameObject)Instantiate(health, transform.position + new Vector3(0, 1), Quaternion.identity);
-
 
         }
         //    boxIns.GetComponent<Collider>().enabled = false;

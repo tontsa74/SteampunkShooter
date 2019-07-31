@@ -22,6 +22,7 @@ public class SlenderScript : MonoBehaviour
     public GameObject audioPrefab;
     public GameObject healthMonitor;
     private Material monitorMat;
+    private SpawnCollectable spawnCollectable;
 
     Vector3 target;
     Vector3 targetDir;
@@ -88,6 +89,7 @@ public class SlenderScript : MonoBehaviour
         walkSpeed = navMeshAgent.speed;
         runSpeed = walkSpeed * runSpeedFactor;
         monitorMat = healthMonitor.GetComponent<Renderer>().material;
+        spawnCollectable = GetComponent<SpawnCollectable>();
 
 
     }
@@ -405,12 +407,12 @@ public class SlenderScript : MonoBehaviour
             Animator animator = transform.GetComponentInChildren<Animator>();
             animator.enabled = false;
             int rand = Random.Range(0, 3);
-            if(rand == 0)
+            if(rand == 0 && spawnCollectable != null)
             {
-                GetComponent<SpawnCollectable>().SpawnAmmoBox();
+                spawnCollectable.SpawnAmmoBox();
             } else if(rand == 1)
             {
-                GetComponent<SpawnCollectable>().SpawnHealthBox();
+                spawnCollectable.SpawnHealthBox();
             }
         }
     }

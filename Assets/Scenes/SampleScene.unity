@@ -4203,8 +4203,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.7935639, y: 1.21876, z: 0.42031986}
-  m_Center: {x: 0.008471936, y: -0.009284705, z: -0.008720487}
+  m_Size: {x: 0.7935639, y: 0.89735174, z: 0.42031986}
+  m_Center: {x: 0.008471934, y: 0.008119269, z: -0.008720489}
 --- !u!1 &197396099 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1474073141653776991, guid: 31231823865a45d40a70d888ff5075cf,
@@ -36818,6 +36818,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: Spider_8
       objectReference: {fileID: 0}
+    - target: {fileID: 5133913965574556032, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: -9105146449992580688, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90.31124
+      objectReference: {fileID: 0}
+    - target: {fileID: 4944441024924289376, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1879028207374749959, guid: bed970c754977a4479cecac12007d220,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: -8939722298439668477, guid: bed970c754977a4479cecac12007d220,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -37023,11 +37053,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 1879028207374749959, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
     - target: {fileID: 4380871093709625488, guid: bed970c754977a4479cecac12007d220,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -37057,26 +37082,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -0.00000060030976
-      objectReference: {fileID: 0}
-    - target: {fileID: 4944441024924289376, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5133913965574556032, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5574657383665397177, guid: bed970c754977a4479cecac12007d220,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.31124
       objectReference: {fileID: 0}
     - target: {fileID: 6682399108579199594, guid: bed970c754977a4479cecac12007d220,
         type: 3}
@@ -52288,7 +52293,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 2.2
-  m_Speed: 3.5
+  m_Speed: 5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -52342,7 +52347,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0

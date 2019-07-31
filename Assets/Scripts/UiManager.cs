@@ -70,6 +70,13 @@ public class UiManager : MonoBehaviour
         SceneManager.LoadScene(sceneId);
     }
 
+    public void CloseGameOverPanel()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GameOverPanel.SetActive(false);
+    }
+
     public void UpdateAmmo(string gunName, int clipBullets, int allBullets)
     {
         if(gunName == "Side arm")

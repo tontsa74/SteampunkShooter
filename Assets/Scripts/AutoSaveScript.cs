@@ -7,6 +7,7 @@ public class AutoSaveScript : MonoBehaviour
     public Transform player;
     public Transform[] autoSavePositions;
     private int destPosition;
+    public UiManager uiManager;
 
     Transform saved;
     public bool isSaved = false;
@@ -35,6 +36,15 @@ public class AutoSaveScript : MonoBehaviour
     public void LoadSaved() {
         player.position = saved.position + Vector3.up * dropHeight;
         player.rotation = saved.rotation;
+    }
+
+    public void LoadSavedDead()
+    {
+        Time.timeScale = 1;
+        uiManager.CloseGameOverPanel();
+        player.position = saved.position + Vector3.up * dropHeight;
+        player.rotation = saved.rotation;
+        player.GetComponentInParent<PlayerController>().GiveHealth(100f);
     }
 
     void GotoNextPoint() {

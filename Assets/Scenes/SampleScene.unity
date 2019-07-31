@@ -3441,6 +3441,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -4134833829332099246, guid: 36059c94b20e3a340ac1b6dbdb92b215, type: 3}
+--- !u!4 &248946689 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+    type: 3}
+  m_PrefabInstance: {fileID: 758936792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &248946691 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8786442263923762709, guid: 6946e25289009e443b59c9110936a03d,
+    type: 3}
+  m_PrefabInstance: {fileID: 758936792}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &249716264
 GameObject:
   m_ObjectHideFlags: 0
@@ -11357,6 +11369,75 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: 8077662520447134303, guid: c0dea50e480033841b1a5b2f05336854, type: 3}
+--- !u!1001 &758936792
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1573399065}
+    m_Modifications:
+    - target: {fileID: 8886539779671739357, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_Name
+      value: MuzzleFlashEffect 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8889802907789031199, guid: 6946e25289009e443b59c9110936a03d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6946e25289009e443b59c9110936a03d, type: 3}
 --- !u!4 &759899542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: d021b8d2342f20843b1cd6874e663326,
@@ -32177,6 +32258,37 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 14
   m_Mesh: {fileID: -4996861437628621093, guid: 36059c94b20e3a340ac1b6dbdb92b215, type: 3}
+--- !u!1 &1573399064
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1573399065}
+  m_Layer: 0
+  m_Name: FiringPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1573399065
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573399064}
+  m_LocalRotation: {x: 0, y: -0.7071068, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0.839, z: 0.618}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 248946689}
+  m_Father: {fileID: 1840343340}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!1 &1575374623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2976901008058854789, guid: 85655cb43c637314592a00f0a5222bc5,
@@ -36143,7 +36255,7 @@ MonoBehaviour:
   spawnPatrolPoints: []
   patrolPoints: []
   animator: {fileID: 1840343339}
-  muzzleFlash: {fileID: 0}
+  muzzleFlash: {fileID: 248946691}
   shootSound: {fileID: 8300000, guid: d18ac5dac2d880442b096b886c516ed7, type: 3}
   audioPrefab: {fileID: 3838174899979289350, guid: 0dbfa256edeac9643a71fd9b26cceb0f,
     type: 3}

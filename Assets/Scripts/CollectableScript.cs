@@ -17,7 +17,13 @@ public class CollectableScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+        if(this.CompareTag("Health"))
+        {
+            transform.Rotate(new Vector3(0, 30, 0) * Time.deltaTime);
+        } else
+        {
+            transform.Rotate(new Vector3(0, 0, 30) * Time.deltaTime);
+        }
         tempPos = posOffset;
         tempPos.y += Mathf.Sin(Time.fixedTime * Mathf.PI * 0.5f) * 0.3f;
 

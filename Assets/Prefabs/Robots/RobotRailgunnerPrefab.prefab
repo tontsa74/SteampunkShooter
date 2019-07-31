@@ -114,6 +114,7 @@ MonoBehaviour:
   hearDistance: 100
   sightAngle: 90
   sightDistance: 50
+  shootingTimer: 1
   shootingDistance: 25
 --- !u!195 &1850352620073012441
 NavMeshAgent:
@@ -149,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ad135f2831f3d14abce176b96fad69a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: {fileID: 6590422573089173964, guid: 995c442cda4d04648b15e6513ba22a18, type: 3}
+  ammo: {fileID: 4877756053261997126, guid: 9b3fbfbb8b61fa94ca45be51800ea99f, type: 3}
   health: {fileID: 6814273460199216102, guid: 68f38902d5f2a77479b8e8201a9d2e8f, type: 3}
 --- !u!1 &1850352620158065573
 GameObject:

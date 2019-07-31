@@ -105,9 +105,16 @@ public class PlayerShoot : MonoBehaviour
                 OnHitEnemy(_hit.point, _hit.normal, 10f, _hit.collider.gameObject);
             } else if(_hit.collider.tag == "Destructible") {
                 DestructibleShot(_hit.collider.gameObject);
-            } else
+            }
+            else if (_hit.collider.tag == "Moveable")
+            {
+                Rigidbody rb = _hit.collider.gameObject.GetComponent<Rigidbody>();
+                rb.AddForce(transform.forward * 5f * currentWeapon.damage, ForceMode.Impulse);
+            }
+            else
             {
                 OnHit(_hit.point, _hit.normal, 10f, _hit.collider.gameObject);
+
             }
         }
 

@@ -24,6 +24,11 @@ public class SlenderScript : MonoBehaviour
     private Material monitorMat;
     private SpawnCollectable spawnCollectable;
 
+    public bool canSpawn = false;
+    public GameObject baby;
+    bool spawn = false;
+    public Transform spawnPoint;
+
     Vector3 target;
     Vector3 targetDir;
     float targetAngle;
@@ -98,7 +103,7 @@ public class SlenderScript : MonoBehaviour
     void Update()
     {
         if (alive) {
-
+            
             SetAnimations();
             
             target = player.position + Vector3.up;
@@ -112,6 +117,7 @@ public class SlenderScript : MonoBehaviour
             } else if (seen) {
                 spawnPatrol = false;
                 goAtDirection = true;
+                spawn = true;
                 if (canRun) {
                     run = true;
                     navMeshAgent.speed = runSpeed;
@@ -128,6 +134,7 @@ public class SlenderScript : MonoBehaviour
                     Shoot();
                 } else {
                     isShooting = false;
+
                 }
                 
             } else if (heard) {
@@ -164,6 +171,11 @@ public class SlenderScript : MonoBehaviour
         } else {
             navMeshAgent.enabled = alive;
             animator.SetBool("alive", alive);
+            if(transform.position.y < -100f)
+            {
+                Destroy(transform.gameObject);
+            }
+            
         }
 
     }
@@ -195,7 +207,12 @@ public class SlenderScript : MonoBehaviour
                     }
                 } else {
                     seen = false;
-                }
+                    if (canSpawn && spawn)
+                    {
+                        StartCoroutine(SpawnBaby());
+                        spawn = false;
+                    }
+            }
         } else {
             inSeenSector = false;
             seen = false;
@@ -290,6 +307,19 @@ public class SlenderScript : MonoBehaviour
         {
             lookAt = false;
         }
+    }
+
+    IEnumerator SpawnBaby()
+    {
+        canSpawn = false;
+        for(int i = 0; i < 5; i++)
+        {
+            GameObject newBaby = Instantiate(baby, spawnPoint.position, Quaternion.identity, spawnPoint);
+            newBaby.GetComponentInParent<NavMeshAgent>().SetDestination(seenPosition);
+        }
+        
+        yield return new WaitForSeconds(10f);
+        canSpawn = true;
     }
 
     void Shoot() {

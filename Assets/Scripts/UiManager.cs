@@ -13,6 +13,8 @@ public class UiManager : MonoBehaviour
     public RawImage healthOverlay;
 
     public GameObject GameOverPanel;
+    public GameObject loadButton;
+    public AutoSaveScript ass;
 
     public float healthIndicator = 0.1f;
     private float timer = 0f;
@@ -104,6 +106,7 @@ public class UiManager : MonoBehaviour
             Cursor.visible = true;
 
             GameOverPanel.SetActive(true);
+            loadButton.SetActive(ass.isSaved);
             Time.timeScale = 0;
         }
     }

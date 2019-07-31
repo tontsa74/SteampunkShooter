@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     private bool jumping = false;
     private float thrustCounter;
 
+    private WeaponManager weaponManager;
     private PlayerMotor motor;
     private CapsuleCollider hearingColl;
 
@@ -34,6 +35,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        weaponManager = GetComponent<WeaponManager>();
         motor = GetComponent<PlayerMotor>();
         hearingColl = GetComponent<CapsuleCollider>();
 
@@ -120,6 +122,12 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage(float damage) {
         playerHealth -= damage;
+        uiManager.UpdateHealth(playerHealth);
+    }
+
+    public void GiveHealth(float health)
+    {
+        playerHealth += health;
         uiManager.UpdateHealth(playerHealth);
     }
 

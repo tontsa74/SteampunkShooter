@@ -156,6 +156,7 @@ GameObject:
   - component: {fileID: 8430494110397760269}
   - component: {fileID: 8430494110397760270}
   - component: {fileID: 8430494110397760271}
+  - component: {fileID: 2692541818447542130}
   m_Layer: 0
   m_Name: RobotMeleePrefab
   m_TagString: Enemy
@@ -193,7 +194,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -254,6 +255,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2692541818447542130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430494110397760266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ad135f2831f3d14abce176b96fad69a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: {fileID: 6590422573089173964, guid: 995c442cda4d04648b15e6513ba22a18, type: 3}
+  health: {fileID: 6814273460199216102, guid: 68f38902d5f2a77479b8e8201a9d2e8f, type: 3}
 --- !u!1 &8430494110912712474
 GameObject:
   m_ObjectHideFlags: 0

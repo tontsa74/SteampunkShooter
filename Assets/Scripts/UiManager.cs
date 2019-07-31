@@ -106,8 +106,8 @@ public class UiManager : MonoBehaviour
             Cursor.visible = true;
 
             GameOverPanel.SetActive(true);
-            loadButton.SetActive(ass.isSaved);
             Time.timeScale = 0;
+            loadButton.SetActive(ass.isSaved);
         }
     }
 

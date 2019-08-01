@@ -59,7 +59,7 @@ public class UiManager : MonoBehaviour
             }
         }
 
-        if(YouWinPanel.activeSelf == true)
+        if(YouWinPanel.activeSelf)
         {
             var tempColor = YouWinPanel.GetComponent<Image>().color;
             tempColor.a += 0.01f; //1f makes it fully visible, 0f makes it fully transparent.

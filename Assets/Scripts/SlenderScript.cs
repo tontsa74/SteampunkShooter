@@ -5,15 +5,9 @@ using UnityEngine.AI;
 
 public class SlenderScript : MonoBehaviour
 {
-    // GameObject destination;
     NavMeshAgent navMeshAgent;
 
     Transform player;
-
-    public Transform homePoint;
-
-    bool goHome = false;
-    bool bossPatrol = false;
 
     public bool spawnPatrol = true;
     public Transform[] spawnPatrolPoints;
@@ -126,10 +120,6 @@ public class SlenderScript : MonoBehaviour
             Heard();
             if(lookAt) {
                 LookAt(targetDir);
-            } else if (bossPatrol) {
-                GotoRandomPoint();
-                bossPatrol = false;
-                patrol = true;
             }
             else if (seen) {
                 spawnPatrol = false;
@@ -154,9 +144,6 @@ public class SlenderScript : MonoBehaviour
                     isShooting = false;
 
                 }
-            } else if (goHome) {
-                navMeshAgent.SetDestination(homePoint.position);
-                goHome = false;
             } else if (heard) {
                 SetDestination(heardPosition);
                 lookAtNoise = true;
@@ -259,13 +246,7 @@ public class SlenderScript : MonoBehaviour
 
             for(int i=allWayPoints.Length-1; i>0; i--) {
                 pathLenght += Vector3.Distance(allWayPoints[i], allWayPoints[i-1]);
-                // if (pathLenght <= hearDistance) {
-                //     heardPosition = allWayPoints[i];
-                //     heard = true;
-                // }
             }
-
-            // print("allWayPointsLenght: " + allWayPoints.Length + ", hearing pathLenght: " +  pathLenght + ", heardDistance: " + hearDistance);
 
             if (pathLenght <= hearDistance) {
                 if(allWayPoints.Length >= 5) {
@@ -339,8 +320,6 @@ public class SlenderScript : MonoBehaviour
         }
         yield return new WaitForSeconds(10f);
         canSpawn = true;
-        //goHome = true;
-        bossPatrol = true;
     }
 
     void Shoot() {

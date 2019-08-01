@@ -131,6 +131,7 @@ MonoBehaviour:
   sightDistance: 100
   shootingTimer: 10
   shootingDistance: 1
+  damage: 3
 --- !u!114 &6833212739872681958
 MonoBehaviour:
   m_ObjectHideFlags: 0

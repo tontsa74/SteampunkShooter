@@ -108,6 +108,7 @@ public class PlayerShoot : MonoBehaviour
             }
             else if (_hit.collider.tag == "Moveable")
             {
+                OnHit(_hit.point, _hit.normal, 10f, _hit.collider.gameObject);
                 Rigidbody rb = _hit.collider.gameObject.GetComponent<Rigidbody>();
                 rb.AddForce(transform.forward * 5f * currentWeapon.damage, ForceMode.Impulse);
             }

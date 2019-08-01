@@ -37,6 +37,8 @@ public class SlenderScript : MonoBehaviour
 
     public float health = 100;
 
+    public float soundVolume = 0.1f;
+
     public bool canRun = false;
 
     public float runSpeedFactor = 1.5f;
@@ -463,7 +465,7 @@ public class SlenderScript : MonoBehaviour
     {
         GameObject soundPlayer = Instantiate(audioPrefab, transform.position, Quaternion.identity);
         AudioScript sp = soundPlayer.GetComponent<AudioScript>();
-        sp.PlaySound(shootSound, false, 0.1f);
+        sp.PlaySound(shootSound, false, soundVolume);
     }
 
     IEnumerator DamageIndicator_Coroutine()

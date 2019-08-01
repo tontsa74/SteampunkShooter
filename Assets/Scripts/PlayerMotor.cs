@@ -89,7 +89,7 @@ public class PlayerMotor : MonoBehaviour
         jumpForce = _jumpForce;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         PerformMovement();
         PerformRotation();

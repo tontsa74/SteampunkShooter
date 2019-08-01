@@ -13,6 +13,7 @@ public class SlenderScript : MonoBehaviour
     public bool spawnPatrol = true;
     public Transform[] spawnPatrolPoints;
     private int destSpawnPatrolPoint;
+    public bool patrol = true;
     public Transform[] patrolPoints;
     private int destPatrolPoint;
 
@@ -163,7 +164,7 @@ public class SlenderScript : MonoBehaviour
                         goAtDirection = false;
                     } else if(spawnPatrol) {
                         GotoNextPoint();
-                    } else {
+                    } else if(patrol) {
                         GotoRandomPoint();
                     }
                     
@@ -323,7 +324,8 @@ public class SlenderScript : MonoBehaviour
             GameObject newBaby = Instantiate(baby, spawnPoint.position, Quaternion.identity, spawnPoint);
             newBaby.GetComponentInParent<NavMeshAgent>().SetDestination(seenPosition);
         }
-        
+        patrol = true;
+        GotoRandomPoint();
         yield return new WaitForSeconds(10f);
         canSpawn = true;
     }

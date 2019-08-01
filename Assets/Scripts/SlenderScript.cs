@@ -87,6 +87,8 @@ public class SlenderScript : MonoBehaviour
 
     float rotationSpeed = 10f;
 
+    public float damage = 10f;
+
 
     // Start is called before the first frame update
     void Start()
@@ -338,7 +340,7 @@ public class SlenderScript : MonoBehaviour
             if (inSeenSector && !blocked) {
             //    print("enemy HITS player");
                 PlayerController pc = player.GetComponentInParent<PlayerController>();
-                pc.TakeDamage(10f);
+                pc.TakeDamage(damage);
             }
         } else {
          //   print("enemy MISS");

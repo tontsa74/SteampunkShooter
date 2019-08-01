@@ -30392,6 +30392,7 @@ MonoBehaviour:
   sightDistance: 100
   shootingTimer: 0.2
   shootingDistance: 100
+  damage: 2
 --- !u!195 &953736888
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -64352,6 +64353,8 @@ PrefabInstance:
         type: 3}
       propertyPath: babyAmount
       value: 3
+      propertyPath: damage
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4257952313606399127, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}

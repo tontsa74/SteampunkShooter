@@ -16,6 +16,8 @@ public class UiManager : MonoBehaviour
     public GameObject loadButton;
     public AutoSaveScript ass;
 
+    public GameObject YouWinPanel;
+
     public float healthIndicator = 0.1f;
     private float timer = 0f;
 
@@ -31,6 +33,7 @@ public class UiManager : MonoBehaviour
         }
 
         GameOverPanel.SetActive(false);
+        YouWinPanel.SetActive(false);
 
     }
 
@@ -117,4 +120,9 @@ public class UiManager : MonoBehaviour
 
     }
 
+    public void YouWin()
+    {
+        YouWinPanel.SetActive(true);
+        Time.timeScale = 0;
+    }
 }

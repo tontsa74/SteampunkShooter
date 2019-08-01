@@ -7,6 +7,7 @@ public class SpawnCollectable : MonoBehaviour
 
     public GameObject ammo;
     public GameObject health;
+    public GameObject reward;
 
     // Start is called before the first frame update
     void Start()
@@ -40,6 +41,15 @@ public class SpawnCollectable : MonoBehaviour
         }
         //    boxIns.GetComponent<Collider>().enabled = false;
         //  boxIns.GetComponent<Collider>().enabled = true;
+    }
+
+    public void SpawnBossBox()
+    {
+        if (reward != null)
+        {
+            GameObject boxIns = (GameObject)Instantiate(reward, transform.position + new Vector3(0, 7), Quaternion.identity);
+
+        }
     }
 
 }

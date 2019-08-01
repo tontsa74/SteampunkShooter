@@ -92,6 +92,8 @@ public class SlenderScript : MonoBehaviour
 
     public float damage = 10f;
 
+    public UiManager uiManager;
+
 
     // Start is called before the first frame update
     void Start()
@@ -104,8 +106,6 @@ public class SlenderScript : MonoBehaviour
         runSpeed = walkSpeed * runSpeedFactor;
         monitorMat = healthMonitor.GetComponent<Renderer>().material;
         spawnCollectable = GetComponent<SpawnCollectable>();
-
-
     }
 
     // Update is called once per frame
@@ -460,6 +460,12 @@ public class SlenderScript : MonoBehaviour
             } else if(rand == 1)
             {
                 spawnCollectable.SpawnHealthBox();
+            }
+
+            if(name == "Boss")
+            {
+                //spawnCollectable.SpawnBossBox();
+                uiManager.YouWin();
             }
         }
     }

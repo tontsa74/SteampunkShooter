@@ -85,12 +85,11 @@ public class PlayerMotor : MonoBehaviour
     }
 
     public void ApplyJump(Vector3 _jumpForce)
-    {
+    {        
         jumpForce = _jumpForce;
-
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         PerformMovement();
         PerformRotation();
@@ -146,7 +145,7 @@ public class PlayerMotor : MonoBehaviour
                 tsp.PauseSound();
             }
         }
-
+        
         if (jumpForce != Vector3.zero && IsGrounded())
         {
             rb.AddForce(jumpForce * Time.fixedDeltaTime, ForceMode.Impulse);

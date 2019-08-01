@@ -26,6 +26,8 @@ public class SlenderScript : MonoBehaviour
 
     public bool canSpawn = false;
     public GameObject baby;
+
+    public int babyAmount = 3;
     bool spawn = false;
     public Transform spawnPoint;
 
@@ -312,7 +314,7 @@ public class SlenderScript : MonoBehaviour
     IEnumerator SpawnBaby()
     {
         canSpawn = false;
-        for(int i = 0; i < 5; i++)
+        for(int i = 0; i < babyAmount; i++)
         {
             GameObject newBaby = Instantiate(baby, spawnPoint.position, Quaternion.identity, spawnPoint);
             newBaby.GetComponentInParent<NavMeshAgent>().SetDestination(seenPosition);

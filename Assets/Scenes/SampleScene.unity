@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44950122, g: 0.49649543, b: 0.559146, a: 1}
+  m_IndirectSpecularColor: {r: 0.44950175, g: 0.49649644, b: 0.5591469, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -30088,6 +30088,7 @@ MonoBehaviour:
   healthMonitor: {fileID: 931270664}
   canSpawn: 1
   baby: {fileID: 92614739446104145, guid: a48a3c24454a40245a901e1e375f67bc, type: 3}
+  babyAmount: 3
   spawnPoint: {fileID: 1357151754}
   health: 10000
   canRun: 0
@@ -63801,10 +63802,90 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1804250180}
     m_Modifications:
+    - target: {fileID: 8296678120106656105, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 7848284369942376566, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 5203526772105932698, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: m_Name
       value: Spider_8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: spawnPatrolPoints.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: health
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: shootingDistance
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: shootingTimer
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: spawnPatrolPoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: spawnPatrolPoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: spawnPatrolPoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: spawnPatrolPoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: canSpawn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: babyAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399127, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: m_Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257952313606399125, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: m_Mass
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226986759020270579, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3991329280945195664, guid: ad74540c10e2f1d4abf440e53facb809,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 9110216757356600713, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
@@ -63875,51 +63956,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: spawnPatrolPoints.Array.size
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: health
-      value: 10000
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: shootingDistance
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: shootingTimer
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: spawnPatrolPoints.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: spawnPatrolPoints.Array.data[1]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: spawnPatrolPoints.Array.data[2]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: spawnPatrolPoints.Array.data[3]
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: canSpawn
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4257952313223943106, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
@@ -63992,36 +64028,6 @@ PrefabInstance:
         type: 3}
       propertyPath: spawnDelay
       value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399125, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: m_Mass
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4257952313606399127, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: m_Speed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8296678120106656105, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3991329280945195664, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 1226986759020270579, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 7848284369942376566, guid: ad74540c10e2f1d4abf440e53facb809,
-        type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad74540c10e2f1d4abf440e53facb809, type: 3}

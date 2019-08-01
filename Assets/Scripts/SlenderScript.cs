@@ -10,6 +10,8 @@ public class SlenderScript : MonoBehaviour
 
     Transform player;
 
+    public Transform homePoint;
+
     public bool spawnPatrol = true;
     public Transform[] spawnPatrolPoints;
     private int destSpawnPatrolPoint;
@@ -324,10 +326,11 @@ public class SlenderScript : MonoBehaviour
             GameObject newBaby = Instantiate(baby, spawnPoint.position, Quaternion.identity, spawnPoint);
             newBaby.GetComponentInParent<NavMeshAgent>().SetDestination(seenPosition);
         }
-        patrol = true;
-        GotoRandomPoint();
+        SetDestination(homePoint.position);
         yield return new WaitForSeconds(10f);
         canSpawn = true;
+        //patrol = true;
+        //GotoRandomPoint();
     }
 
     void Shoot() {
@@ -367,7 +370,12 @@ public class SlenderScript : MonoBehaviour
 
     public void SetDestination(Vector3 pos)
     {
-        navMeshAgent.SetDestination(pos);
+        NavMeshPath path = new NavMeshPath();
+        if (navMeshAgent.CalculatePath(pos, path))
+        {
+            navMeshAgent.SetDestination(pos);
+        }
+        
     }
 
     void GotoNextPoint() {
@@ -392,7 +400,8 @@ public class SlenderScript : MonoBehaviour
             return;
 
         // Set the agent to go to the currently selected destination.
-        navMeshAgent.destination = patrolPoints[destPatrolPoint].position;
+        //navMeshAgent.destination = patrolPoints[destPatrolPoint].position;
+        SetDestination(patrolPoints[destPatrolPoint].position);
 
         
         // Choose the next random point in the array as the destination

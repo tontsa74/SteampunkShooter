@@ -168,6 +168,8 @@ public class SlenderScript : MonoBehaviour
                         GotoNextPoint();
                     } else if(patrol) {
                         GotoRandomPoint();
+                    } else if (homePoint != null) {
+                        navMeshAgent.SetDestination(homePoint.position);
                     }
                     
                 }
@@ -326,11 +328,12 @@ public class SlenderScript : MonoBehaviour
             GameObject newBaby = Instantiate(baby, spawnPoint.position, Quaternion.identity, spawnPoint);
             newBaby.GetComponentInParent<NavMeshAgent>().SetDestination(seenPosition);
         }
-        SetDestination(homePoint.position);
         yield return new WaitForSeconds(10f);
         canSpawn = true;
         //patrol = true;
         //GotoRandomPoint();
+        //SetDestination(homePoint.position);
+        //navMeshAgent.SetDestination(homePoint.position);
     }
 
     void Shoot() {

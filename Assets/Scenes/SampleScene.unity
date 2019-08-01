@@ -20351,7 +20351,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 491150781}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.61, y: 0, z: -4.76}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5006512736116641846}
@@ -32438,9 +32438,7 @@ MonoBehaviour:
   spawnPatrol: 1
   spawnPatrolPoints: []
   patrol: 0
-  patrolPoints:
-  - {fileID: 491150782}
-  - {fileID: 2059512264}
+  patrolPoints: []
   animator: {fileID: 953736890}
   muzzleFlash: {fileID: 2133577451}
   shootSound: {fileID: 8300000, guid: d18ac5dac2d880442b096b886c516ed7, type: 3}
@@ -62769,7 +62767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2059512263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.41, y: 0, z: 9.5}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5006512736116641846}
@@ -69252,12 +69250,12 @@ PrefabInstance:
     - target: {fileID: 4257952312261034874, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.61
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4257952312261034874, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.76
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 8296678120106656105, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
@@ -69282,7 +69280,7 @@ PrefabInstance:
     - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: patrolPoints.Array.size
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
@@ -69367,12 +69365,12 @@ PrefabInstance:
     - target: {fileID: 4257952313442580045, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.41
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4257952313442580045, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9110216757356600713, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}

@@ -64348,14 +64348,11 @@ PrefabInstance:
       propertyPath: canSpawn
       value: 1
       objectReference: {fileID: 0}
-<<<<<<< HEAD
     - target: {fileID: 4257952313606399126, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: babyAmount
       value: 3
       objectReference: {fileID: 0}
-=======
->>>>>>> 3e0ddef21bd7a6828a351dea0c1ffb454450fccb
     - target: {fileID: 4257952313606399127, guid: ad74540c10e2f1d4abf440e53facb809,
         type: 3}
       propertyPath: m_Speed

@@ -12,6 +12,9 @@ public class SlenderScript : MonoBehaviour
 
     public Transform homePoint;
 
+    bool goHome = false;
+    bool bossPatrol = false;
+
     public bool spawnPatrol = true;
     public Transform[] spawnPatrolPoints;
     private int destSpawnPatrolPoint;
@@ -123,7 +126,12 @@ public class SlenderScript : MonoBehaviour
             Heard();
             if(lookAt) {
                 LookAt(targetDir);
-            } else if (seen) {
+            } else if (bossPatrol) {
+                GotoRandomPoint();
+                bossPatrol = false;
+                patrol = true;
+            }
+            else if (seen) {
                 spawnPatrol = false;
                 goAtDirection = true;
                 spawn = true;
@@ -140,12 +148,15 @@ public class SlenderScript : MonoBehaviour
                 if(navMeshAgent.remainingDistance < shootingDistance && targetAngle < shootAngle) {
                     isShooting = true;
                     run = false;
+                    lookAt = true;
                     Shoot();
                 } else {
                     isShooting = false;
 
                 }
-                
+            } else if (goHome) {
+                navMeshAgent.SetDestination(homePoint.position);
+                goHome = false;
             } else if (heard) {
                 SetDestination(heardPosition);
                 lookAtNoise = true;
@@ -326,11 +337,10 @@ public class SlenderScript : MonoBehaviour
             GameObject newBaby = Instantiate(baby, spawnPoint.position, Quaternion.identity, spawnPoint);
             newBaby.GetComponentInParent<NavMeshAgent>().SetDestination(seenPosition);
         }
-        SetDestination(homePoint.position);
         yield return new WaitForSeconds(10f);
         canSpawn = true;
-        //patrol = true;
-        //GotoRandomPoint();
+        //goHome = true;
+        bossPatrol = true;
     }
 
     void Shoot() {

@@ -26,15 +26,16 @@ public class PauseScript : MonoBehaviour
     {
         if (Input.GetKeyDown("p") || Input.GetButtonDown("Cursor"))
         {
-            if (!paused)
+            if (!paused && Time.timeScale == 1)
             {
                 PauseGame();
                 loadButton.SetActive(ass.isSaved);
-            } else
+            } else if (paused)
             {
                 ContinueGame();
             }
         }
+
     }
     public void PauseGame()
     {

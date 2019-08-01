@@ -59,6 +59,13 @@ public class UiManager : MonoBehaviour
             }
         }
 
+        if(YouWinPanel.activeSelf == true)
+        {
+            var tempColor = YouWinPanel.GetComponent<Image>().color;
+            tempColor.a += 0.01f; //1f makes it fully visible, 0f makes it fully transparent.
+            YouWinPanel.GetComponent<Image>().color = tempColor;
+        }
+
     
 
 
@@ -122,6 +129,8 @@ public class UiManager : MonoBehaviour
 
     public void YouWin()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         YouWinPanel.SetActive(true);
         Time.timeScale = 0;
     }
